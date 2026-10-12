@@ -611,6 +611,10 @@
     color: #a39c88;
     line-height: 1.6;
   }
+
+  /* Las capas decorativas no deben tapar el reproductor: dejan pasar los clics al iframe */
+  #screen-img, #screen-pixelated, #static-canvas, .scanlines, .vignette, .glow-flicker, #osd, #screen-digitizing { pointer-events: none !important; }
+  #screen-gate.on { pointer-events: auto; z-index: 6; }
 </style>
 </head>
 <body>
