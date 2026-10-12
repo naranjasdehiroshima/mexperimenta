@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Mexperimenta — Videoteca</title>
+<style>
+  @font-face {
+    font-family: 'VT323';
+    src: local('VT323');
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #221e17;
+    color: #efebdc;
+    font-family: 'Courier New', monospace;
+    min-height: 100vh;
+  }
+  #stage {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 40px 24px 64px;
+  }
+  #topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px;
+    border-bottom: 1px solid #453e30;
+  }
+  #topbar .word {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    letter-spacing: 3px;
+    font-size: 13px;
+    color: #efebdc;
+    text-decoration: none;
+  }
+  #topbar nav a {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: #b8b19c;
+    text-decoration: none;
+    margin-left: 26px;
+    text-transform: uppercase;
+  }
+  #topbar nav a:hover, #topbar nav a.active { color: #9dffb0; }
+
+  #masthead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #4d4536;
+    padding-bottom: 14px;
+    margin-bottom: 32px;
+  }
+  #masthead-right {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+  #crt-toggle {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    cursor: pointer;
+    user-select: none;
+    font-family: 'Courier New', monospace;
+    font-size: 10.5px;
+    letter-spacing: 1px;
+    color: #b8b1a0;
+    text-transform: uppercase;
+  }
+  #crt-toggle .switch {
+    width: 30px;
+    height: 16px;
+    border-radius: 10px;
+    background: #17140f;
+    border: 1px solid #4d4536;
+    position: relative;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  #crt-toggle .knob {
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #8a8874;
+    transition: transform 0.2s, background 0.2s;
+  }
+  #crt-toggle.on .switch { background: rgba(157,255,176,0.12); border-color: #9dffb0; }
+  #crt-toggle.on .knob { transform: translateX(14px); background: #9dffb0; box-shadow: 0 0 5px rgba(157,255,176,0.7); }
+  #masthead h1 {
+    font-size: 22px;
+    letter-spacing: 3px;
+    margin: 0;
+    color: #e8d9a0;
+    text-transform: uppercase;
+  }
+  #masthead span {
+    font-size: 12px;
+    color: #a39c88;
+    letter-spacing: 1px;
+  }
+
+  /* --- CRT TV --- */
+  #tv-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    perspective: 800px;
+  }
+  #tv {
+    width: 560px;
+    max-width: 100%;
+    background: linear-gradient(180deg, #4a463d, #2b2822);
+    border-radius: 22px;
+    padding: 26px 26px 46px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6), inset 0 2px 0 rgba(255,255,255,0.08);
+    position: relative;
+  }
+  #tv::before {
+    content: '';
+    position: absolute;
+    top: 12px; left: 12px; right: 12px; bottom: 12px;
+    border-radius: 18px;
+    pointer-events: none;
+    box-shadow: inset 0 0 0 2px rgba(0,0,0,0.35);
+  }
+  #screen-frame {
+    background: #050505;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.9);
+  }
+  #screen {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 4px;
+    background: #060706;
+    filter: contrast(1.08) saturate(0.9);
+  }
+  #screen-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transform: scale(1.02);
+    transition: opacity 0.25s;
+    filter: sepia(0.12) saturate(1.1) brightness(0.92);
+  }
+  #screen-img.on { opacity: 1; }
+
+  #screen-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  #screen-video.on { opacity: 1; pointer-events: auto; }
+  #screen-video iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+    filter: sepia(0.08) saturate(1.05) brightness(0.96);
+  }
+
+  #screen-digitizing {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    background: rgba(6,7,6,0.55);
+  }
+  #screen-digitizing.on { opacity: 1; }
+  #screen-gate {
+    position: absolute;
+    inset: 0;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: rgba(10,9,7,0.6);
+    z-index: 4;
+    padding: 20px;
+    text-align: center;
+  }
+  #screen-gate.on { display: flex; }
+  #screen-gate .li { font-size: 26px; }
+  #screen-gate .gt {
+    font-family: 'Courier New', monospace; font-size: 11px; letter-spacing: 1.5px;
+    color: #f2c98a; text-transform: uppercase;
+  }
+  #screen-gate .gs {
+    font-family: 'Courier New', monospace; font-size: 9.5px; color: #b8b1a0;
+    max-width: 80%; line-height: 1.6;
+  }
+  #screen-gate input {
+    font-family: 'Courier New', monospace; font-size: 12px; background: #17140f;
+    border: 1px solid #4d4536; color: #efebdc; padding: 8px 12px; border-radius: 4px;
+    text-align: center; width: 150px;
+  }
+  #screen-gate button {
+    font-family: 'Courier New', monospace; font-size: 10px; letter-spacing: 1px;
+    text-transform: uppercase; background: #9dffb0; color: #14120d; border: none;
+    padding: 8px 16px; border-radius: 4px; cursor: pointer;
+  }
+  #screen-gate .ge { font-family: 'Courier New', monospace; font-size: 9px; color: #e08a6a; height: 12px; }
+  #screen-pixelated {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    image-rendering: pixelated; opacity: 0; transition: opacity 0.25s;
+  }
+  #screen-pixelated.on { opacity: 1; }
+  .cassette .lockmark {
+    position: absolute; bottom: 6px; right: 6px; font-family: 'Courier New', monospace;
+    font-size: 8px; color: #f2c98a; background: rgba(20,18,13,.85); padding: 2px 6px; border-radius: 2px;
+  }
+  .cassette .thumb-wrap { position: relative; }
+  .cassette canvas.pixelated { width: 100%; aspect-ratio: 4/3; display: block; image-rendering: pixelated; }
+  #digitizing-reel {
+    width: 46px;
+    height: 46px;
+    animation: reelspin 2.6s linear infinite;
+  }
+  @keyframes reelspin {
+    to { transform: rotate(360deg); }
+  }
+  #digitizing-sweep {
+    position: absolute;
+    left: 0; right: 0;
+    height: 40%;
+    background: linear-gradient(to bottom, transparent, rgba(157,255,176,0.08), transparent);
+    animation: sweepdown 2.8s ease-in-out infinite;
+  }
+  @keyframes sweepdown {
+    0% { top: -40%; }
+    100% { top: 100%; }
+  }
+  #digitizing-text {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    color: #9dffb0;
+    text-shadow: 0 0 4px rgba(157,255,176,0.6);
+    text-transform: uppercase;
+  }
+  #digitizing-sub {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    color: #8a8874;
+    letter-spacing: 0.5px;
+    max-width: 70%;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  #static-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+  }
+  #static-canvas.on { opacity: 1; }
+
+  .scanlines {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.28) 0px,
+      rgba(0,0,0,0.28) 1px,
+      transparent 2px,
+      transparent 3px
+    );
+    mix-blend-mode: multiply;
+    opacity: 1;
+    transition: opacity 0.2s;
+  }
+  #tv-wrap.crt-off .scanlines,
+  #tv-wrap.crt-off .glow-flicker {
+    opacity: 0 !important;
+    animation-play-state: paused;
+  }
+  .vignette {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0) 55%, rgba(0,0,0,0.55) 100%);
+  }
+  .glow-flicker {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: rgba(255,255,255,0.02);
+    animation: flicker 0.15s infinite;
+  }
+  @keyframes flicker {
+    0% { opacity: 0.4; } 50% { opacity: 0.9; } 100% { opacity: 0.5; }
+  }
+
+  #osd {
+    position: absolute;
+    left: 14px;
+    top: 12px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #9dffb0;
+    text-shadow: 0 0 4px rgba(157,255,176,0.7);
+    opacity: 0;
+    transition: opacity 0.3s;
+    line-height: 1.5;
+    max-width: 78%;
+  }
+  #osd.on { opacity: 1; }
+  #osd .idn { color: #ffd479; }
+  #osd .tag { color: #7fd7ff; }
+
+  #screen-empty {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+    color: #3f4a3f;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-align: center;
+    transition: opacity 0.2s;
+  }
+  #screen-empty.hidden { opacity: 0; pointer-events: none; }
+  #bars {
+    display: flex;
+    width: 60%;
+    height: 34px;
+    filter: brightness(0.45);
+  }
+  #bars div { flex: 1; }
+
+  #tv-base {
+    height: 10px;
+    width: 160px;
+    margin: 0 auto;
+    background: linear-gradient(180deg, #2b2822, #1a1814);
+  }
+
+  /* --- VCR deck --- */
+  #vcr {
+    width: 560px;
+    max-width: 100%;
+    margin: 0 auto;
+    background: linear-gradient(180deg, #4a4438, #2e2a22);
+    border-radius: 0 0 10px 10px;
+    padding: 16px 26px 18px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.06);
+    position: relative;
+    z-index: 3;
+  }
+  #vcr-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    position: relative;
+  }
+  #vcr-slot-frame {
+    width: 208px;
+    height: 22px;
+    background: #221e17;
+    border-radius: 3px;
+    box-shadow: inset 0 4px 10px rgba(0,0,0,0.9), inset 0 -1px 0 rgba(255,255,255,0.04);
+    position: relative;
+    overflow: hidden;
+  }
+  #vcr-slot-mouth {
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    right: 8px;
+    height: 6px;
+    margin-top: -3px;
+    background: #000;
+    border-radius: 2px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.9);
+  }
+  #vcr-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: absolute;
+    right: 0;
+  }
+  #vcr-led {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #2c1a1a;
+    box-shadow: 0 0 0 rgba(255,90,90,0);
+    transition: background 0.2s, box-shadow 0.2s;
+  }
+  #vcr-led.on {
+    background: #ff5a5a;
+    box-shadow: 0 0 6px 2px rgba(255,90,90,0.7);
+  }
+  .vcr-btn {
+    width: 20px; height: 14px;
+    background: #16140f;
+    border-radius: 2px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 1px 2px rgba(0,0,0,0.5);
+  }
+  #vcr-brand {
+    margin-top: 10px;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #a39c88;
+    text-transform: uppercase;
+  }
+
+  /* tape (U-matic style) rises from below into the VCR slot */
+  #tape-layer {
+    position: relative;
+    height: 4px;
+  }
+  #tape {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    width: 208px;
+    height: 122px;
+    margin-left: -104px;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 6px;
+    border-radius: 6px;
+    box-shadow: 0 10px 22px rgba(0,0,0,0.55);
+    transform-origin: top center;
+    transform: scaleY(1) scaleX(1);
+    transition: top 0.65s cubic-bezier(.5,.05,.4,1);
+  }
+  #tape.armed {
+    opacity: 1;
+    transform: scaleY(1) scaleX(1);
+    transition: top 0.65s cubic-bezier(.5,.05,.4,1), opacity 0.15s ease;
+  }
+  #tape.inserting {
+    top: -96px;
+    opacity: 0;
+    transform: scaleY(0.04) scaleX(0.82);
+    transition: top 0.65s cubic-bezier(.5,.05,.4,1), transform 0.65s cubic-bezier(.5,.05,.4,1), opacity 0.2s 0.48s ease;
+  }
+  #tape .window {
+    flex: 0 0 58%;
+    background: #131210;
+    border-radius: 3px;
+    padding: 4px 10px;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.7);
+    position: relative;
+  }
+  #tape .window::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    bottom: 6px;
+    width: 3px;
+    background: #0a0a08;
+    border-radius: 2px;
+  }
+  #tape .reel {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #7a7870, #2c2b26 72%);
+    border: 3px solid #8a887e;
+    position: relative;
+  }
+  #tape .reel::after {
+    content: '';
+    position: absolute;
+    inset: 38%;
+    background: #100f0c;
+    border-radius: 50%;
+  }
+  #tape .label {
+    flex: 1;
+    margin-top: 5px;
+    background: #f7f2e4;
+    border-radius: 2px;
+    padding: 6px 8px 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+  }
+  #tape .label .tab {
+    position: absolute;
+    top: 0; right: 0;
+    width: 26px;
+    height: 8px;
+  }
+  #tape .label .brand {
+    font-size: 8px;
+    letter-spacing: 1px;
+    color: #4a4638;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  #tape .label .title-hw {
+    font-family: 'Courier New', monospace;
+    font-size: 9.5px;
+    color: #2a4a7a;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  #tape .label .idn-hw {
+    font-family: 'Courier New', monospace;
+    font-size: 8px;
+    color: #333;
+  }
+
+  /* shelf */
+  #shelf-label {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #a39c88;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+  #shelf {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+  }
+  .cassette {
+    background: #2c2620;
+    border: 1px solid #4d4536;
+    border-radius: 4px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.15s, border-color 0.15s;
+    display: flex;
+    flex-direction: column;
+  }
+  .cassette:hover {
+    transform: translateY(-3px);
+    border-color: #b8ac86;
+  }
+  .cassette.active {
+    border-color: #9dffb0;
+    box-shadow: 0 0 0 1px #9dffb0;
+  }
+  .cassette img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+    filter: saturate(0.75) brightness(0.85);
+  }
+  .cassette .meta {
+    padding: 8px;
+  }
+  .cassette .meta .t {
+    font-size: 11px;
+    color: #efebdc;
+    line-height: 1.3;
+    margin: 0 0 4px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .cassette .meta .c {
+    font-size: 9px;
+    color: #7a7867;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  #footnote {
+    margin-top: 28px;
+    font-size: 11px;
+    color: #a39c88;
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+<div id="topbar">
+  <a class="word" href="index.html">MEXPERIMENTA</a>
+  <nav>
+    <a href="index.html#collections">Colecciones</a>
+    <a href="videoteca.html" class="active">Videoteca</a>
+    <a href="index.html#about">Acerca de</a>
+  </nav>
+</div>
+<div id="stage">
+
+  <div id="masthead">
+    <h1>Videoteca</h1>
+    <div id="masthead-right">
+      <span>Mexperimenta · datos reales del catálogo</span>
+      <div id="crt-toggle" class="on">
+        <span>Efecto CRT</span>
+        <span class="switch"><span class="knob"></span></span>
+      </div>
+    </div>
+  </div>
+
+  <div id="tv-wrap">
+    <div>
+      <div id="tv">
+        <div id="screen-frame">
+          <div id="screen">
+            <img id="screen-img" src="" alt="">
+            <div id="screen-video"><iframe id="screen-iframe" src="" allowfullscreen></iframe></div>
+            <canvas id="static-canvas"></canvas>
+            <div class="scanlines"></div>
+            <div class="vignette"></div>
+            <div class="glow-flicker"></div>
+            <div id="osd"></div>
+            <div id="screen-digitizing">
+              <div id="digitizing-sweep"></div>
+              <svg id="digitizing-reel" viewBox="0 0 60 60">
+                <circle cx="30" cy="30" r="26" fill="none" stroke="#9dffb0" stroke-width="2" opacity="0.35"/>
+                <circle cx="30" cy="30" r="26" fill="none" stroke="#9dffb0" stroke-width="2" stroke-dasharray="8 10" opacity="0.85"/>
+                <circle cx="30" cy="30" r="6" fill="#9dffb0" opacity="0.85"/>
+              </svg>
+              <div id="digitizing-text">en digitalización</div>
+              <div id="digitizing-sub">esta cinta todavía vive solo en la estantería física — vuelve pronto</div>
+            </div>
+            <canvas id="screen-pixelated"></canvas>
+            <div id="screen-gate">
+              <div class="li">🔒</div>
+              <div class="gt">Contenido reservado</div>
+              <div class="gs">Arkino restringe el acceso a esta pieza. Si tienes autorización, ingresa la contraseña.</div>
+              <input type="password" id="screen-gate-input" placeholder="contraseña" autocomplete="off">
+              <button id="screen-gate-submit">Desbloquear</button>
+              <div class="ge" id="screen-gate-error"></div>
+            </div>
+            <div id="screen-empty">
+              <div id="bars">
+                <div style="background:#888"></div>
+                <div style="background:#a89"></div>
+                <div style="background:#89a"></div>
+                <div style="background:#9a8"></div>
+                <div style="background:#333"></div>
+                <div style="background:#666"></div>
+              </div>
+              <div>sin señal — elige una cinta</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="tv-base"></div>
+      <div id="vcr">
+        <div id="vcr-top">
+          <div id="vcr-slot-frame"><div id="vcr-slot-mouth"></div></div>
+          <div id="vcr-controls">
+            <div id="vcr-led"></div>
+            <div class="vcr-btn"></div>
+          </div>
+        </div>
+        <div id="vcr-brand">reproductor</div>
+      </div>
+      <div id="tape-layer">
+        <div id="tape">
+          <div class="window">
+            <svg viewBox="0 0 200 110" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" style="display:block;">
+              <defs>
+                <radialGradient id="hubgrad" cx="35%" cy="35%">
+                  <stop offset="0%" stop-color="#8a887e"/>
+                  <stop offset="70%" stop-color="#2c2b26"/>
+                </radialGradient>
+              </defs>
+              <path d="M 90,50 C 104,86 138,86 126,48" fill="none" stroke="#3a2c1e" stroke-width="7" stroke-linecap="round" opacity="0.85"/>
+              <path d="M 90,47 C 104,80 138,80 126,45" fill="none" stroke="#5a4636" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+              <circle cx="56" cy="55" r="36" fill="#4a3a28"/>
+              <circle cx="56" cy="55" r="19" fill="url(#hubgrad)" stroke="#8a887e" stroke-width="2"/>
+              <circle cx="56" cy="55" r="7" fill="#100f0c"/>
+              <circle cx="152" cy="55" r="24" fill="#4a3a28"/>
+              <circle cx="152" cy="55" r="13" fill="url(#hubgrad)" stroke="#8a887e" stroke-width="2"/>
+              <circle cx="152" cy="55" r="5" fill="#100f0c"/>
+            </svg>
+          </div>
+          <div class="label">
+            <div class="tab" id="tape-tab"></div>
+            <div class="brand" id="tape-brand">ARKINO</div>
+            <div class="title-hw" id="tape-title">—</div>
+            <div class="idn-hw" id="tape-idn">—</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="shelf-label">estante — avances cinematográficos / gral. treegan</div>
+  <div id="shelf"></div>
+
+  <div id="footnote">
+    Prototipo de exploración visual con 12 piezas reales tomadas del catálogo público actual de Mexperimenta (ARKINO / ULTRAcinema). Al confirmar la base de datos definitiva en Airtable, este mismo patrón se alimentaría del dataset completo.
+  </div>
+
+</div>
+
+<script>
+const items = [{"id": "TR-003", "title": "Spanish Fly", "coll": "Avances Cinematográficos", "year": "1975", "fmt": "35 mm", "idn": "TR-003", "img": "https://archive.org/services/img/tr-003_202509", "archiveId": "tr-003_202509", "sensitive": false, "desc": "En Menorca, Sir Percy de Courcy, un residente inglés, se encuentra en una precaria situación económica. Para intentar salir de ella, compra una partida de vino que resulta ser de pésima calidad, aunque, cuando es tratado con moscas, el vino dota a quien lo toma de una vitalidad y potencia increíbles."}, {"id": "TR-030", "title": "Supersonic man", "coll": "Avances Cinematográficos", "year": "1979", "fmt": "35 mm", "idn": "TR-030", "img": "https://archive.org/services/img/tr-030", "archiveId": "tr-030", "sensitive": false, "desc": "El alienigena Kronos es enviado a la Tierra, ya que su raza ha percibido la generación de una latente amenaza para toda la galaxia. El causante resulta ser el Dr. Gulik, un egocéntrico villano que ha robado cuantiosas cantidades de material radiactivo y tiene en su poder al profesor Morgan, a quien presiona para que invente un rayo mortal. Pero Morgan se resiste ante los avances de Gulik, y a éste se le ocurre que la única manera de obtener la colaboración del científico sería secuestrando a su hija Patricia. Pero Kronos - ahora disfrazado como el terrícola Paul - custodia a Patricia y la salva de numerosos atentados. Gulik presencia las apariciones de Kronos - a quien la gente ha nombrado como Supersonic Man-, y lo considera una amenaza para sus planes. Ahora el siniestro doctor le tenderá una trampa mortal a Supersonic Man, so pena de matar a Patricia y aniquilar las principales ciudades del mundo."}, {"id": "TR-029", "title": "Where time began", "coll": "Avances Cinematográficos", "year": "1978", "fmt": "35 mm", "idn": "TR-029", "img": "https://archive.org/services/img/tr-029", "archiveId": "tr-029", "sensitive": false, "desc": "Adaptación del clásico de Julio Verne. Un científico organiza una fabulosa expedición para llegar al centro geográfico de la Tierra. Un viaje en el que irá acompañado por una pareja de novios y un pastor. Un viaje donde encontrarán todo tipo de seres y muchos peligros."}, {"id": "TR-027", "title": "Aloha, Bobby And Rose", "coll": "Avances Cinematográficos", "year": "1975", "fmt": "35 mm", "idn": "TR-027", "img": "https://archive.org/services/img/tr-027", "archiveId": "tr-027", "sensitive": false, "desc": "Un joven mecánico (Bobby) y una recepcionista de comida rápida (Rose) se conocen y rápidamente se enamoran. Una noche, mientras tienen una cita, Bobby finge haber atracado una tienda de conveniencia. La broma sale terriblemente mal y resulta en la muerte de un joven comerciante. La pareja ahora está huyendo de la ley y de sí mismos."}, {"id": "TR-028", "title": "driver, The", "coll": "Avances Cinematográficos", "year": "1978", "fmt": "35 mm", "idn": "TR-028", "img": "https://archive.org/services/img/tr-028", "archiveId": "tr-028", "sensitive": false, "desc": "Chicago. Un conductor estrella, cuya principal actividad es facilitar la fuga de los mafiosos después de sus malas acciones, ridiculiza periódicamente los esfuerzos de un policía que ha jurado detenerlo de una vez por todas. Pero la irrupción de una bella desconocida complica el cara a cara de los dos antagonistas"}, {"id": "TR-007", "title": "Luomo, L`Orgoglio, La Vendetta", "coll": "Avances Cinematográficos", "year": "1967", "fmt": "35 mm", "idn": "TR-007", "img": "https://archive.org/services/img/tr-007", "archiveId": "tr-007", "sensitive": false, "desc": "Basada en la novela \"Carmen\" (1845) de Prosper Mérimée (posteriormente llevada a la ópera por Georges Bizet en 1875). Un soldado español que se enamora de una gitana termina desertando del ejército, y en una persecución en tierras fronterizas se une a un grupo de contrabandistas gitanos "}, {"id": "GT-002", "title": "Puebla", "coll": "Gral. Treegan", "year": "s/f", "fmt": "16 mm", "idn": "GT-002", "img": "https://archive.org/services/img/gt-002-puebla-compuesto", "archiveId": "gt-002-puebla-compuesto", "sensitive": false, "desc": "Documental promocional sobre Puebla, pagado por Aeroméxico y Fonatur. Paisajes urbanos y naturales. Zonas arqueológicas, teatros, espectáculos, gente. Realizado por Demetrio Bilbatúa."}, {"id": "GT-001", "title": "Orquesta", "coll": "Gral. Treegan", "year": "1989", "fmt": "16 mm", "idn": "GT-001", "img": "https://archive.org/services/img/gt-001-orquesta-silente", "archiveId": "gt-001-orquesta-silente", "sensitive": false, "desc": "Se muestra a la orquesta y a una cantante solista en concierto. Es un evento ruso de 1989. Aparentemente en la Habana, Cuba."}, {"id": "GT-003", "title": "El México Noreste (El Norte de México)", "coll": "Gral. Treegan", "year": "s/f", "fmt": "16 mm", "idn": "GT-003", "img": "https://archive.org/services/img/gt-003-mexico-noreste-compuesto", "archiveId": "gt-003-mexico-noreste-compuesto", "sensitive": false, "desc": "Documental promocional del Norte de México, hecho por Fonatur y Aeromexico. Desde paisajes naturales hasta urbanos y las diferentes poblaciones que se encuentran ahí, así como atracciones y festividades locales. San Luis Potosí, Zacatecas, Coahuila, Saltillo, Matamoros,  Tamaulipas, Monterrey."}, {"id": "GT-085", "title": "Navidad '76", "coll": "Gral. Treegan", "year": "s/f", "fmt": "Super 8 mm", "idn": "GT-085", "img": "", "archiveId": null, "sensitive": false, "desc": "Cena de Navidad, familia conviviendo y viendo los regalos. Niño cantando."}, {"id": "GT-062", "title": "Navidad 84", "coll": "Gral. Treegan", "year": "s/f", "fmt": "Super 8 mm", "idn": "GT-062", "img": "", "archiveId": null, "sensitive": false, "desc": "Cena de Navidad. Niñas cantando y bailando. Bebé que ríe. Retrato de familia. Amigos de familia. Árbol de navidad."}, {"id": "GT-060", "title": "2o cumpleaños Analeine", "coll": "Gral. Treegan", "year": "s/f", "fmt": "Super 8 mm", "idn": "GT-060", "img": "", "archiveId": null, "sensitive": false, "desc": "Fiesta de cumpleaños infantil. Convivencia entre los niños. la partida de piñata, los padres y madres atendiendo a los niños."}, {"id": "GT-010", "title": "Handy Man", "coll": "Gral. Treegan", "year": "s/f", "fmt": "16 mm", "idn": "GT-010", "img": "", "archiveId": null, "sensitive": true, "desc": "Película pornográfica silente."}, {"id": "GT-006", "title": "Pornografía", "coll": "Gral. Treegan", "year": "Triángulo mas", "fmt": "16 mm", "idn": "GT-006", "img": "", "archiveId": null, "sensitive": true, "desc": "Película silente de contenido pornográfico."}];
+
+const shelf = document.getElementById('shelf');
+const tape = document.getElementById('tape');
+const tapeTitle = document.getElementById('tape-title');
+const tapeIdn = document.getElementById('tape-idn');
+const tapeTab = document.getElementById('tape-tab');
+const tapeBrand = document.getElementById('tape-brand');
+const vcrLed = document.getElementById('vcr-led');
+const screenImg = document.getElementById('screen-img');
+const screenEmpty = document.getElementById('screen-empty');
+const screenVideo = document.getElementById('screen-video');
+const screenIframe = document.getElementById('screen-iframe');
+const screenDigitizing = document.getElementById('screen-digitizing');
+const osd = document.getElementById('osd');
+const staticCanvas = document.getElementById('static-canvas');
+const ctx = staticCanvas.getContext('2d');
+
+const COLL_STYLE = {
+  "Archivos X":               { body: "#e5ded0", label: "#eee7d4", tab: "#c96a2b" },
+  "ULTRAcinema":               { body: "#b6b2a3", label: "#eee7d4", tab: "#c0392b" },
+  "Avances Cinematográficos":  { body: "#332822", label: "#e4ddcc", tab: "#3a5f8a" },
+  "Gral. Treegan":             { body: "#211d1a", label: "#d9d2bf", tab: "#8a8261" }
+};
+function styleFor(coll) {
+  return COLL_STYLE[coll] || { body: "#a9a493", label: "#eee7d4", tab: "#8a8261" };
+}
+
+function resizeCanvas() {
+  staticCanvas.width = staticCanvas.clientWidth;
+  staticCanvas.height = staticCanvas.clientHeight;
+}
+window.addEventListener('resize', resizeCanvas);
+
+function drawStatic() {
+  const w = staticCanvas.width, h = staticCanvas.height;
+  if (!w || !h) return;
+  const imgData = ctx.createImageData(w, h);
+  for (let i = 0; i < imgData.data.length; i += 4) {
+    const v = Math.random() * 255;
+    imgData.data[i] = v;
+    imgData.data[i+1] = v;
+    imgData.data[i+2] = v;
+    imgData.data[i+3] = 255;
+  }
+  ctx.putImageData(imgData, 0, 0);
+}
+
+let staticInterval = null;
+function playStaticBurst(duration) {
+  resizeCanvas();
+  staticCanvas.classList.add('on');
+  staticInterval = setInterval(drawStatic, 60);
+  setTimeout(() => {
+    clearInterval(staticInterval);
+    staticCanvas.classList.remove('on');
+  }, duration);
+}
+
+function pixelateInto(canvas, imgSrc, blocks) {
+  const ctx = canvas.getContext('2d');
+  const img = new Image();
+  img.onload = () => {
+    const w = blocks, h = Math.round(blocks * 0.75);
+    canvas.width = w; canvas.height = h;
+    ctx.drawImage(img, 0, 0, w, h);
+  };
+  img.onerror = () => {
+    canvas.width = blocks; canvas.height = Math.round(blocks * 0.75);
+    ctx.fillStyle = '#221e17';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  };
+  img.src = imgSrc;
+}
+
+items.forEach(it => {
+  const el = document.createElement('div');
+  el.className = 'cassette';
+  if (it.sensitive) {
+    el.innerHTML = `
+      <div class="thumb-wrap">
+        ${it.img ? '<canvas class="pixelated"></canvas>' : '<div style="aspect-ratio:4/3;background:#241a14;"></div>'}
+        <div class="lockmark">🔒 RESERVADO</div>
+      </div>
+      <div class="meta">
+        <p class="t">🔒 ${it.title}</p>
+        <div class="c">${it.coll} · ${it.fmt}</div>
+      </div>
+    `;
+  } else {
+    el.innerHTML = `
+      <img src="${it.img}" loading="lazy" alt="">
+      <div class="meta">
+        <p class="t">${it.title}</p>
+        <div class="c">${it.coll} · ${it.fmt}</div>
+      </div>
+    `;
+  }
+  el.addEventListener('click', () => selectItem(it, el));
+  shelf.appendChild(el);
+  if (it.sensitive && it.img) {
+    pixelateInto(el.querySelector('canvas.pixelated'), it.img, 12);
+  }
+});
+
+const screenGate = document.getElementById('screen-gate');
+const screenPixelated = document.getElementById('screen-pixelated');
+const UNLOCK_HASH = "0fca5a7c222d663d44f7b84c54983db7fc1d323e03c05c5095df48ea1430bc3a";
+let currentItem = null;
+
+function showRealMedia(it) {
+  screenGate.classList.remove('on');
+  screenPixelated.classList.remove('on');
+  if (it.archiveId) {
+    screenIframe.src = `https://archive.org/embed/${it.archiveId}`;
+    screenVideo.classList.add('on');
+  } else {
+    screenImg.src = it.img;
+    screenImg.classList.add('on');
+    screenDigitizing.classList.add('on');
+  }
+}
+
+function selectItem(it, el) {
+  document.querySelectorAll('.cassette').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  currentItem = it;
+
+  screenEmpty.classList.add('hidden');
+  osd.classList.remove('on');
+  screenImg.classList.remove('on');
+  screenVideo.classList.remove('on');
+  screenDigitizing.classList.remove('on');
+  screenGate.classList.remove('on');
+  screenPixelated.classList.remove('on');
+  screenIframe.src = '';
+  vcrLed.classList.remove('on');
+  document.getElementById('screen-gate-input').value = '';
+  document.getElementById('screen-gate-error').textContent = '';
+
+  const sty = styleFor(it.coll);
+  tape.style.background = sty.body;
+  tape.querySelector('.label').style.background = sty.label;
+  tapeTab.style.background = sty.tab;
+  tapeTitle.textContent = it.title;
+  tapeIdn.textContent = it.idn + ' · ' + it.fmt;
+
+  tape.classList.remove('inserting');
+  tape.style.transition = 'none';
+  tape.style.top = '';
+  void tape.offsetWidth;
+  tape.style.transition = '';
+  tape.classList.add('armed');
+
+  setTimeout(() => {
+    tape.classList.add('inserting');
+    vcrLed.classList.add('on');
+  }, 120);
+
+  setTimeout(() => playStaticBurst(650), 780);
+
+  setTimeout(() => {
+    osd.innerHTML = `<span class="idn">${it.idn}</span> · ${it.year}<br>${it.title}<br><span class="tag">${it.coll}</span> · ${it.fmt}`;
+    osd.classList.add('on');
+
+    const unlocked = sessionStorage.getItem('arkino_unlocked') === '1';
+    if (it.sensitive && !unlocked) {
+      screenPixelated.classList.add('on');
+      if (it.img) pixelateInto(screenPixelated, it.img, 26);
+      screenGate.classList.add('on');
+    } else {
+      showRealMedia(it);
+    }
+  }, 1000);
+
+  setTimeout(() => {
+    tape.classList.remove('armed');
+  }, 1400);
+}
+
+async function tryScreenUnlock() {
+  const input = document.getElementById('screen-gate-input');
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(input.value));
+  const hex = Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+  if (hex === UNLOCK_HASH) {
+    sessionStorage.setItem('arkino_unlocked', '1');
+    if (currentItem) showRealMedia(currentItem);
+  } else {
+    document.getElementById('screen-gate-error').textContent = 'contraseña incorrecta';
+    input.value = '';
+  }
+}
+document.getElementById('screen-gate-submit').addEventListener('click', tryScreenUnlock);
+document.getElementById('screen-gate-input').addEventListener('keydown', e => { if (e.key === 'Enter') tryScreenUnlock(); });
+
+resizeCanvas();
+
+const crtToggle = document.getElementById('crt-toggle');
+const tvWrapEl = document.getElementById('tv-wrap');
+crtToggle.addEventListener('click', () => {
+  const isOn = crtToggle.classList.toggle('on');
+  tvWrapEl.classList.toggle('crt-off', !isOn);
+});
+</script>
+</body>
+</html>

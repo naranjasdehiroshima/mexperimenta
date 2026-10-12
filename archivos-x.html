@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Mexperimenta — Archivos X</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #221e17;
+    color: #efebdc;
+    font-family: 'Georgia', 'Times New Roman', serif;
+  }
+  .mono { font-family: 'Courier New', monospace; }
+
+  #topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px;
+    border-bottom: 1px solid #453e30;
+  }
+  #topbar .word {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    letter-spacing: 3px;
+    font-size: 13px;
+    color: #efebdc;
+    text-decoration: none;
+  }
+  #topbar nav a {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: #b8b19c;
+    text-decoration: none;
+    margin-left: 26px;
+    text-transform: uppercase;
+  }
+  #topbar nav a:hover, #topbar nav a.active { color: #9dffb0; }
+
+  #crumb {
+    padding: 16px 32px 0;
+    max-width: 1080px;
+    margin: 0 auto;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: #a39c88;
+  }
+  #crumb a { color: #a39c88; text-decoration: none; }
+  #crumb a:hover { color: #9dffb0; }
+  #crumb span { color: #f7f2e4; }
+
+  /* ---- collection header ---- */
+  #coll-hero {
+    position: relative;
+    max-width: 1080px;
+    margin: 18px auto 0;
+    padding: 0 32px;
+  }
+  #coll-hero-inner {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #4d4536;
+    background: #2e2820;
+  }
+  #coll-hero-bg {
+    position: absolute;
+    inset: 0;
+  }
+  #coll-hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.28;
+    filter: grayscale(0.35) sepia(0.1) contrast(1.1) brightness(0.6);
+  }
+  #coll-hero-bg .tint {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(100deg, rgba(20,18,13,0.96) 30%, rgba(20,18,13,0.55) 100%);
+  }
+  #coll-hero-content {
+    position: relative;
+    padding: 46px 42px 38px;
+    max-width: 640px;
+  }
+  #coll-hero-content .eyebrow {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    color: #9dffb0;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  #coll-hero-content h1 {
+    font-family: 'Courier New', monospace;
+    font-size: clamp(32px, 5vw, 48px);
+    letter-spacing: 1px;
+    color: #f7f2e4;
+    margin: 0 0 16px;
+  }
+  #coll-hero-content p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #c9c4b2;
+    margin: 0 0 22px;
+  }
+  #coll-stats {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+  #coll-stats .s .n {
+    font-family: 'Courier New', monospace;
+    font-size: 18px;
+    color: #f7f2e4;
+    font-weight: bold;
+  }
+  #coll-stats .s .l {
+    font-family: 'Courier New', monospace;
+    font-size: 9.5px;
+    letter-spacing: 1.5px;
+    color: #a39c88;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  /* ---- toolbar ---- */
+  /* ---- piece modal ---- */
+  #modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(10,9,7,0.86);
+    backdrop-filter: blur(2px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 24px;
+  }
+  #modal-backdrop.open { display: flex; }
+  #modal-card {
+    background: #241f18;
+    border: 1px solid #4d4536;
+    border-radius: 10px;
+    max-width: 920px;
+    width: 100%;
+    max-height: 88vh;
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #modal-close {
+    position: absolute;
+    top: 18px;
+    right: 24px;
+    font-family: 'Courier New', monospace;
+    font-size: 20px;
+    color: #d4cfbc;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 5;
+    line-height: 1;
+    opacity: 0.75;
+  }
+  #modal-close:hover { opacity: 1; }
+  #modal-screen-wrap {
+    flex: 0 0 380px;
+    padding: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1a1712;
+  }
+  #modal-tv {
+    width: 100%;
+    background: linear-gradient(180deg, #524c40, #302c24);
+    border-radius: 14px;
+    padding: 16px 16px 26px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  }
+  #modal-screen {
+    position: relative;
+    aspect-ratio: 4/3;
+    background: #060706;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  #modal-screen img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    filter: sepia(0.12) saturate(1.1) brightness(0.92) contrast(1.08);
+    transition: opacity 0.25s;
+  }
+  #modal-screen img.on { opacity: 1; }
+  #modal-screen .scan {
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(to bottom, rgba(0,0,0,0.28) 0px, rgba(0,0,0,0.28) 1px, transparent 2px, transparent 3px);
+    pointer-events: none;
+  }
+  #modal-screen .vig {
+    position: absolute; inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0) 55%, rgba(0,0,0,0.55) 100%);
+  }
+  #modal-screen .static {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    opacity: 0;
+    pointer-events: none;
+  }
+  #modal-screen .static.on { opacity: 1; }
+  #modal-osd {
+    position: absolute;
+    left: 12px; top: 10px;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    color: #9dffb0;
+    text-shadow: 0 0 4px rgba(157,255,176,0.7);
+    letter-spacing: 0.5px;
+  }
+  #modal-body {
+    flex: 1;
+    min-width: 320px;
+    padding: 46px 34px 30px;
+    position: relative;
+  }
+  #modal-body .eyebrow {
+    font-family: 'Courier New', monospace;
+    font-size: 10.5px;
+    letter-spacing: 2px;
+    color: #9dffb0;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  #modal-body h2 {
+    font-family: 'Courier New', monospace;
+    font-size: 22px;
+    color: #f7f2e4;
+    margin: 0 0 14px;
+    letter-spacing: 0.5px;
+  }
+  #modal-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #4d4536;
+  }
+  #modal-meta-row .m .n {
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    color: #efebdc;
+  }
+  #modal-meta-row .m .l {
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: #a39c88;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  #modal-desc {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #c9c4b2;
+    white-space: pre-line;
+    margin: 0 0 20px;
+    max-height: 260px;
+    overflow-y: auto;
+  }
+  #modal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  #modal-tags .chip {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    color: #a39c88;
+    border: 1px solid #4d4536;
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+
+  #toolbar {
+    max-width: 1080px;
+    margin: 30px auto 0;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  #toolbar .count {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    color: #a39c88;
+    letter-spacing: 1px;
+  }
+  #filter-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .chip {
+    font-family: 'Courier New', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.5px;
+    color: #b8b19c;
+    border: 1px solid #4d4536;
+    padding: 5px 11px;
+    border-radius: 20px;
+    cursor: pointer;
+    background: #2e2820;
+    text-transform: uppercase;
+  }
+  .chip:hover { border-color: #a39c88; color: #efebdc; }
+  .chip.active { background: #9dffb0; color: #221e17; border-color: #9dffb0; }
+
+  /* ---- grid ---- */
+  #grid-wrap { max-width: 1080px; margin: 22px auto 60px; padding: 0 32px; }
+  #piece-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 18px;
+  }
+  .piece-card {
+    background: #2e2820;
+    border: 1px solid #453e30;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.15s, border-color 0.15s;
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  .piece-card.show { opacity: 1; transform: translateY(0); transition: opacity 0.35s ease, transform 0.35s ease, border-color 0.15s; }
+  .piece-card:hover { transform: translateY(-3px); border-color: #a39c88; }
+  .piece-card .thumb {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: #0c0b09;
+  }
+  .piece-card .thumb img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: grayscale(0.3) brightness(0.82) contrast(1.05);
+    transition: filter 0.2s, transform 0.3s;
+  }
+  .piece-card:hover .thumb img { filter: grayscale(0) brightness(0.95) contrast(1.1); transform: scale(1.04); }
+  .piece-card .thumb .scan {
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(to bottom, rgba(0,0,0,0.3) 0px, rgba(0,0,0,0.3) 1px, transparent 2px, transparent 3px);
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  .piece-card .thumb .idn {
+    position: absolute;
+    top: 6px; left: 6px;
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    color: #9dffb0;
+    background: rgba(11,10,8,0.75);
+    padding: 2px 6px;
+    border-radius: 2px;
+    letter-spacing: 0.5px;
+  }
+  .piece-card .meta {
+    padding: 10px 12px 12px;
+  }
+  .piece-card .meta .t {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: #f7f2e4;
+    line-height: 1.35;
+    margin: 0 0 6px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 32px;
+  }
+  .piece-card .meta .y {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    color: #a39c88;
+    letter-spacing: 0.5px;
+  }
+
+  footer {
+    border-top: 1px solid #453e30;
+    padding: 28px 32px 40px;
+    text-align: center;
+  }
+  footer .orgs {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: #b8b19c;
+    text-transform: uppercase;
+  }
+  footer .orgs span { color: #4a4638; margin: 0 8px; }
+</style>
+</head>
+<body>
+
+  <div id="topbar">
+    <a class="word" href="index.html">MEXPERIMENTA</a>
+    <nav>
+      <a href="index.html#collections" class="active">Colecciones</a>
+      <a href="videoteca.html">Videoteca</a>
+      <a href="index.html#about">Acerca de</a>
+    </nav>
+  </div>
+
+  <div id="crumb">
+    <a href="index.html">Inicio</a> / <a href="index.html#collections">Colecciones</a> / <span>Archivos X</span>
+  </div>
+
+  <div id="coll-hero">
+    <div id="coll-hero-inner">
+      <div id="coll-hero-bg">
+        <img src="https://mexperimenta.ultracinema.x10.mx/files/original/0aecfef62aef745a582fe020ce124171.jpeg" alt="">
+        <div class="tint"></div>
+      </div>
+      <div id="coll-hero-content">
+        <div class="eyebrow">Colección</div>
+        <h1>Archivos X</h1>
+        <p>Videoarte reunido por la artista y realizadora Ximena Cuevas a lo largo de más de 30 años — retratos, apropiaciones y piezas de video experimental resguardadas originalmente en formato VHS.</p>
+        <div id="coll-stats">
+          <div class="s"><div class="n">26</div><div class="l">piezas</div></div>
+          <div class="s"><div class="n">1929–2002</div><div class="l">rango</div></div>
+          <div class="s"><div class="n">VHS</div><div class="l">formato original</div></div>
+          <div class="s"><div class="n">Ximena Cuevas</div><div class="l">curaduría</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="toolbar">
+    <div class="count" id="result-count">26 piezas</div>
+    <div id="filter-chips">
+      <div class="chip active" data-tag="">Todas</div>
+      <div class="chip" data-tag="Texturas">Texturas</div>
+      <div class="chip" data-tag="Documental">Documental</div>
+      <div class="chip" data-tag="Performance">Performance</div>
+      <div class="chip" data-tag="Videoarte">Videoarte</div>
+    </div>
+  </div>
+
+  <div id="grid-wrap">
+    <div id="piece-grid"></div>
+  </div>
+
+  <div id="modal-backdrop">
+    <div id="modal-card">
+      <button id="modal-close" aria-label="Cerrar">✕</button>
+      <div id="modal-screen-wrap">
+        <div id="modal-tv">
+          <div id="modal-screen">
+            <img id="modal-img" src="" alt="">
+            <canvas class="static" id="modal-static"></canvas>
+            <div class="scan"></div>
+            <div class="vig"></div>
+            <div id="modal-osd"></div>
+          </div>
+        </div>
+      </div>
+      <div id="modal-body">
+        <div class="eyebrow" id="modal-eyebrow">Archivos X</div>
+        <h2 id="modal-title">—</h2>
+        <div id="modal-meta-row">
+          <div class="m"><div class="n" id="modal-year">—</div><div class="l">Año</div></div>
+          <div class="m"><div class="n" id="modal-fmt">—</div><div class="l">Formato</div></div>
+          <div class="m"><div class="n" id="modal-idn">—</div><div class="l">Código</div></div>
+          <div class="m"><div class="n" id="modal-creator">—</div><div class="l">Realización</div></div>
+        </div>
+        <p id="modal-desc"></p>
+        <div id="modal-tags"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="orgs">Festival ULTRAcinema <span>·</span> ARKINO, Archivo Abierto de Cine Experimental <span>·</span> SAPEURS MX</div>
+  </footer>
+
+<script>
+const ITEMS = [{"id": "441", "title": "Big Whack", "year": "2002", "idn": "XC-0026", "fmt": "VHS", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/d6f2b50524929a1338ff114044948c31.jpeg", "tags": ["Animales", "Caras", "Circo", "Color", "Cuerpos", "Escenas", "Espacios", "Hombres", "Manos", "Mujeres", "Rostros", "Teatro", "Texturas", "Yuxtaposición de imágenes"], "desc": "The Big Whack\nRicardo Nicolayevsky\n\nLas patadas, golpes y puñetazos del maestro de artes marciales no son más rápidos que la frenética edición de Nicolayevsky.", "creator": "ARKINO", "lang": "Sin diálogos"}, {"id": "440", "title": "Mexican Cinema for dummies", "year": "2001/2002", "idn": "XC-0025", "fmt": "VHS", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/57590c87920e4e377aac6c3f11bb4586.jpeg", "tags": ["Adán", "Bocas", "Cetro", "Colmillos", "Corona", "Espacio", "Eva", "Fuego", "Misiles", "Mujer vampiro", "Nave Espacial", "Nombre", "Ogro", "Ojos", "Personas", "Relámpagos", "Rostros", "Serpiente", "Sonrisa", "Texturas", "Truenos", "Varita mágica"], "desc": "Mexican Cinema for dummies\nRicardo Nicolayevsky\n\nCollage de películas mexicanas", "creator": "ARKINO", "lang": "Inglés"}, {"id": "439", "title": "Lost portraits", "year": "1982/1985", "idn": "XC-0024", "fmt": "VHS", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/50cc41ba11ba270bf5a0046c9e27e2d3.jpeg", "tags": ["Árboles", "Baile", "Bañera", "Cabello", "Calle", "Cara", "Cielo", "Cigarrillo", "Cuerpo", "Cuerpo semidesnudo", "Gato", "Hombre", "Mujer", "Mujer desnuda", "Rostro", "Senos", "Sonrisas", "Texturas", "Torso", "Ventana", "Violín"], "desc": "Lost Portraits\nRicardo Nicolayevsky\n1982 / 1985\n\nColecciòn de Retratos experimentales de artistas y amigos del cineasta (R.Nicolayevsky) realizados a principios de los años 80, en S8 y 16mm. Posteriormente transferidos y editados en video. Musica original.\nEl retrato breve de un solo individuo,mitad documento, mitad ejercicio experimental, donde los elementos visuales son complementados por las bandas sonoras, también realizadas por el mismo autor. A partir de esta premisa, Nicolayevsky crea las atmòsferas pertinentes para retratar a sus sujetos y descubrir sus personalidades y esencias.", "creator": "ARKINO", "lang": "Inglés"}, {"id": "438", "title": "666 tech-mex", "year": "2000", "idn": "XC-0023", "fmt": "VHS", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/ae3cef5d2e54d4519d806ef3db4c96df.jpeg", "tags": ["Adal Ramones", "Aves", "Cárdenas", "Ciudad", "Consignas", "Desierto", "Fox", "Laguna", "Mar", "Narcopolítica", "Pancartas", "Pintas", "Pistola", "Presos políticos", "Protestas", "Spot de televisión", "Subcomandante Marcos", "Televisión", "Zedillo"], "desc": "666 tech-mex\n\nProducción\nEduardo Vázquez", "creator": "ARKINO", "lang": "Español"}, {"id": "437", "title": "Poseidos", "year": "", "idn": "XC-0022", "fmt": "VHS", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/1c8735605968fb2fd302ad0a0e81a2cd.jpeg", "tags": ["Alumnos de secundaria", "Baile", "Cama", "Convulsiones", "Fuego", "Gestos", "Grupo de rock", "Mujer", "Niñas", "Peleas", "Personas trastornadas", "Posesión", "Señas", "Tocada", "Tocadiscos", "Videoclip"], "desc": "Miguel Calderón\n\nPoseídos\nKitty Fight\nVideo Musical de Intestino Grueso", "creator": "ARKINO", "lang": "Español"}, {"id": "436", "title": "Yoshua Okon", "year": "1997", "idn": "XC-0021", "fmt": "VHS", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/02fdadaf99d47cafaafce44c30b7a4aa.jpeg", "tags": ["Carro", "Estéreo", "Ladrón", "Perros copulando", "Policía", "Robo", "Texturas"], "desc": "Cortometrajes de Yoshua Okon\n\n\nA propósito (1997)\nChocorrol (1997)\nPoli I (1999)", "creator": "ARKINO", "lang": "Español"}, {"id": "435", "title": "Anastasia and the queen of hearts", "year": "1996", "idn": "XC-0020", "fmt": "VHS", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/16d72fb463d3e5ab437db567b28e0eb1.jpeg", "tags": ["Animación experimental", "Collage", "Insectos", "Mariposas", "Niña durmiendo", "Pájaros", "Ruidos", "Susurros", "Texturas", "Volando"], "desc": "Anastasia and the Queen of Hearts\nShawn Atkins\n\nUna historia de amor animada.", "creator": "ARKINO", "lang": "Inglés"}, {"id": "434", "title": "Talking portraits series", "year": "1994/1999", "idn": "XC-0019", "fmt": "VHS", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/c7d226fb9185dadd6882768150df991e.jpeg", "tags": ["Agua", "Árboles", "Bolsas", "Discos CD", "Escopeta", "Escritorio", "Fachadas", "Helado", "Hojas de papel", "Jardín", "Libreta", "Manos", "Movimiento", "Mujer", "Niño", "Pies de mujer", "Plantas", "Rana", "Reflejos", "Rostros", "Sillas", "Texturas", "Ventanas"], "desc": "Talking Portraits\nVincent Grenier\n1994 \n\nContiene las siguientes tres películas: \nYOU (1990)\nHabía estado buscando un encuentro desconcertante, una conversación que uno no puede sacarse de la cabeza, el tipo de evento que te deja debatiendo en voz alta mientras caminas por la calle o haces la limpieza en el baño. Después de entrevistar a algunas personas, encontré a Lisa Black, que se entregó a uno de los suyos y se convirtió en el personaje principal de la película. Una situación con muchos ángulos: el relato, la filmación, el evento final de la proyección... YOU es un tú imaginario ficticio en un espacio caprichoso. Es el residuo aún vivo de la relación rota a la que Lisa se enfrenta aquí.", "creator": "ARKINO", "lang": "Inglés"}, {"id": "433", "title": "I want you to need me / J'veux qu' tu m'veux", "year": "2000", "idn": "XC-0018", "fmt": "VHS", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/2c597f1b62121e6f7ef75a4f7a27ddd9.jpeg", "tags": ["Canciones", "Hombre desnudo", "Performance", "Sangre"], "desc": "I want you to need me / J'veux qu' tu m'veux\nby Stefan St. Laurent\n2001\n\n¿Se pueden utilizar canciones populares para transmitir la experiencia de un ataque a un homosexual en Moncton? ¿O la necesidad de aceptación? En una serie de videos de performances autobiográficas titulada Overmelodramas, la artista explora nuestra relación con la violencia y la cultura, y cuestiona nuestros gustos polarizados por el melodrama y el documental.", "creator": "ARKINO", "lang": "Inglés"}, {"id": "432", "title": "Two films by Mišo Suchý", "year": "1988/1993", "idn": "XC-0017", "fmt": "VHS", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/c886eae6bcfbac416114595b82dfc256.jpeg", "tags": ["Blanco y Negro", "Botes", "Caminante", "Carretas", "Carros", "Costales", "Documental", "Fotografías", "Fumadores", "Gente de un pueblo", "Gitanos", "Hombre", "Niños", "Niños riendo", "Perros", "Personas", "Pesas", "Sombreros", "Tiendas de mascotas", "Usos y costumbres", "Verano", "Violín"], "desc": "Two films by Mišo Suchý\n\nPrichadzam dlhou cesto/ I Have Come a Long Way\nMišo Suchý\n1988\nEslovaquia\n28 min.\n\nRetrato de gitanos que viven en las afueras del pueblo, o al margen del interés social de la época, Mišo Suchý hizo este retrato como película de graduación. El autor yuxtapone la espontaneidad de los gitanos y el esfuerzo del sistema por corregirlos eternamente.\n\nAbout Dogs And People\nMišo Suchý\n1993\nEslovaquia / Estados Unidos\n43 min.\n\nCuando llegué por primera vez a Estados Unidos (desde mi Eslovaquia natal), no hablaba ni entendía una palabra de inglés y pronto me encontré en la posición de una criatura muda. Tal vez fue esta experiencia de mutismo lo que me inspiró a hacer una pel", "creator": "ARKINO", "lang": "Eslovaco, Inglés"}, {"id": "431", "title": "Verena Grimm", "year": "1998/1999", "idn": "XC-0016", "fmt": "VHS", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/0aecfef62aef745a582fe020ce124171.jpeg", "tags": ["Ambulancias", "Babosas", "Bebé", "Blanco y Negro", "Cerebro", "Enfermeras", "Guantes", "Jeringas", "Juguetes", "Mangueras", "Niño", "Paciente", "Perro", "Pinzas", "Quirófano", "Recién nacido", "Video experimental", "Video instalación", "Videoarte"], "desc": "Verena Grimm\nSelección de videos 1998-1999\n\nFever 1998\nHistoria de la epidemia 1998\nBoca Abajo / video para videoinstalacion 1998/1999\nDomestica / video para videoinstalación y registro \nDespués del cuerpo / registro de instalación 1998\nAd Libitum / registro de instalación", "creator": "ARKINO", "lang": "Español"}, {"id": "430", "title": "The light in our lizard bellies", "year": "1999", "idn": "XC-0015", "fmt": "VHS", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/9210951614eb406aa90c1d2970ecb1fd.jpeg", "tags": ["Alto contraste", "Blanco y Negro", "Cuerpo en movimiento", "Cuerpos como manchas", "Danza", "Figura", "Luz", "Manos", "Mujer", "Performance", "Pies", "Susurros"], "desc": "Dirigida Por Sarah Abbott\nCanadá, 1999\n\nA través de la coreografía y la interpretación de Susanna Hood, y la edición y los efectos de exposición causados ​​por el procesamiento manual, The Light in Our Lizard Bellies refleja las intensidades que nos desconciertan a medida que atravesamos el cambio y enfrentamos partes de nosotros mismos previamente negadas o desconocidas.", "creator": "ARKINO", "lang": "Inglés"}, {"id": "429", "title": "37 stories about leaving home", "year": "1996", "idn": "XC-0014", "fmt": "VHS", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/d5b93c02c5f143064f9f27ee338703fb.jpeg", "tags": ["Árboles", "Aviones", "Bebé", "Cantos", "Ciudad", "Documental", "Entrevista", "Familias", "Figuras de piedra", "Flores", "Geishas", "Hombre", "Material de archivo", "Medio Oriente", "Misiles", "Mujer", "Paracaídas", "Quimono"], "desc": "37 Stories About Leaving Home\nShelly Silver\n\n\nEn 37 Stories About Leaving Home, un grupo de mujeres japonesas que viven en la zona de Tokio cuentan historias personales de sus propias experiencias de abandono del hogar. En estas historias se puede empezar a ver, desde perspectivas muy personales e individuales, los cambios sociales que han ocurrido en las últimas tres generaciones para las mujeres en Japón, que han traído consigo una serie de opciones y posiciones emocionantes y a menudo conflictivas. \nMuchas de las historias giran en torno a las relaciones que estas abuelas, madres e hijas tienen entre sí, llenas de respeto, rebelión, pérdida y amor. Las entrevistas están enmarcadas por un ", "creator": "ARKINO", "lang": "Inglés, Japonés"}, {"id": "428", "title": "Dziga Vertov - Kino Eye", "year": "1929", "idn": "XC-0013", "fmt": "VHS", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/d2af7c72d99141c9fc29b11fce0eea8b.jpeg", "tags": ["Acordeón", "Animales de granja", "Bailes", "Bandera", "Bandoneones", "Blanco y Negro", "Carretas", "Circo", "Cruz Roja", "Elefante", "Gente del campo", "Mercado", "Mujer", "Músicos", "Niñas", "Niños", "Pandereta", "Película silente", "Puente", "Stalin", "Toros", "Tren", "Vacas"], "desc": "Título: Man with a Movie Camera\nTítulo original: Chelovek s kino-apparatom\nPaís: Unión Soviética\nDirector: Dziga Vértov\nVersión subtitulada al inglés\n\nEl hombre de la cámara describe el trascurso de un día en una ciudad rusa mediante cientos de pinceladas fílmicas sobre la vida cotidiana. Podría decirse que se trata de un retrato puntillista en el que sólo la totalidad de los breves retazos permiten percibir la ciudad en su totalidad.", "creator": "ARKINO", "lang": "Ruso"}, {"id": "427", "title": "Froglight a film by Sarah Abbott", "year": "1997", "idn": "XC-0012", "fmt": "VHS", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/dc73a54c1daddea8a277105e0bf6f062.jpg", "tags": ["Blanco y Negro", "Cámara", "Campo", "Cortometraje experimental", "Flores", "Girasol", "Hojas", "Texturas"], "desc": "Froglight \nde Sarah Abbott\n1997\n\nEn Froglight, la narración poética en off se entrelaza con imágenes y sonidos del paisaje natural para despertar la imaginación de los espectadores. Como resultado de permitir que los elementos se combinen mágicamente en el proceso creativo, la película tiene una sensibilidad intangible que refleja la experiencia de intentar confiar en algo que no se puede ver ni tocar.", "creator": "ARKINO", "lang": "Inglés"}, {"id": "426", "title": "Video Works by Sarah Smiley", "year": "1997/1999/2000", "idn": "XC-0011", "fmt": "VHS", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/d4ca9a02a661f0ed3ad92d0cc8c47ba7.jpeg", "tags": ["Agua", "Aplausos", "Barcos", "Cielo", "Computadora", "Gritos", "Manos", "Máquina de escribir", "Mar", "Naranja", "Palmeras", "Pirotecnia", "Reapropiación", "Teclado", "Texturas"], "desc": "Audience Participation Display\nLevels of Undo\nKeyboard shortcut\nJellyfishDe Sarah Smiley", "creator": "ARKINO", "lang": "Inglés"}, {"id": "425", "title": "Double Blind", "year": "1993", "idn": "XC-0010", "fmt": "VHS", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/d25b7a56e6dc7135320d673465c72b14.jpeg", "tags": ["Anuncios", "Automóvil", "Cama", "Cámaras", "Carretera", "Cielo", "Entrevista", "Flores", "Garage", "Hombre", "Juguetes", "Lluvia", "Manos", "Mar", "México", "Monumentos", "Mujer", "Nieve", "Paisaje de carretera", "Pájaros", "París", "Patrullas", "Policías", "Puente", "Radios", "Restaurante", "Road movie", "Teléfono", "Tráiler", "Tren", "Ventana"], "desc": "Double Blind\nDe Sophie Calle y Greg Shephard\n\nEs 1992, y Calle, un artista conceptual francés, ha convencido al apuesto Greg (un galerista fracasado y aspirante a cineasta) para que realice un viaje por todo el país, durante el cual documentarán relatos subjetivos de la experiencia con sus videocámaras. Sus confesiones en pugna resuenan en la claustrofóbica cabina, anticipando la verguenza verité de la telerrealidad. \n\nhttps://www.lafuga.cl/double-blind-de-sophie-calle-y-greg-shephard/437 \n\nFor You / Para Usted\nDe Liliana Porter\n16 min.\n1999\n\nUn video, originalmente filmado en 16 milímetros. Los protagonistas de esta película son figurines y muñecos, pero son apenas un elenco aparente, porqu", "creator": "ARKINO", "lang": "Inglés"}, {"id": "424", "title": "Audi Alteram Partem", "year": "", "idn": "XC-0009", "fmt": "VHS", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/8b6b2e57d80c2b86b402cb3ca85eb1c5.jpeg", "tags": ["Bocina", "Carrito del súper", "Carro", "Faros", "Imágenes fijas", "Ruedas", "Silla de escritorio"], "desc": "Video en loop con sonido de claxón", "creator": "ARKINO", "lang": "Sin diálogos"}, {"id": "423", "title": "Mambo", "year": "1997", "idn": "XC-0008", "fmt": "VHS", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/cc936961791e16b4dba6aa8477323a4f.jpeg", "tags": ["Calles", "Ciudad de México", "Comercios", "Consignas", "Cortometraje", "Documental", "Encapuchados", "Imágenes", "Mambo", "Marchas del EZLN", "Movimientos populares", "Música de fondo", "Paredes", "Personas", "Pintas", "Torre Latinoamericana", "Universitarios", "Zapata"], "desc": "Mambo\n\nMariana Rodríguez", "creator": "ARKINO", "lang": "Español"}, {"id": "422", "title": "Rinoplastía", "year": "2002", "idn": "XC-0007", "fmt": "VHS", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/ee76d81ca81ba07ae25dac4eb12a166d.jpeg", "tags": ["Abuso", "Carro", "Celulares", "Ciudad de México", "Discoteca", "Drogas", "Groserías", "Hombre", "Horno", "Junior", "Lucha de poder", "Luis Miguel", "Maltrato", "Música de fondo", "Navidad", "Paco Stanley", "Personajes", "Pistola", "Pollo", "Violencia"], "desc": "Rinoplastía de Yoshua Okón\n\nRinoplastia es un video narrativo monocanal de 40 minutos sobre un grupo de jóvenes adinerados de la Ciudad de México que están aburridos, inhalan cocaína y desahogan sus frustraciones agrediendo desde su automóvil a peatones de clase obrera. \n\nEl video utiliza no-actores que se interpretan a ellos mismos y que al no ser actores profesionales ni tener diálogos (sólo se les dieron instrucciones muy generales), dependen de un alto grado de improvisación.", "creator": "ARKINO", "lang": "Español"}, {"id": "421", "title": "Hand Eye Coordination", "year": "2002", "idn": "XC-0006", "fmt": "VHS", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/c04f05dde3df714e512782e259565c15.jpeg", "tags": ["16mm", "Años 70s", "Cámara", "Coche", "Collage", "Cortometraje experimental", "Flores", "Found footage", "Licuadora", "Ojo", "Pupila", "Ruidos de calle", "Semaforo", "Teléfono", "Texturas", "Tráfico", "Zapatos"], "desc": "Hand Eye Coordination\nNaomi Uman\n\nUtilizando materiales como esmalte de uñas, lejía y tinta china, Naomi Uman creó esta película más que alegórica sobre la coordinación mano ojo: un ejemplo perfecto de cine hecho a mano.", "creator": "ARKINO", "lang": "Español"}, {"id": "420", "title": "Ojos sordos oídos ciegos", "year": "1996", "idn": "XC-0005", "fmt": "VHS", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/b03db24d9faa5a576c0f024126a4f19f.jpeg", "tags": ["Ángel de la Independencia", "Bolsas de papel", "Ciudad", "Cortometraje experimental", "Cuba", "Edificios", "Elevador", "Escuela", "Guardia armada", "Isla", "Magueyes", "Mar", "Marchas", "Música de trompeta", "Nopales", "Personajes", "Puentes", "Texturas", "Torre Eiffel", "Vías de tren", "Videoarte"], "desc": "Ojos Sordos Oídos ciegos\n\n(La Sociedad)\n(La Pareja)\n(El individuo)\n\nAlberto Roblest", "creator": "ARKINO", "lang": "Español"}, {"id": "419", "title": "Velazko vs Velazko", "year": "", "idn": "XC-0004", "fmt": "VHS", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/fc76b6537726447ddae8c60c302ffd2a.jpeg", "tags": ["Bicicleta fija", "Caminata", "Carreras", "Cascos", "Ciudad", "Competencia", "Cronómetro", "Escuela", "Estudiantes", "Guantes", "Hombre", "Juego", "Latas", "Pantalla", "Parodias", "Performance", "Ring", "Trapeador", "Videoarte", "Videojuego"], "desc": "Registro audiovisual del performance de Ricardo Velazko", "creator": "ARKINO", "lang": "Español"}, {"id": "418", "title": "Matt McCormick", "year": "2001", "idn": "XC-0003", "fmt": "VHS", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/f454c5e845bee5a14a13ee384f11620b.jpg", "tags": ["Arte", "Aves", "Barcos", "Bardas", "Barras de hielo", "Camiones", "Ciudad", "Comercial", "Cortometraje", "Fachadas", "Familia", "Formas radicales", "Formas rectangulares", "Graffiti", "Hombre", "Home movie", "Mancha", "Motocicletas", "Pistola", "Puentes", "Reapropiación", "Simetría", "Teléfono", "Tocadiscos", "Zonas industriales"], "desc": "The subconscious decisions of the polar bears\nCortometrajes de Matt Mccormick\n\nIncluye\n\nThe subconscious art of graffiti removal, 14 min.\nThe vyrotonin decision, 1999, 7 min.\nSincerely Joe P. Bear, 1999, 4 min.\nDestiny, 2000, 4 min.\nAll my friends are ghost, 3 min.\n\nThe starlight dynamic\nvideo mix-tape\nA collection of short experimental and underground films and videos.\n\nPrivate movie / Naomi Uman -- Election Collectibles / Bryan Boyce -- The moschops / Jim Trainor -- City at night / Gerald Holthuis -- The vanishing point / The Distance Formula -- Knuckle down / Sarah Marcas and Kate Hardy -- Mark Ross / Animal Charm -- Confederation Park / Bill Brown.", "creator": "ARKINO", "lang": "Inglés"}, {"id": "417", "title": "Gritos poéticos de la urbe / Las Chavas (El primer aullido)", "year": "1994/1995", "idn": "XC-0002", "fmt": "VHS", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/5857c671a1e303380eec5946477f55a7.png", "tags": ["Años 90", "Batería", "Ciudad de México", "Denuncias", "Documental", "Género punk", "Guitarras", "Micrófono", "Movimientos urbanos", "Mujeres", "Música", "Poesía"], "desc": "Compilación de dos documentales\n\nGritos Poéticos de la urbe (Susana Quiroz e Ines Morales-1995) 22 min. \nDesde las entrañas de la ciudad emergen las mujeres banda que luchan por sus derechos con la expresión y grito de sus sentimientos guardados celosamente, sin menoscabo de su espíritu de guerreras, lo que trasmiten a través del arte escénico, de canciones y de poesía.\n\nLas Chavas (El primer Aullido) (Inés Morales y Susana Quiroz-1991) 33 min.\nSe muestra el movimiento femenino punk y su compromiso de participación en eventos culturales, obras de teatro, tocadas, talleres de sexualidad, logrando conseguir más espacios para mostrar su cultura.", "creator": "ARKINO", "lang": "Español"}, {"id": "416", "title": "Mundo del Silencio, El [Compilación; Cortometrajes]", "year": "2002", "idn": "XC-0001", "fmt": "VHS", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/208973ce41f60f38a9cb586b35cff408.png", "tags": ["Alberca", "Años 90", "Aviones", "Baile", "Barcos", "Beatles", "Cabello rubio", "Cámaras", "Comida", "Cortometraje", "Home movie", "Isla", "Medios de comunicación", "Mujer", "Mujeres", "Película", "Programa de televisión", "Reapropiación", "Semaforo", "Televisión", "Tenedor", "Viajes"], "desc": "Compilación de cortometrajes de la artista Ximena Cuevas. Incluye los videos:\nTuristas, Estamos para Servirle, Natural Instincs, Hawai, Help, La Tómbola, Televisión, Colchones Individuales, La Puerta, Baba de Perico, Cama, Almas Gemelas, Destino, El diablo en la piel, Staying Alive, A la manera de Disney, Contemporary Artist, Éxito y Calzada de Kansas.\n\nEsta copia fue creada para el registro ante Derechos de Autor.", "creator": "ARKINO", "lang": "Español"}];
+
+const grid = document.getElementById('piece-grid');
+const countEl = document.getElementById('result-count');
+
+function render(filterTag) {
+  grid.innerHTML = '';
+  const filtered = filterTag ? ITEMS.filter(it => it.tags.includes(filterTag)) : ITEMS;
+  countEl.textContent = filtered.length + (filtered.length === 1 ? ' pieza' : ' piezas');
+  filtered.forEach((it, i) => {
+    const el = document.createElement('div');
+    el.className = 'piece-card';
+    el.innerHTML = `
+      <div class="thumb">
+        <img src="${it.img}" loading="lazy" alt="">
+        <div class="scan"></div>
+        <div class="idn">${it.idn}</div>
+      </div>
+      <div class="meta">
+        <p class="t">${it.title}</p>
+        <p class="y">${it.year || 's/f'} · ${it.fmt}</p>
+      </div>
+    `;
+    el.addEventListener('click', () => openModal(it));
+    grid.appendChild(el);
+    setTimeout(() => el.classList.add('show'), 15 * i);
+  });
+}
+
+document.querySelectorAll('.chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    render(chip.dataset.tag);
+  });
+});
+
+const modalBackdrop = document.getElementById('modal-backdrop');
+const modalImg = document.getElementById('modal-img');
+const modalEyebrow = document.getElementById('modal-eyebrow');
+const modalTitle = document.getElementById('modal-title');
+const modalYear = document.getElementById('modal-year');
+const modalFmt = document.getElementById('modal-fmt');
+const modalIdn = document.getElementById('modal-idn');
+const modalCreator = document.getElementById('modal-creator');
+const modalDesc = document.getElementById('modal-desc');
+const modalTags = document.getElementById('modal-tags');
+const modalOsd = document.getElementById('modal-osd');
+const modalStatic = document.getElementById('modal-static');
+const mctx = modalStatic.getContext('2d');
+
+function drawModalStatic() {
+  const w = modalStatic.width = modalStatic.clientWidth;
+  const h = modalStatic.height = modalStatic.clientHeight;
+  if (!w || !h) return;
+  const id = mctx.createImageData(w, h);
+  for (let i = 0; i < id.data.length; i += 4) {
+    const v = Math.random() * 255;
+    id.data[i] = v; id.data[i+1] = v; id.data[i+2] = v; id.data[i+3] = 255;
+  }
+  mctx.putImageData(id, 0, 0);
+}
+
+function openModal(it) {
+  modalBackdrop.classList.add('open');
+  modalImg.classList.remove('on');
+  modalTitle.textContent = it.title || 's/t';
+  modalYear.textContent = it.year || 's/f';
+  modalFmt.textContent = it.fmt || '—';
+  modalIdn.textContent = it.idn || '—';
+  modalCreator.textContent = it.creator || '—';
+  modalDesc.textContent = it.desc || 'Sin sinopsis disponible.';
+  modalTags.innerHTML = it.tags.slice(0, 10).map(t => `<span class="chip">${t}</span>`).join('');
+  modalOsd.textContent = `${it.idn} · ${it.year || 's/f'}`;
+
+  modalStatic.classList.add('on');
+  let n = 0;
+  const iv = setInterval(drawModalStatic, 55);
+  setTimeout(() => {
+    clearInterval(iv);
+    modalStatic.classList.remove('on');
+    modalImg.src = it.img;
+    modalImg.classList.add('on');
+  }, 420);
+}
+
+function closeModal() {
+  modalBackdrop.classList.remove('open');
+}
+
+document.getElementById('modal-close').addEventListener('click', closeModal);
+modalBackdrop.addEventListener('click', (e) => {
+  if (e.target === modalBackdrop) closeModal();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeModal();
+});
+
+render('');
+</script>
+</body>
+</html>

@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Mexperimenta — Cine casero</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #221e17;
+    color: #efebdc;
+    font-family: 'Georgia', 'Times New Roman', serif;
+  }
+  .mono { font-family: 'Courier New', monospace; }
+
+  #topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px;
+    border-bottom: 1px solid #453e30;
+  }
+  #topbar .word {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    letter-spacing: 3px;
+    font-size: 13px;
+    color: #efebdc;
+    text-decoration: none;
+  }
+  #topbar nav a {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: #b8b19c;
+    text-decoration: none;
+    margin-left: 26px;
+    text-transform: uppercase;
+  }
+  #topbar nav a:hover, #topbar nav a.active { color: #9dffb0; }
+
+  #crumb {
+    padding: 16px 32px 0;
+    max-width: 1080px;
+    margin: 0 auto;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: #a39c88;
+  }
+  #crumb a { color: #a39c88; text-decoration: none; }
+  #crumb a:hover { color: #9dffb0; }
+  #crumb span { color: #f7f2e4; }
+
+  /* ---- collection header ---- */
+  #coll-hero {
+    position: relative;
+    max-width: 1080px;
+    margin: 18px auto 0;
+    padding: 0 32px;
+  }
+  #coll-hero-inner {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #4d4536;
+    background: #2e2820;
+  }
+  #coll-hero-bg {
+    position: absolute;
+    inset: 0;
+  }
+  #coll-hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.28;
+    filter: grayscale(0.35) sepia(0.1) contrast(1.1) brightness(0.6);
+  }
+  #coll-hero-bg .tint {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(100deg, rgba(20,18,13,0.96) 30%, rgba(20,18,13,0.55) 100%);
+  }
+  #coll-hero-content {
+    position: relative;
+    padding: 46px 42px 38px;
+    max-width: 640px;
+  }
+  #coll-hero-content .eyebrow {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    color: #9dffb0;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  #coll-hero-content h1 {
+    font-family: 'Courier New', monospace;
+    font-size: clamp(32px, 5vw, 48px);
+    letter-spacing: 1px;
+    color: #f7f2e4;
+    margin: 0 0 16px;
+  }
+  #coll-hero-content p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #c9c4b2;
+    margin: 0 0 22px;
+  }
+  #coll-stats {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+  #coll-stats .s .n {
+    font-family: 'Courier New', monospace;
+    font-size: 18px;
+    color: #f7f2e4;
+    font-weight: bold;
+  }
+  #coll-stats .s .l {
+    font-family: 'Courier New', monospace;
+    font-size: 9.5px;
+    letter-spacing: 1.5px;
+    color: #a39c88;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  /* ---- toolbar ---- */
+  /* ---- piece modal ---- */
+  #modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(10,9,7,0.86);
+    backdrop-filter: blur(2px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 24px;
+  }
+  #modal-backdrop.open { display: flex; }
+  #modal-card {
+    background: #241f18;
+    border: 1px solid #4d4536;
+    border-radius: 10px;
+    max-width: 920px;
+    width: 100%;
+    max-height: 88vh;
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #modal-close {
+    position: absolute;
+    top: 18px;
+    right: 24px;
+    font-family: 'Courier New', monospace;
+    font-size: 20px;
+    color: #d4cfbc;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 5;
+    line-height: 1;
+    opacity: 0.75;
+  }
+  #modal-close:hover { opacity: 1; }
+  #modal-screen-wrap {
+    flex: 0 0 380px;
+    padding: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1a1712;
+  }
+  #modal-tv {
+    width: 100%;
+    background: linear-gradient(180deg, #524c40, #302c24);
+    border-radius: 14px;
+    padding: 16px 16px 26px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  }
+  #modal-screen {
+    position: relative;
+    aspect-ratio: 4/3;
+    background: #060706;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  #modal-screen img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    filter: sepia(0.12) saturate(1.1) brightness(0.92) contrast(1.08);
+    transition: opacity 0.25s;
+  }
+  #modal-screen img.on { opacity: 1; }
+  #modal-screen .scan {
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(to bottom, rgba(0,0,0,0.28) 0px, rgba(0,0,0,0.28) 1px, transparent 2px, transparent 3px);
+    pointer-events: none;
+  }
+  #modal-screen .vig {
+    position: absolute; inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0) 55%, rgba(0,0,0,0.55) 100%);
+  }
+  #modal-screen .static {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    opacity: 0;
+    pointer-events: none;
+  }
+  #modal-screen .static.on { opacity: 1; }
+  #modal-osd {
+    position: absolute;
+    left: 12px; top: 10px;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    color: #9dffb0;
+    text-shadow: 0 0 4px rgba(157,255,176,0.7);
+    letter-spacing: 0.5px;
+  }
+  #modal-body {
+    flex: 1;
+    min-width: 320px;
+    padding: 46px 34px 30px;
+    position: relative;
+  }
+  #modal-body .eyebrow {
+    font-family: 'Courier New', monospace;
+    font-size: 10.5px;
+    letter-spacing: 2px;
+    color: #9dffb0;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  #modal-body h2 {
+    font-family: 'Courier New', monospace;
+    font-size: 22px;
+    color: #f7f2e4;
+    margin: 0 0 14px;
+    letter-spacing: 0.5px;
+  }
+  #modal-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #4d4536;
+  }
+  #modal-meta-row .m .n {
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    color: #efebdc;
+  }
+  #modal-meta-row .m .l {
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: #a39c88;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  #modal-desc {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #c9c4b2;
+    white-space: pre-line;
+    margin: 0 0 20px;
+    max-height: 260px;
+    overflow-y: auto;
+  }
+  #modal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  #modal-tags .chip {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    color: #a39c88;
+    border: 1px solid #4d4536;
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+
+  #toolbar {
+    max-width: 1080px;
+    margin: 30px auto 0;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  #toolbar .count {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    color: #a39c88;
+    letter-spacing: 1px;
+  }
+  #filter-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .chip {
+    font-family: 'Courier New', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.5px;
+    color: #b8b19c;
+    border: 1px solid #4d4536;
+    padding: 5px 11px;
+    border-radius: 20px;
+    cursor: pointer;
+    background: #2e2820;
+    text-transform: uppercase;
+  }
+  .chip:hover { border-color: #a39c88; color: #efebdc; }
+  .chip.active { background: #9dffb0; color: #221e17; border-color: #9dffb0; }
+
+  /* ---- grid ---- */
+  #grid-wrap { max-width: 1080px; margin: 22px auto 60px; padding: 0 32px; }
+  #piece-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 18px;
+  }
+  .piece-card {
+    background: #2e2820;
+    border: 1px solid #453e30;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.15s, border-color 0.15s;
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  .piece-card.show { opacity: 1; transform: translateY(0); transition: opacity 0.35s ease, transform 0.35s ease, border-color 0.15s; }
+  .piece-card:hover { transform: translateY(-3px); border-color: #a39c88; }
+  .piece-card .thumb {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: #0c0b09;
+  }
+  .piece-card .thumb img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: grayscale(0.3) brightness(0.82) contrast(1.05);
+    transition: filter 0.2s, transform 0.3s;
+  }
+  .piece-card:hover .thumb img { filter: grayscale(0) brightness(0.95) contrast(1.1); transform: scale(1.04); }
+  .piece-card .thumb .scan {
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(to bottom, rgba(0,0,0,0.3) 0px, rgba(0,0,0,0.3) 1px, transparent 2px, transparent 3px);
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  .piece-card .thumb .idn {
+    position: absolute;
+    top: 6px; left: 6px;
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    color: #9dffb0;
+    background: rgba(11,10,8,0.75);
+    padding: 2px 6px;
+    border-radius: 2px;
+    letter-spacing: 0.5px;
+  }
+  .piece-card .meta {
+    padding: 10px 12px 12px;
+  }
+  .piece-card .meta .t {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: #f7f2e4;
+    line-height: 1.35;
+    margin: 0 0 6px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 32px;
+  }
+  .piece-card .meta .y {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    color: #a39c88;
+    letter-spacing: 0.5px;
+  }
+
+  footer {
+    border-top: 1px solid #453e30;
+    padding: 28px 32px 40px;
+    text-align: center;
+  }
+  footer .orgs {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: #b8b19c;
+    text-transform: uppercase;
+  }
+  footer .orgs span { color: #4a4638; margin: 0 8px; }
+</style>
+</head>
+<body>
+
+  <div id="topbar">
+    <a class="word" href="index.html">MEXPERIMENTA</a>
+    <nav>
+      <a href="index.html#collections" class="active">Colecciones</a>
+      <a href="videoteca.html">Videoteca</a>
+      <a href="index.html#about">Acerca de</a>
+    </nav>
+  </div>
+
+  <div id="crumb">
+    <a href="index.html">Inicio</a> / <a href="index.html#collections">Colecciones</a> / <span>Cine casero</span>
+  </div>
+
+  <div id="coll-hero">
+    <div id="coll-hero-inner">
+      <div id="coll-hero-bg">
+        <img src="https://mexperimenta.ultracinema.x10.mx/files/original/a5a56db6611df84ee5071c0128dc891c.png" alt="">
+        <div class="tint"></div>
+      </div>
+      <div id="coll-hero-content">
+        <div class="eyebrow">Tipo</div>
+        <h1>Cine casero</h1>
+        <p>Home movies y registros familiares o cotidianos, incorporados al archivo como material de valor tanto afectivo como histórico.</p>
+        <div id="coll-stats">
+          <div class="s"><div class="n">7</div><div class="l">piezas</div></div>
+          <div class="s"><div class="n">2009–2012</div><div class="l">rango</div></div>
+          <div class="s"><div class="n">Digital</div><div class="l">formato(s)</div></div>
+          <div class="s"><div class="n">1</div><div class="l">colecciones</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="toolbar">
+    <div class="count" id="result-count">7 piezas</div>
+    <div id="filter-chips">
+      <div class="chip active" data-tag="">Todas</div>
+      <div class="chip" data-tag="ULTRAcinema">ULTRAcinema</div>
+    </div>
+  </div>
+
+  <div id="grid-wrap">
+    <div id="piece-grid"></div>
+  </div>
+
+  <div id="modal-backdrop">
+    <div id="modal-card">
+      <button id="modal-close" aria-label="Cerrar">✕</button>
+      <div id="modal-screen-wrap">
+        <div id="modal-tv">
+          <div id="modal-screen">
+            <img id="modal-img" src="" alt="">
+            <canvas class="static" id="modal-static"></canvas>
+            <div class="scan"></div>
+            <div class="vig"></div>
+            <div id="modal-osd"></div>
+          </div>
+        </div>
+      </div>
+      <div id="modal-body">
+        <div class="eyebrow" id="modal-eyebrow">Archivo</div>
+        <h2 id="modal-title">—</h2>
+        <div id="modal-meta-row">
+          <div class="m"><div class="n" id="modal-year">—</div><div class="l">Año</div></div>
+          <div class="m"><div class="n" id="modal-fmt">—</div><div class="l">Formato</div></div>
+          <div class="m"><div class="n" id="modal-idn">—</div><div class="l">Código</div></div>
+          <div class="m"><div class="n" id="modal-creator">—</div><div class="l">Realización</div></div>
+        </div>
+        <p id="modal-desc"></p>
+        <div id="modal-tags"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="orgs">Festival ULTRAcinema <span>·</span> ARKINO, Archivo Abierto de Cine Experimental <span>·</span> SAPEURS MX</div>
+  </footer>
+
+<script>
+const ITEMS = [{"id": "230", "title": "Contra el Cine", "year": "2010", "idn": "JR12-PIE-13", "fmt": "Digital", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/10840c9e54c29a113a4f50e96060765b.png", "tags": ["Archivo", "Bosque", "Cine casero", "Cine internacional", "Cine negro", "Desierto", "Disparos", "Encierro", "Los Olvidados", "Miedo", "Muerte", "Naturaleza", "Pobreza", "Western"], "desc": "Una agresión al cine narrativo, en el que la acción se reduce a la nada y donde los actores dan la espalda a la cámara. Se rechaza la mirada del espectador; la película se convierte en un ejercicio de negación.", "creator": "ARKINO", "lang": "Sin Diálogo", "coll": "ULTRAcinema"}, {"id": "229", "title": "Carlosaurio", "year": "2009", "idn": "JR12-PIE-12", "fmt": "Digital", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/68d5baae7626f43b1128d3d4f8fa451c.png", "tags": ["Animación", "Archivo", "Carlos Saura", "Censura", "Ciencia ficción", "Cine casero", "Conservación", "Detrás de cámaras", "Dictadura", "Digitalización", "Dinosaurios", "Efectos Especiales", "Entrevista", "Falso Documental", "Franco", "Miedo", "Muerte", "Sangre", "Soldados", "Sorpresa", "Suspenso"], "desc": "Durante la dictadura de Franco, muchas películas de Carlos Saura sufrieron una severa censura. Este documental saca a la luz escenas inéditas que sorprenderán a muchos espectadores.", "creator": "ARKINO", "lang": "Español", "coll": "ULTRAcinema"}, {"id": "225", "title": "Home Movie Holes", "year": "2009", "idn": "JR12-PIE-08", "fmt": "Digital", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/a5a56db6611df84ee5071c0128dc891c.png", "tags": ["Cine casero", "Esquiar", "Familia", "Felicidad", "Intervención fílmica", "Loop", "Luz", "Nieve", "Pausa", "Recién nacido", "Repetición", "Ritmo", "Sombra", "Sonrisa", "Vacaciones"], "desc": "Home movie holes recupera fragmentos de cortometrajes amateur localizados en un entorno doméstico, descompuestos de forma sistemática. Destacando los agujeros iniciales de varias bobinas de 8 mm, esta pieza se estructura como una revisión nostálgica del proceso de digitalización del metraje. Esta película matérica se edita bajo un método preconcebido que revela la fragilidad de la memoria.", "creator": "ARKINO", "lang": "Sin Diálogo", "coll": "ULTRAcinema"}, {"id": "212", "title": "4500 millones de años de soledad", "year": "2011", "idn": "JR12-SO13", "fmt": "Digital", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/859c9c09344c1a71dcdf4e61605f26ec.png", "tags": ["Amor", "Años 70", "Automóvil", "Cine casero", "Familia", "México", "Reapropiación"], "desc": "Video Jaiziel Hernández Máynez, México 2011\n\nMusica Los Amparito", "creator": "ARKINO", "lang": "", "coll": "ULTRAcinema"}, {"id": "206", "title": "A priori/A posteriori", "year": "2012", "idn": "JR12-SO07", "fmt": "Digital", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/24ce37b96c06f2b83bdbc6bc63459621.png", "tags": ["Cine casero", "Home movie", "Nieve", "Niño", "Prelinger", "Reapropiación"], "desc": "", "creator": "ARKINO", "lang": "", "coll": "ULTRAcinema"}, {"id": "193", "title": "Mi Cuba", "year": "2010", "idn": "JR12-SM11", "fmt": "Digital", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/765f63716b31fe7d67fc510fa6a9a288.png", "tags": ["Abanico", "Abrazo", "Antiguo", "Archivo", "Automóvil clásico", "Baile", "Chisme", "Cine", "Cine casero", "Cine cubano", "Compañero", "Comunidad", "Cuba", "Cubanos", "Documental", "Elpidio Valdés", "Encuentro", "Fidel Castro", "Fotografía", "Goce", "Hombre", "La vida es silbar", "Miel para Oshún", "Motos", "Mujer", "Niños", "Plaff", "Platica", "Reapropiación", "Reina y Rey", "Residentes", "Salsa", "Santero", "Se permuta", "Senos", "Silla mecedora", "Té", "Turistas", "Vejez", "Viajes", "Viejita", "Viejito"], "desc": "Imágenes de la Cuba que nos ha acompañado...", "creator": "ARKINO", "lang": "Español", "coll": "ULTRAcinema"}, {"id": "186", "title": "Mujer Perfecta", "year": "2012", "idn": "JR12-SM04", "fmt": "Digital", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/28eae8f0c8cdb89e0c2713bb47b0a0c4.png", "tags": ["Alberca", "Años veinte", "Baile", "Belleza", "Besos", "Cámara", "Camarógrafa", "Cartera", "Cigarrillos", "Cine casero", "Desenfoque", "Destellos", "Deterioro", "Escalera", "Exótico", "Guerra", "Guiño", "Historia del cine universal", "Lágrimas", "Marilyn Monroe", "Material fílmico", "Miedo", "Minifalda", "Mirada", "Moda", "Mujer", "Nadadora", "Natación", "Ojos", "Orquesta", "Películas", "Piernas", "Plaza", "Pluma", "Proyector", "Reloj", "Risa", "Sensualidad", "Sombrero", "Sonrisa", "Striptease", "Tacones", "Teléfono", "Vestuario", "Viento"], "desc": "Que necesita una mujer para ser perfecta?", "creator": "ARKINO", "lang": "Español", "coll": "ULTRAcinema"}];
+
+const grid = document.getElementById('piece-grid');
+const countEl = document.getElementById('result-count');
+
+function render(filterTag) {
+  grid.innerHTML = '';
+  const filtered = filterTag ? ITEMS.filter(it => it.coll === filterTag) : ITEMS;
+  countEl.textContent = filtered.length + (filtered.length === 1 ? ' pieza' : ' piezas');
+  filtered.forEach((it, i) => {
+    const el = document.createElement('div');
+    el.className = 'piece-card';
+    el.innerHTML = `
+      <div class="thumb">
+        <img src="${it.img}" loading="lazy" alt="">
+        <div class="scan"></div>
+        <div class="idn">${it.idn}</div>
+      </div>
+      <div class="meta">
+        <p class="t">${it.title}</p>
+        <p class="y">${it.coll} · ${it.year || 's/f'}</p>
+      </div>
+    `;
+    el.addEventListener('click', () => openModal(it));
+    grid.appendChild(el);
+    setTimeout(() => el.classList.add('show'), 15 * i);
+  });
+}
+
+document.querySelectorAll('.chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    render(chip.dataset.tag);
+  });
+});
+
+const modalBackdrop = document.getElementById('modal-backdrop');
+const modalImg = document.getElementById('modal-img');
+const modalEyebrow = document.getElementById('modal-eyebrow');
+const modalTitle = document.getElementById('modal-title');
+const modalYear = document.getElementById('modal-year');
+const modalFmt = document.getElementById('modal-fmt');
+const modalIdn = document.getElementById('modal-idn');
+const modalCreator = document.getElementById('modal-creator');
+const modalDesc = document.getElementById('modal-desc');
+const modalTags = document.getElementById('modal-tags');
+const modalOsd = document.getElementById('modal-osd');
+const modalStatic = document.getElementById('modal-static');
+const mctx = modalStatic.getContext('2d');
+
+function drawModalStatic() {
+  const w = modalStatic.width = modalStatic.clientWidth;
+  const h = modalStatic.height = modalStatic.clientHeight;
+  if (!w || !h) return;
+  const id = mctx.createImageData(w, h);
+  for (let i = 0; i < id.data.length; i += 4) {
+    const v = Math.random() * 255;
+    id.data[i] = v; id.data[i+1] = v; id.data[i+2] = v; id.data[i+3] = 255;
+  }
+  mctx.putImageData(id, 0, 0);
+}
+
+function openModal(it) {
+  modalBackdrop.classList.add('open');
+  modalImg.classList.remove('on');
+  modalTitle.textContent = it.title || 's/t';
+  modalYear.textContent = it.year || 's/f';
+  modalFmt.textContent = it.fmt || '—';
+  modalIdn.textContent = it.idn || '—';
+  modalCreator.textContent = it.creator || '—';
+  modalDesc.textContent = it.desc || 'Sin sinopsis disponible.';
+  modalTags.innerHTML = it.tags.slice(0, 10).map(t => `<span class="chip">${t}</span>`).join('');
+  modalOsd.textContent = `${it.idn} · ${it.year || 's/f'}`;
+  document.getElementById('modal-eyebrow').textContent = it.coll;
+
+  modalStatic.classList.add('on');
+  let n = 0;
+  const iv = setInterval(drawModalStatic, 55);
+  setTimeout(() => {
+    clearInterval(iv);
+    modalStatic.classList.remove('on');
+    modalImg.src = it.img;
+    modalImg.classList.add('on');
+  }, 420);
+}
+
+function closeModal() {
+  modalBackdrop.classList.remove('open');
+}
+
+document.getElementById('modal-close').addEventListener('click', closeModal);
+modalBackdrop.addEventListener('click', (e) => {
+  if (e.target === modalBackdrop) closeModal();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeModal();
+});
+
+render('');
+</script>
+</body>
+</html>
