@@ -471,7 +471,7 @@
     "duration": "0:09:15",
     "color": "Color",
     "coll": "Gral. Treegan",
-    "archiveId": "gt-002-puebla-compuesto",
+    "archiveId": null,
     "sensitive": false
   },
   {
@@ -742,7 +742,7 @@
     "duration": "0:10:05",
     "color": "Blanco y Negro",
     "coll": "Gral. Treegan",
-    "archiveId": "gt-001-orquesta-silente",
+    "archiveId": null,
     "sensitive": false
   },
   {
@@ -866,7 +866,7 @@
     "duration": "0:07:59",
     "color": "Color",
     "coll": "Gral. Treegan",
-    "archiveId": "gt-003-mexico-noreste-compuesto",
+    "archiveId": null,
     "sensitive": false
   },
   {
@@ -927,7 +927,7 @@
     "duration": "0:11:03",
     "color": "Color",
     "coll": "Gral. Treegan",
-    "archiveId": "gt-005-el-continente-de-la-esperanza-compuesto",
+    "archiveId": null,
     "sensitive": false
   },
   {
@@ -3457,7 +3457,7 @@
     "duration": "0:04:57",
     "color": "Color",
     "coll": "Gral. Treegan",
-    "archiveId": "gt-004-taller-infancias-oaxaca-silente",
+    "archiveId": null,
     "sensitive": false
   },
   {
