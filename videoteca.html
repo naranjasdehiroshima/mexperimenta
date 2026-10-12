@@ -615,9 +615,6 @@
   /* Las capas decorativas no deben tapar el reproductor: dejan pasar los clics al iframe */
   #screen-img, #screen-pixelated, #static-canvas, .scanlines, .vignette, .glow-flicker, #osd, #screen-digitizing { pointer-events: none !important; }
   #screen-gate.on { pointer-events: auto; z-index: 6; }
-
-  .creditos { max-width: 720px; margin: 24px auto 20px; background: #e6e1cf; border-radius: 6px; padding: 10px 14px; opacity: .9; }
-  .creditos img { width: 100%; height: auto; display: block; mix-blend-mode: multiply; }
 </style>
 </head>
 <body>
@@ -733,10 +730,8 @@
   <div id="shelf"></div>
 
   <div id="footnote">
-    Estante con una selección de piezas del catálogo de Mexperimenta (ARKINO / ULTRAcinema), con datos sincronizados desde Airtable y video desde Internet Archive.
+    Prototipo de exploración visual con 12 piezas reales tomadas del catálogo público actual de Mexperimenta (ARKINO / ULTRAcinema). Al confirmar la base de datos definitiva en Airtable, este mismo patrón se alimentaría del dataset completo.
   </div>
-
-  <div class="creditos"><img src="assets/creditos.png" alt="Un proyecto de ARKINO, ULTRAcinema y SAPEURS MX. Este sitio es apoyado por el Sistema de Apoyos a la Creación y Proyectos Culturales (Secretaría de Cultura)." loading="lazy"></div>
 
 </div>
 
