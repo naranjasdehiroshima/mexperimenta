@@ -163,6 +163,8 @@ def build_page(cfg):
   footer {{ border-top: 1px solid #453e30; padding: 28px 32px 40px; text-align: center; }}
   footer .orgs {{ font-family: 'Courier New', monospace; font-size: 11px; letter-spacing: 1.5px; color: #b8b19c; text-transform: uppercase; }}
   footer .orgs span {{ color: #6b6350; margin: 0 8px; }}
+  .creditos {{ max-width: 720px; margin: 24px auto 0; background: #e6e1cf; border-radius: 6px; padding: 10px 14px; opacity: .9; }}
+  .creditos img {{ width: 100%; height: auto; display: block; mix-blend-mode: multiply; }}
   footer .src {{ font-family: 'Courier New', monospace; font-size: 9.5px; color: #736c5b; margin-top: 10px; }}
 
   /* ---- contenido reservado (mosaico + contraseña) ---- */
@@ -285,6 +287,8 @@ def build_page(cfg):
   <footer>
     <div class="orgs">Festival ULTRAcinema <span>·</span> ARKINO, Archivo Abierto de Cine Experimental <span>·</span> SAPEURS MX</div>
     <div class="src">datos sincronizados desde Airtable · video desde Internet Archive (@arkino_archivo_abierto)</div>
+    <div class="creditos"><img src="assets/creditos.png" alt="Un proyecto de ARKINO, ULTRAcinema y SAPEURS MX. Este sitio es apoyado por el Sistema de Apoyos a la Creación y Proyectos Culturales (Secretaría de Cultura)." loading="lazy"></div>
+  
   </footer>
 
 <script>

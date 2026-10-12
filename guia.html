@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mexperimenta — Guía y mapa del sitio</title>
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  html, body { margin:0; padding:0; background:#221e17; color:#efebdc; font-family:'Georgia','Times New Roman',serif; }
+  a { color:#9dffb0; }
+  #topbar { display:flex; align-items:center; justify-content:space-between; padding:16px 32px; border-bottom:1px solid #453e30; flex-wrap:wrap; gap:10px; }
+  #topbar .word { font-family:'Courier New', monospace; font-weight:bold; letter-spacing:3px; font-size:13px; color:#efebdc; text-decoration:none; }
+  #topbar nav a { font-family:'Courier New', monospace; font-size:11px; letter-spacing:1.5px; color:#b8b19c; text-decoration:none; margin-left:26px; text-transform:uppercase; }
+  #topbar nav a:hover { color:#9dffb0; }
+  header.hero { max-width:1080px; margin:0 auto; padding:54px 32px 10px; }
+  header.hero .eyebrow { font-family:'Courier New', monospace; font-size:11px; letter-spacing:3px; color:#9dffb0; text-transform:uppercase; margin-bottom:12px; }
+  header.hero h1 { font-family:'Courier New', monospace; font-size:clamp(28px,5vw,46px); margin:0 0 14px; color:#f7f2e4; position:relative; display:inline-block; }
+  header.hero h1::before, header.hero h1::after { content:attr(data-t); position:absolute; left:0; top:0; pointer-events:none; mix-blend-mode:screen; }
+  header.hero h1::before { color:#ff4d6d; opacity:.55; transform:translate(-2px,0); animation:gl 3.2s steps(1) infinite; }
+  header.hero h1::after { color:#4dd2ff; opacity:.5; transform:translate(2px,0); animation:gl 2.7s steps(1) infinite reverse; }
+  @keyframes gl { 0%,88%,100%{clip-path:inset(0 0 0 0);} 90%{clip-path:inset(12% 0 62% 0);} 94%{clip-path:inset(58% 0 14% 0);} 97%{clip-path:inset(30% 0 40% 0);} }
+  header.hero p.lead { font-size:17px; line-height:1.75; color:#c9c4b2; max-width:720px; margin:0; }
+  #toc { max-width:1080px; margin:26px auto 0; padding:0 32px; display:flex; flex-wrap:wrap; gap:8px; }
+  #toc a { font-family:'Courier New', monospace; font-size:10.5px; letter-spacing:1px; text-transform:uppercase; text-decoration:none; color:#b8b1a0; border:1px solid #4d4536; padding:7px 13px; border-radius:20px; }
+  #toc a:hover { border-color:#9dffb0; color:#9dffb0; }
+  main { max-width:1080px; margin:0 auto; padding:0 32px 40px; }
+  section { margin-top:56px; scroll-margin-top:20px; }
+  section > .num { font-family:'Courier New', monospace; font-size:11px; letter-spacing:3px; color:#9dffb0; }
+  section > h2 { font-family:'Courier New', monospace; font-size:clamp(20px,3vw,26px); margin:4px 0 8px; color:#f7f2e4; font-weight:bold; }
+  section > p.intro { font-size:15.5px; line-height:1.75; color:#c9c4b2; max-width:760px; margin:0 0 22px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(240px,1fr)); gap:14px; }
+  .card { background:#2e2820; border:1px solid #4d4536; border-radius:8px; padding:18px 20px; text-decoration:none; color:inherit; display:block; }
+  a.card:hover { border-color:#9dffb0; }
+  .card h3 { font-family:'Courier New', monospace; font-size:13px; letter-spacing:1px; text-transform:uppercase; color:#efebdc; margin:0 0 7px; }
+  .card p { font-size:13.5px; line-height:1.65; color:#b8b1a0; margin:0; }
+  .card .tag { display:inline-block; font-family:'Courier New', monospace; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#e0c36a; border:1px solid #6b5f33; border-radius:10px; padding:2px 8px; margin-top:10px; }
+  .tree { background:#2e2820; border:1px solid #4d4536; border-radius:8px; padding:22px 26px; font-family:'Courier New', monospace; font-size:12.5px; line-height:2; color:#c9c4b2; overflow-x:auto; white-space:pre; }
+  .tree b { color:#9dffb0; font-weight:normal; }
+  .tree a { text-decoration:none; }
+  .tree a:hover { text-decoration:underline; }
+  ol.steps { list-style:none; padding:0; margin:0; counter-reset:s; max-width:780px; }
+  ol.steps li { counter-increment:s; position:relative; padding:0 0 18px 50px; font-size:15px; line-height:1.7; color:#c9c4b2; }
+  ol.steps li::before { content:counter(s); position:absolute; left:0; top:0; width:32px; height:32px; border:1px solid #9dffb0; color:#9dffb0; border-radius:50%; font-family:'Courier New', monospace; font-size:13px; display:flex; align-items:center; justify-content:center; }
+  ol.steps li b { color:#efebdc; }
+  .kbd { font-family:'Courier New', monospace; font-size:12px; background:#17140f; border:1px solid #4d4536; border-radius:4px; padding:1px 7px; color:#efebdc; }
+  .note { border-left:3px solid #9dffb0; background:#2a251d; padding:13px 18px; font-size:14px; line-height:1.7; color:#c9c4b2; max-width:780px; border-radius:0 6px 6px 0; margin-top:6px; }
+  .fx { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px,1fr)); gap:14px; }
+  .fx .card { padding:0; overflow:hidden; }
+  .fx .demo { height:120px; display:flex; align-items:center; justify-content:center; background:#17140f; border-bottom:1px solid #4d4536; position:relative; overflow:hidden; font-family:'Courier New', monospace; }
+  .fx .body { padding:16px 20px 18px; }
+  .d-glitch { font-size:26px; font-weight:bold; letter-spacing:3px; position:relative; color:#f7f2e4; }
+  .d-glitch::before, .d-glitch::after { content:attr(data-t); position:absolute; left:0; top:0; mix-blend-mode:screen; }
+  .d-glitch::before { color:#ff4d6d; opacity:.6; transform:translate(-3px,0); animation:gl 2.4s steps(1) infinite; }
+  .d-glitch::after { color:#4dd2ff; opacity:.55; transform:translate(3px,0); animation:gl 2s steps(1) infinite reverse; }
+  .d-ghost { font-size:26px; font-weight:bold; letter-spacing:3px; color:#f7f2e4; position:relative; }
+  .d-ghost::after { content:attr(data-t); position:absolute; left:0; top:0; color:#9dffb0; opacity:.35; mix-blend-mode:screen; animation:gh 3s ease-in-out infinite; }
+  @keyframes gh { 0%,100%{transform:translate(0,0);} 50%{transform:translate(9px,-3px);} }
+  .fx .d-scan { background:linear-gradient(135deg,#5a4a7a,#7a4a5a); }
+  .d-scan::after { content:''; position:absolute; inset:0; background:repeating-linear-gradient(0deg, rgba(0,0,0,.35) 0 1px, transparent 1px 3px); }
+  .d-scan span { color:#efebdc; font-size:13px; letter-spacing:2px; position:relative; z-index:1; }
+  .fx .d-pix { background:linear-gradient(90deg,#c0607a,#d0a050 40%,#4a8a9a 70%,#3a3a7a); image-rendering:pixelated; }
+  .d-pix i { position:absolute; inset:0; background:
+      linear-gradient(90deg, rgba(34,30,23,.0) 0 0),
+      repeating-linear-gradient(90deg, transparent 0 14px, rgba(34,30,23,.25) 14px 15px),
+      repeating-linear-gradient(0deg, transparent 0 14px, rgba(34,30,23,.25) 14px 15px); }
+  .d-pix span { position:relative; z-index:1; background:#17140fd0; color:#e0c36a; font-size:11px; letter-spacing:2px; padding:5px 10px; border-radius:3px; }
+  .d-col { display:flex; }
+  .d-col div { flex:1; height:100%; display:flex; align-items:flex-end; justify-content:center; padding-bottom:10px; font-size:10px; letter-spacing:2px; color:#fff; text-transform:uppercase; }
+  .d-col .a { background:linear-gradient(135deg,#b04a6a,#d08aa0); }
+  .d-col .b { background:linear-gradient(135deg,#6a7a6a,#a0b09a); }
+  .fx h3 { font-family:'Courier New', monospace; font-size:13px; letter-spacing:1px; text-transform:uppercase; color:#efebdc; margin:0 0 6px; }
+  .fx p { font-size:13.5px; line-height:1.65; color:#b8b1a0; margin:0; }
+  table.ctl { width:100%; max-width:780px; border-collapse:collapse; font-size:14px; }
+  table.ctl td { padding:10px 12px; border-bottom:1px solid #3a342a; vertical-align:top; color:#c9c4b2; line-height:1.6; }
+  table.ctl td:first-child { font-family:'Courier New', monospace; font-size:11.5px; letter-spacing:1px; text-transform:uppercase; color:#9dffb0; width:150px; }
+  footer { border-top:1px solid #453e30; padding:28px 32px 40px; text-align:center; margin-top:40px; }
+  footer .orgs { font-family:'Courier New', monospace; font-size:11px; letter-spacing:1.5px; color:#b8b19c; text-transform:uppercase; }
+  footer .orgs span { color:#6b6350; margin:0 8px; }
+  @media (max-width:640px) { #topbar, header.hero, main, #toc { padding-left:18px; padding-right:18px; } #topbar nav a { margin:0 14px 0 0; } .tree { font-size:11px; padding:16px; } table.ctl td:first-child { width:110px; } }
+  @media (prefers-reduced-motion: reduce) { header.hero h1::before, header.hero h1::after, .d-glitch::before, .d-glitch::after, .d-ghost::after { animation:none; } }
+
+  .creditos { max-width: 720px; margin: 24px auto 0; background: #e6e1cf; border-radius: 6px; padding: 10px 14px; opacity: .9; }
+  .creditos img { width: 100%; height: auto; display: block; mix-blend-mode: multiply; }
+</style>
+</head>
+<body>
+  <div id="topbar">
+    <a class="word" href="index.html">MEXPERIMENTA</a>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="videoteca.html">Videoteca</a>
+      <a href="#mapa">Mapa</a>
+    </nav>
+  </div>
+
+  <header class="hero">
+    <div class="eyebrow">Guía de uso</div>
+    <h1 data-t="Cómo funciona Mexperimenta">Cómo funciona Mexperimenta</h1>
+    <p class="lead">Mexperimenta es el portal de cine experimental de ULTRAcinema, ARKINO y SAPEURS MX. Esta guía explica qué hay en cada rincón del sitio, qué hacen sus efectos visuales y cómo sacarles partido, incluida la corrección de color para esas copias de los 70 que se pusieron rosadas.</p>
+  </header>
+
+  <div id="toc">
+    <a href="#mapa">1 · Mapa del sitio</a>
+    <a href="#explorar">2 · Explorar</a>
+    <a href="#ficha">3 · La ficha</a>
+    <a href="#videoteca">4 · Videoteca</a>
+    <a href="#efectos">5 · Efectos</a>
+    <a href="#color">6 · Corrección de color</a>
+    <a href="#reservado">7 · Contenido reservado</a>
+    <a href="#equipo">8 · Para el equipo</a>
+  </div>
+
+  <main>
+
+    <section id="mapa">
+      <div class="num">01</div>
+      <h2>Mapa del sitio</h2>
+      <p class="intro">Todo cuelga del inicio. Desde ahí se llega a las colecciones, a la Videoteca y a la ficha individual de cada pieza.</p>
+<div class="tree"><b>Inicio</b>  <a href="index.html">index.html</a>
+├─ <b>Colecciones</b>
+│   ├─ <a href="ultracinema.html">ULTRAcinema</a>
+│   ├─ <a href="archivos-x.html">Archivos X</a>
+│   ├─ <a href="avances-cinematograficos.html">Avances Cinematográficos</a>   (trailers)
+│   └─ <a href="gral-treegan.html">Gral. Treegan</a>
+├─ <b>Explora por tipo</b>
+│   ├─ <a href="reapropiacion.html">Reapropiación</a>
+│   ├─ <a href="videoarte.html">Videoarte</a>
+│   ├─ <a href="documental.html">Documental</a>
+│   └─ <a href="cine-casero.html">Cine casero</a>
+├─ <b>Videoteca</b>  <a href="videoteca.html">videoteca.html</a>   (la tele CRT con reproductora)
+├─ <b>Ficha de pieza</b>  pieza.html?id=TR-001   (una por cada pieza)
+└─ <b>Guía</b>  <a href="guia.html">guia.html</a>   (esta página)</div>
+      <div class="grid" style="margin-top:18px;">
+        <a class="card" href="index.html"><h3>Inicio</h3><p>Portada con el título glitch, cifras del archivo, pieza destacada que rota y nube de etiquetas.</p></a>
+        <a class="card" href="avances-cinematograficos.html"><h3>Avances Cinematográficos</h3><p>Trailers de cine de explotación y de género, con fotogramas de cada uno.</p></a>
+        <a class="card" href="gral-treegan.html"><h3>Gral. Treegan</h3><p>Colección de piezas del acervo, filtrables por género.</p></a>
+        <a class="card" href="ultracinema.html"><h3>ULTRAcinema</h3><p>Piezas del festival.</p><span class="tag">en migración</span></a>
+        <a class="card" href="archivos-x.html"><h3>Archivos X</h3><p>Material de la colección Archivos X.</p><span class="tag">en migración</span></a>
+        <a class="card" href="videoteca.html"><h3>Videoteca</h3><p>Una tele CRT, una reproductora y un estante de cintas para ver las piezas a la antigua.</p></a>
+      </div>
+    </section>
+
+    <section id="explorar">
+      <div class="num">02</div>
+      <h2>Explorar el archivo</h2>
+      <p class="intro">Hay varias formas de llegar a una pieza. Elige la que te pida el cuerpo.</p>
+      <ol class="steps">
+        <li><b>Por colección.</b> En el inicio, la sección «Colecciones» abre cada una. Dentro, los chips de arriba filtran por género (Terror, Comedia, Drama…); púlsalos para acotar y vuelve a pulsar «Todos» para ver todo.</li>
+        <li><b>Por tipo.</b> «Explora por tipo» cruza las colecciones: reapropiación, videoarte, documental o cine casero, vengan de donde vengan.</li>
+        <li><b>Por etiqueta.</b> La nube de etiquetas del inicio agrupa temas como Familia, Sexualidad o Violencia. Cuanto más grande, más piezas la comparten.</li>
+        <li><b>Al azar.</b> La «Pieza destacada» cambia sola cada pocos segundos; si algo te llama la atención, púlsala.</li>
+        <li><b>Abrir una pieza.</b> Al pulsar una tarjeta se abre una vista rápida con el video y los datos. Desde ahí, «Ver ficha completa» lleva a su página propia.</li>
+      </ol>
+    </section>
+
+    <section id="ficha">
+      <div class="num">03</div>
+      <h2>La ficha de cada pieza</h2>
+      <p class="intro">Cada pieza tiene su propia dirección, por ejemplo <span class="kbd">pieza.html?id=TR-001</span>, que puedes copiar y compartir con el botón «Copiar enlace».</p>
+      <div class="grid">
+        <div class="card"><h3>Reproductor</h3><p>El video se carga desde Internet Archive. Si todavía no está digitalizado, verás un carrete girando con el aviso «en digitalización».</p></div>
+        <div class="card"><h3>Datos</h3><p>Año, código, realización, formato, duración, color, idioma y procedencia, más la sinopsis y las etiquetas.</p></div>
+        <div class="card"><h3>Fotogramas</h3><p>Debajo del reproductor, una cuadrícula con las capturas de la pieza. Pulsa una para ampliarla; con <span class="kbd">←</span> <span class="kbd">→</span> pasas de una a otra y con <span class="kbd">Esc</span> sales.</p></div>
+        <div class="card"><h3>Corrección de color</h3><p>El botón junto a «Copiar enlace». Se explica en la sección 6.</p></div>
+      </div>
+    </section>
+
+    <section id="videoteca">
+      <div class="num">04</div>
+      <h2>La Videoteca</h2>
+      <p class="intro">Es la parte más lúdica: una tele de tubo con su reproductora y un estante de cintas. Está pensada para ver las piezas como en una sala de videoclub.</p>
+      <ol class="steps">
+        <li><b>Elige una cinta</b> del estante pulsándola.</li>
+        <li><b>Mira cómo entra</b> en la reproductora. La cinta se desliza por la ranura y desaparece.</li>
+        <li><b>La tele se enciende</b> con un golpe de estática y muestra un rótulo con el código y el título.</li>
+        <li><b>Pulsa play</b> en el reproductor que aparece en la pantalla, como en cualquier video de Internet Archive.</li>
+        <li><b>Cambia de cinta</b> cuando quieras: pulsa otra del estante y repetirá el ritual.</li>
+      </ol>
+      <div class="note">Algunas cintas no tienen video aún y muestran «esta cinta todavía vive solo en la estantería física». Otras están marcadas como reservadas y piden contraseña (sección 7).</div>
+    </section>
+
+    <section id="efectos">
+      <div class="num">05</div>
+      <h2>Los efectos visuales</h2>
+      <p class="intro">Toda la web juega con la estética del video analógico. Son solo decoración y se pueden ignorar, pero conviene saber qué es cada cosa.</p>
+      <div class="fx">
+        <div class="card"><div class="demo"><span class="d-glitch" data-t="GLITCH">GLITCH</span></div><div class="body"><h3>Glitch</h3><p>Los títulos «tiemblan» con desplazamientos de color rojo y cian, como una cinta con el seguimiento mal ajustado.</p></div></div>
+        <div class="card"><div class="demo"><span class="d-ghost" data-t="GHOST">GHOST</span></div><div class="body"><h3>Ghost</h3><p>Una imagen fantasma que se desliza sobre la principal, como el eco de una señal de televisión mal sintonizada.</p></div></div>
+        <div class="card"><div class="demo d-scan"><span>LÍNEAS DE BARRIDO</span></div><div class="body"><h3>Rayas de TV</h3><p>Las líneas finas de un monitor CRT. En la Videoteca puedes quitarlas con el interruptor de la tele, si te molestan al ver una pieza.</p></div></div>
+        <div class="card"><div class="demo d-pix"><i></i><span>RESERVADO</span></div><div class="body"><h3>Mosaico pixelado</h3><p>El filtro de las piezas de contenido adulto, al estilo de la televisión codificada de los 90: la imagen se ve, pero no se reconoce.</p></div></div>
+      </div>
+    </section>
+
+    <section id="color">
+      <div class="num">06</div>
+      <h2>Corrección de color</h2>
+      <p class="intro">Muchas copias en película de los 70 y 80 han perdido sus azules y amarillos con los años y se ven viradas al rosa o al rojo. Este panel permite recuperar un color más neutro mientras ves la pieza, sin tocar el archivo original.</p>
+      <ol class="steps">
+        <li>Abre la ficha de una pieza y pulsa <b>Corrección de color</b>, junto a «Copiar enlace».</li>
+        <li>Pulsa <b>Viraje rosa (70s)</b> para un ajuste rápido pensado para estas copias, o <b>Auto</b> para que la web calcule el equilibrio a partir de los fotogramas de esa pieza.</li>
+        <li>Afina con los deslizadores. Si la imagen está demasiado rosada, baja el <b>Rojo</b> o sube <b>Verde</b> y <b>Azul</b>.</li>
+        <li>Pulsa <b>Original</b> para volver a la imagen tal como está.</li>
+      </ol>
+      <div class="fx" style="margin-top:18px;max-width:640px;">
+        <div class="card"><div class="demo d-col"><div class="a">antes</div><div class="b">después</div></div><div class="body"><h3>Ejemplo orientativo</h3><p>Una copia con dominante rosada (izquierda) y la misma imagen con el equilibrio recuperado (derecha).</p></div></div>
+      </div>
+      <table class="ctl" style="margin-top:22px;">
+        <tr><td>Rojo · Verde · Azul</td><td>Cuánto de cada color se deja pasar. Bajar el rojo y subir verde y azul compensa el virado rosa.</td></tr>
+        <tr><td>Saturación</td><td>Intensidad del color. Más alta, colores más vivos; más baja, más apagados.</td></tr>
+        <tr><td>Contraste</td><td>Diferencia entre claros y oscuros.</td></tr>
+        <tr><td>Auto</td><td>Mide el color medio de las capturas y ajusta para neutralizarlo. Funciona mejor si todas las escenas comparten el mismo virado.</td></tr>
+      </table>
+      <div class="note" style="margin-top:16px;">La corrección actúa sobre el reproductor, el póster, las capturas y el visor ampliado, y está desactivada por defecto: cada ficha se abre con la imagen original. Solo cambia lo que ves en tu pantalla: los archivos originales no se modifican y al salir de la ficha se olvida. Funciona en ordenador y en móvil; en algunos navegadores móviles antiguos puede no aplicarse sobre el video, aunque sí sobre las capturas.</div>
+    </section>
+
+    <section id="reservado">
+      <div class="num">07</div>
+      <h2>Contenido reservado</h2>
+      <p class="intro">Las piezas con contenido sexual explícito o sugerido se muestran pixeladas y con un candado 🔒, en tarjetas, fichas y Videoteca. No se pueden ver ni su video ni sus fotogramas hasta introducir una contraseña.</p>
+      <div class="note">La contraseña la gestiona el equipo de Arkino y decide a quién se la da. Una vez introducida, el contenido queda desbloqueado mientras dure tu visita.</div>
+    </section>
+
+    <section id="equipo">
+      <div class="num">08</div>
+      <h2>Para el equipo de Arkino: cómo se mantiene</h2>
+      <p class="intro">El sitio se alimenta solo de la base de Airtable. No hay que tocar código para añadir o corregir piezas.</p>
+      <div class="grid">
+        <div class="card"><h3>Datos</h3><p>Cada día el sitio lee Airtable y se actualiza. Solo se publican las piezas con la casilla <b>publicado</b> marcada.</p></div>
+        <div class="card"><h3>Video</h3><p>Se enlaza solo si el identificador de Internet Archive empieza por el código de la pieza (<span class="kbd">dc:identifier</span> en minúsculas).</p></div>
+        <div class="card"><h3>Fotogramas</h3><p>Se añaden como carpeta <span class="kbd">TR_###_…</span> con las capturas dentro. Las miniaturas se generan automáticamente.</p></div>
+        <div class="card"><h3>Reservado</h3><p>Una pieza se oculta tras el candado si en <span class="kbd">dc:type</span> lleva la etiqueta <b>Erótico</b>.</p></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="orgs">Festival ULTRAcinema <span>·</span> ARKINO, Archivo Abierto de Cine Experimental <span>·</span> SAPEURS MX</div>
+      <div class="creditos"><img src="assets/creditos.png" alt="Un proyecto de ARKINO, ULTRAcinema y SAPEURS MX. Este sitio es apoyado por el Sistema de Apoyos a la Creación y Proyectos Culturales (Secretaría de Cultura)." loading="lazy"></div>
+  </footer>
+</body>
+</html>

@@ -72,15 +72,32 @@
   #lb button:hover { border-color:#9dffb0; color:#9dffb0; }
   #lb .x { top:18px; right:22px; } #lb .pv { left:20px; top:50%; } #lb .nx { right:20px; top:50%; }
   @media (max-width:600px) { #gallery { padding:22px 16px; } #lb .pv { left:6px; } #lb .nx { right:6px; } }
+
+  #cc-btn.on { border-color:#9dffb0 !important; color:#9dffb0 !important; }
+  #cc-panel { display:none; margin-top:12px; background:#17140f; border:1px solid #4d4536; border-radius:6px; padding:14px 16px; font-family:'Courier New', monospace; font-size:10px; letter-spacing:1px; color:#b8b1a0; }
+  #cc-panel.on { display:block; }
+  #cc-panel .row { display:flex; align-items:center; gap:10px; margin:7px 0; text-transform:uppercase; }
+  #cc-panel .row label { width:84px; flex:none; }
+  #cc-panel .row input[type=range] { flex:1; accent-color:#9dffb0; min-width:0; }
+  #cc-panel .row output { width:34px; text-align:right; color:#efebdc; }
+  #cc-panel .pre { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:8px; }
+  #cc-panel .pre button { font-family:inherit; font-size:10px; letter-spacing:1px; text-transform:uppercase; background:#2e2820; border:1px solid #4d4536; color:#b8b1a0; padding:6px 10px; border-radius:4px; cursor:pointer; }
+  #cc-panel .pre button:hover { border-color:#9dffb0; color:#9dffb0; }
+  #cc-panel .note { margin-top:8px; color:#8a8370; font-size:9px; line-height:1.5; letter-spacing:.5px; text-transform:none; }
+  body.cc-on #iframe, body.cc-on #poster, body.cc-on #gal-grid img, body.cc-on #lb img { filter:url(#cc-filter) saturate(var(--cc-sat,1)) contrast(var(--cc-con,1)); }
   #not-found { display:none; text-align:center; padding:80px 20px; font-family:'Courier New', monospace; color:#a39c88; }
 
   footer { border-top:1px solid #453e30; padding:28px 32px 40px; text-align:center; margin-top:20px; }
   footer .orgs { font-family:'Courier New', monospace; font-size:11px; letter-spacing:1.5px; color:#b8b19c; text-transform:uppercase; }
   footer .orgs span { color:#6b6350; margin:0 8px; }
+
+  .creditos { max-width: 720px; margin: 24px auto 0; background: #e6e1cf; border-radius: 6px; padding: 10px 14px; opacity: .9; }
+  .creditos img { width: 100%; height: auto; display: block; mix-blend-mode: multiply; }
 </style>
 </head>
 <body>
 
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="cc-filter" color-interpolation-filters="sRGB"><feComponentTransfer><feFuncR id="cc-fr" type="linear" slope="1"/><feFuncG id="cc-fg" type="linear" slope="1"/><feFuncB id="cc-fb" type="linear" slope="1"/></feComponentTransfer></filter></svg>
   <div id="topbar">
     <a class="word" href="index.html">MEXPERIMENTA</a>
     <nav>
@@ -122,7 +139,23 @@
         <div id="share-row">
           <button id="share-btn">Copiar enlace ↗</button>
           <span id="share-msg"></span>
+
+        <button id="cc-btn" style="font-family:'Courier New',monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;background:#17140f;border:1px solid #4d4536;color:#b8b1a0;padding:8px 14px;border-radius:4px;cursor:pointer;">Corrección de color</button>
         </div>
+        <div id="cc-panel">
+          <div class="pre">
+            <button data-p="off">Original</button>
+            <button data-p="rosa">Viraje rosa (70s)</button>
+            <button data-p="auto">Auto</button>
+          </div>
+          <div class="row"><label>Rojo</label><input type="range" id="cc-r" min="0.5" max="1.5" step="0.01" value="1"><output></output></div>
+          <div class="row"><label>Verde</label><input type="range" id="cc-g" min="0.5" max="1.5" step="0.01" value="1"><output></output></div>
+          <div class="row"><label>Azul</label><input type="range" id="cc-b" min="0.5" max="1.5" step="0.01" value="1"><output></output></div>
+          <div class="row"><label>Saturación</label><input type="range" id="cc-s" min="0.4" max="2" step="0.01" value="1"><output></output></div>
+          <div class="row"><label>Contraste</label><input type="range" id="cc-c" min="0.7" max="1.5" step="0.01" value="1"><output></output></div>
+          <div class="note">Corrección visual en tu navegador: no modifica el archivo original. «Auto» calcula el equilibrio a partir de los fotogramas de la pieza.</div>
+        </div>
+
       </div>
       <div id="info">
         <div class="eyebrow" id="f-coll">—</div>
@@ -165,6 +198,7 @@
 
   <footer>
     <div class="orgs">Festival ULTRAcinema <span>·</span> ARKINO, Archivo Abierto de Cine Experimental <span>·</span> SAPEURS MX</div>
+      <div class="creditos"><img src="assets/creditos.png" alt="Un proyecto de ARKINO, ULTRAcinema y SAPEURS MX. Este sitio es apoyado por el Sistema de Apoyos a la Creación y Proyectos Culturales (Secretaría de Cultura)." loading="lazy"></div>
   </footer>
 
 <script>
@@ -302,6 +336,50 @@ if (!it) {
     if (e.key === 'ArrowLeft') openLb(galIdx - 1);
     if (e.key === 'ArrowRight') openLb(galIdx + 1);
   });
+
+
+  // ---- Corrección de color online ----
+  const ccIds = ['r','g','b','s','c'];
+  const ccPresets = { off:{r:1,g:1,b:1,s:1,c:1}, rosa:{r:0.80,g:1.08,b:1.16,s:1.12,c:1.05} };
+  function ccApply(v) {
+    document.getElementById('cc-fr').setAttribute('slope', v.r);
+    document.getElementById('cc-fg').setAttribute('slope', v.g);
+    document.getElementById('cc-fb').setAttribute('slope', v.b);
+    document.body.style.setProperty('--cc-sat', v.s);
+    document.body.style.setProperty('--cc-con', v.c);
+    ccIds.forEach(k => { const el = document.getElementById('cc-' + k); el.value = v[k]; el.nextElementSibling.textContent = (+v[k]).toFixed(2); });
+    const active = !(v.r==1 && v.g==1 && v.b==1 && v.s==1 && v.c==1);
+    document.body.classList.toggle('cc-on', active);
+    document.getElementById('cc-btn').classList.toggle('on', active);
+  }
+  function ccRead() { const v = {}; ccIds.forEach(k => v[k] = +document.getElementById('cc-' + k).value); return v; }
+  document.getElementById('cc-btn').addEventListener('click', () => document.getElementById('cc-panel').classList.toggle('on'));
+  ccIds.forEach(k => document.getElementById('cc-' + k).addEventListener('input', () => ccApply(ccRead())));
+  // Auto: balance "gray world" a partir de los fotogramas (misma web, sin CORS)
+  async function ccAuto() {
+    const list = (galData && (galData.min && galData.min.length ? galData.min : galData.full)) || [];
+    if (!list.length) { alert('Esta pieza no tiene fotogramas para calcular el equilibrio.'); return; }
+    const pick = list.filter((_, i) => i % Math.ceil(list.length / 12) === 0);
+    const cv = document.createElement('canvas'); cv.width = 64; cv.height = 48; const cx = cv.getContext('2d');
+    let R = 0, G = 0, B = 0, N = 0;
+    for (const f of pick) {
+      try {
+        const img = await new Promise((ok, no) => { const im = new Image(); im.onload = () => ok(im); im.onerror = no; im.src = f.split('/').map(encodeURIComponent).join('/'); });
+        cx.drawImage(img, 0, 0, 64, 48);
+        const d = cx.getImageData(0, 0, 64, 48).data;
+        for (let i = 0; i < d.length; i += 4) { R += d[i]; G += d[i+1]; B += d[i+2]; N++; }
+      } catch (e) {}
+    }
+    if (!N) return;
+    R /= N; G /= N; B /= N;
+    // Corrección suave: solo la mitad del desvío "gray world", limitada a 0.75–1.30 para no pasarse de verde
+    const m = (R + G + B) / 3, cl = x => Math.max(0.75, Math.min(1.3, +(1 + (m / x - 1) * 0.5).toFixed(2)));
+    ccApply({ r: cl(R), g: cl(G), b: cl(B), s: 1, c: 1 });
+  }
+  document.querySelectorAll('#cc-panel .pre button').forEach(b => b.addEventListener('click', () => {
+    const k = b.dataset.p; if (k === 'auto') ccAuto(); else ccApply(ccPresets[k]);
+  }));
+  ccApply(ccPresets.off); // por defecto, imagen original en cada ficha
 
   document.getElementById('share-btn').addEventListener('click', () => {
     navigator.clipboard.writeText(location.href).then(() => {
