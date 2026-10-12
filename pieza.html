@@ -347,7 +347,6 @@ if (!it) {
     const active = !(v.r==1 && v.g==1 && v.b==1 && v.s==1 && v.c==1);
     document.body.classList.toggle('cc-on', active);
     document.getElementById('cc-btn').classList.toggle('on', active);
-    try { sessionStorage.setItem('mx_cc', JSON.stringify(v)); } catch(e) {}
   }
   function ccRead() { const v = {}; ccIds.forEach(k => v[k] = +document.getElementById('cc-' + k).value); return v; }
   document.getElementById('cc-btn').addEventListener('click', () => document.getElementById('cc-panel').classList.toggle('on'));
@@ -375,7 +374,7 @@ if (!it) {
   document.querySelectorAll('#cc-panel .pre button').forEach(b => b.addEventListener('click', () => {
     const k = b.dataset.p; if (k === 'auto') ccAuto(); else ccApply(ccPresets[k]);
   }));
-  try { const saved = JSON.parse(sessionStorage.getItem('mx_cc') || 'null'); ccApply(saved || ccPresets.off); } catch(e) { ccApply(ccPresets.off); }
+  ccApply(ccPresets.off); // por defecto, imagen original en cada ficha
 
   document.getElementById('share-btn').addEventListener('click', () => {
     navigator.clipboard.writeText(location.href).then(() => {
