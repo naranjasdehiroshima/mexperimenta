@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ['sync_arkino.py','build_real_collections.py']
+    paths: ['sync_arkino.py','build_real_collections.py','build_capturas.py','capturas/**']
 permissions:
   contents: write
 jobs:
@@ -19,6 +19,7 @@ jobs:
         env:
           AIRTABLE_TOKEN: ${{ secrets.AIRTABLE_TOKEN }}
       - run: python3 build_real_collections.py
+      - run: pip install pillow && python3 build_capturas.py
       - name: Commit
         run: |
           git config user.name "mexperimenta-bot"
