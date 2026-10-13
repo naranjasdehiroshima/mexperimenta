@@ -417,6 +417,11 @@
   .credito-web { display: flex; align-items: center; justify-content: center; gap: 12px; max-width: 420px; margin: 10px auto 0; background: #e6e1cf; border-radius: 6px; padding: 8px 14px; opacity: .9; font-family: 'Courier New', monospace; font-size: 10.5px; letter-spacing: 1px; color: #3a3226; text-transform: uppercase; }
   .credito-web img { height: 44px; width: auto; display: block; }
   .credito-web a { color: inherit; text-decoration: none; border-bottom: 1px solid #3a322655; }
+
+  #modal-screen iframe { position:absolute; inset:0; width:100%; height:100%; border:0; display:none; background:#000; }
+  #modal-screen iframe.on { display:block; }
+  #modal-digit { position:absolute; left:0; right:0; bottom:0; display:none; padding:9px 12px; text-align:center; font-family:'Courier New', monospace; font-size:10px; letter-spacing:1px; line-height:1.5; color:#ffd479; background:rgba(12,10,7,.78); text-transform:uppercase; pointer-events:none; }
+  #modal-digit.on { display:block; }
 </style>
 </head>
 <body>
@@ -475,6 +480,8 @@
           <div id="modal-screen">
             <img id="modal-img" src="" alt="">
             <canvas class="static" id="modal-static"></canvas>
+            <iframe id="modal-iframe" src="" allowfullscreen></iframe>
+            <div id="modal-digit">en digitalización<br><span style="text-transform:none;letter-spacing:.3px;color:#cfc8b3">esta cinta todavía vive solo en la estantería física</span></div>
             <div class="scan"></div>
             <div class="vig"></div>
             <div id="modal-osd"></div>
@@ -551,6 +558,8 @@ const modalCreator = document.getElementById('modal-creator');
 const modalDesc = document.getElementById('modal-desc');
 const modalTags = document.getElementById('modal-tags');
 const modalOsd = document.getElementById('modal-osd');
+const modalIframe = document.getElementById('modal-iframe');
+const modalDigit = document.getElementById('modal-digit');
 const modalStatic = document.getElementById('modal-static');
 const mctx = modalStatic.getContext('2d');
 
@@ -569,6 +578,8 @@ function drawModalStatic() {
 function openModal(it) {
   modalBackdrop.classList.add('open');
   modalImg.classList.remove('on');
+  modalIframe.classList.remove('on'); modalIframe.src = '';
+  modalDigit.classList.remove('on');
   modalTitle.textContent = it.title || 's/t';
   modalYear.textContent = it.year || 's/f';
   modalFmt.textContent = it.fmt || '—';
@@ -587,11 +598,18 @@ function openModal(it) {
     modalStatic.classList.remove('on');
     modalImg.src = it.img;
     modalImg.classList.add('on');
+    if (it.archiveId) {
+      modalIframe.src = 'https://archive.org/embed/' + it.archiveId;
+      modalIframe.classList.add('on');
+    } else {
+      modalDigit.classList.add('on');
+    }
   }, 420);
 }
 
 function closeModal() {
   modalBackdrop.classList.remove('open');
+  modalIframe.classList.remove('on'); modalIframe.src = '';
 }
 
 document.getElementById('modal-close').addEventListener('click', closeModal);

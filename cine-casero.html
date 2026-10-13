@@ -417,6 +417,11 @@
   .credito-web { display: flex; align-items: center; justify-content: center; gap: 12px; max-width: 420px; margin: 10px auto 0; background: #e6e1cf; border-radius: 6px; padding: 8px 14px; opacity: .9; font-family: 'Courier New', monospace; font-size: 10.5px; letter-spacing: 1px; color: #3a3226; text-transform: uppercase; }
   .credito-web img { height: 44px; width: auto; display: block; }
   .credito-web a { color: inherit; text-decoration: none; border-bottom: 1px solid #3a322655; }
+
+  #modal-screen iframe { position:absolute; inset:0; width:100%; height:100%; border:0; display:none; background:#000; }
+  #modal-screen iframe.on { display:block; }
+  #modal-digit { position:absolute; left:0; right:0; bottom:0; display:none; padding:9px 12px; text-align:center; font-family:'Courier New', monospace; font-size:10px; letter-spacing:1px; line-height:1.5; color:#ffd479; background:rgba(12,10,7,.78); text-transform:uppercase; pointer-events:none; }
+  #modal-digit.on { display:block; }
 </style>
 </head>
 <body>
@@ -474,6 +479,8 @@
           <div id="modal-screen">
             <img id="modal-img" src="" alt="">
             <canvas class="static" id="modal-static"></canvas>
+            <iframe id="modal-iframe" src="" allowfullscreen></iframe>
+            <div id="modal-digit">en digitalización<br><span style="text-transform:none;letter-spacing:.3px;color:#cfc8b3">esta cinta todavía vive solo en la estantería física</span></div>
             <div class="scan"></div>
             <div class="vig"></div>
             <div id="modal-osd"></div>
@@ -502,7 +509,7 @@
   </footer>
 
 <script>
-const ITEMS = [{"id": "230", "title": "Contra el Cine", "year": "2010", "idn": "JR12-PIE-13", "fmt": "Digital", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/10840c9e54c29a113a4f50e96060765b.png", "tags": ["Archivo", "Bosque", "Cine casero", "Cine internacional", "Cine negro", "Desierto", "Disparos", "Encierro", "Los Olvidados", "Miedo", "Muerte", "Naturaleza", "Pobreza", "Western"], "desc": "Una agresión al cine narrativo, en el que la acción se reduce a la nada y donde los actores dan la espalda a la cámara. Se rechaza la mirada del espectador; la película se convierte en un ejercicio de negación.", "creator": "ARKINO", "lang": "Sin Diálogo", "coll": "ULTRAcinema"}, {"id": "229", "title": "Carlosaurio", "year": "2009", "idn": "JR12-PIE-12", "fmt": "Digital", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/68d5baae7626f43b1128d3d4f8fa451c.png", "tags": ["Animación", "Archivo", "Carlos Saura", "Censura", "Ciencia ficción", "Cine casero", "Conservación", "Detrás de cámaras", "Dictadura", "Digitalización", "Dinosaurios", "Efectos Especiales", "Entrevista", "Falso Documental", "Franco", "Miedo", "Muerte", "Sangre", "Soldados", "Sorpresa", "Suspenso"], "desc": "Durante la dictadura de Franco, muchas películas de Carlos Saura sufrieron una severa censura. Este documental saca a la luz escenas inéditas que sorprenderán a muchos espectadores.", "creator": "ARKINO", "lang": "Español", "coll": "ULTRAcinema"}, {"id": "225", "title": "Home Movie Holes", "year": "2009", "idn": "JR12-PIE-08", "fmt": "Digital", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/a5a56db6611df84ee5071c0128dc891c.png", "tags": ["Cine casero", "Esquiar", "Familia", "Felicidad", "Intervención fílmica", "Loop", "Luz", "Nieve", "Pausa", "Recién nacido", "Repetición", "Ritmo", "Sombra", "Sonrisa", "Vacaciones"], "desc": "Home movie holes recupera fragmentos de cortometrajes amateur localizados en un entorno doméstico, descompuestos de forma sistemática. Destacando los agujeros iniciales de varias bobinas de 8 mm, esta pieza se estructura como una revisión nostálgica del proceso de digitalización del metraje. Esta película matérica se edita bajo un método preconcebido que revela la fragilidad de la memoria.", "creator": "ARKINO", "lang": "Sin Diálogo", "coll": "ULTRAcinema"}, {"id": "212", "title": "4500 millones de años de soledad", "year": "2011", "idn": "JR12-SO13", "fmt": "Digital", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/859c9c09344c1a71dcdf4e61605f26ec.png", "tags": ["Amor", "Años 70", "Automóvil", "Cine casero", "Familia", "México", "Reapropiación"], "desc": "Video Jaiziel Hernández Máynez, México 2011\n\nMusica Los Amparito", "creator": "ARKINO", "lang": "", "coll": "ULTRAcinema"}, {"id": "206", "title": "A priori/A posteriori", "year": "2012", "idn": "JR12-SO07", "fmt": "Digital", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/24ce37b96c06f2b83bdbc6bc63459621.png", "tags": ["Cine casero", "Home movie", "Nieve", "Niño", "Prelinger", "Reapropiación"], "desc": "", "creator": "ARKINO", "lang": "", "coll": "ULTRAcinema"}, {"id": "193", "title": "Mi Cuba", "year": "2010", "idn": "JR12-SM11", "fmt": "Digital", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/765f63716b31fe7d67fc510fa6a9a288.png", "tags": ["Abanico", "Abrazo", "Antiguo", "Archivo", "Automóvil clásico", "Baile", "Chisme", "Cine", "Cine casero", "Cine cubano", "Compañero", "Comunidad", "Cuba", "Cubanos", "Documental", "Elpidio Valdés", "Encuentro", "Fidel Castro", "Fotografía", "Goce", "Hombre", "La vida es silbar", "Miel para Oshún", "Motos", "Mujer", "Niños", "Plaff", "Platica", "Reapropiación", "Reina y Rey", "Residentes", "Salsa", "Santero", "Se permuta", "Senos", "Silla mecedora", "Té", "Turistas", "Vejez", "Viajes", "Viejita", "Viejito"], "desc": "Imágenes de la Cuba que nos ha acompañado...", "creator": "ARKINO", "lang": "Español", "coll": "ULTRAcinema"}, {"id": "186", "title": "Mujer Perfecta", "year": "2012", "idn": "JR12-SM04", "fmt": "Digital", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/28eae8f0c8cdb89e0c2713bb47b0a0c4.png", "tags": ["Alberca", "Años veinte", "Baile", "Belleza", "Besos", "Cámara", "Camarógrafa", "Cartera", "Cigarrillos", "Cine casero", "Desenfoque", "Destellos", "Deterioro", "Escalera", "Exótico", "Guerra", "Guiño", "Historia del cine universal", "Lágrimas", "Marilyn Monroe", "Material fílmico", "Miedo", "Minifalda", "Mirada", "Moda", "Mujer", "Nadadora", "Natación", "Ojos", "Orquesta", "Películas", "Piernas", "Plaza", "Pluma", "Proyector", "Reloj", "Risa", "Sensualidad", "Sombrero", "Sonrisa", "Striptease", "Tacones", "Teléfono", "Vestuario", "Viento"], "desc": "Que necesita una mujer para ser perfecta?", "creator": "ARKINO", "lang": "Español", "coll": "ULTRAcinema"}];
+const ITEMS = [{"id": "230", "title": "Contra el Cine", "year": "2010", "idn": "JR12-PIE-13", "fmt": "Digital", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/10840c9e54c29a113a4f50e96060765b.png", "tags": ["Archivo", "Bosque", "Cine casero", "Cine internacional", "Cine negro", "Desierto", "Disparos", "Encierro", "Los Olvidados", "Miedo", "Muerte", "Naturaleza", "Pobreza", "Western"], "desc": "Una agresión al cine narrativo, en el que la acción se reduce a la nada y donde los actores dan la espalda a la cámara. Se rechaza la mirada del espectador; la película se convierte en un ejercicio de negación.", "creator": "ARKINO", "lang": "Sin Diálogo", "coll": "ULTRAcinema"}, {"id": "229", "title": "Carlosaurio", "year": "2009", "idn": "JR12-PIE-12", "fmt": "Digital", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/68d5baae7626f43b1128d3d4f8fa451c.png", "tags": ["Animación", "Archivo", "Carlos Saura", "Censura", "Ciencia ficción", "Cine casero", "Conservación", "Detrás de cámaras", "Dictadura", "Digitalización", "Dinosaurios", "Efectos Especiales", "Entrevista", "Falso Documental", "Franco", "Miedo", "Muerte", "Sangre", "Soldados", "Sorpresa", "Suspenso"], "desc": "Durante la dictadura de Franco, muchas películas de Carlos Saura sufrieron una severa censura. Este documental saca a la luz escenas inéditas que sorprenderán a muchos espectadores.", "creator": "ARKINO", "lang": "Español", "coll": "ULTRAcinema"}, {"id": "225", "title": "Home Movie Holes", "year": "2009", "idn": "JR12-PIE-08", "fmt": "Digital", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/a5a56db6611df84ee5071c0128dc891c.png", "tags": ["Cine casero", "Esquiar", "Familia", "Felicidad", "Intervención fílmica", "Loop", "Luz", "Nieve", "Pausa", "Recién nacido", "Repetición", "Ritmo", "Sombra", "Sonrisa", "Vacaciones"], "desc": "Home movie holes recupera fragmentos de cortometrajes amateur localizados en un entorno doméstico, descompuestos de forma sistemática. Destacando los agujeros iniciales de varias bobinas de 8 mm, esta pieza se estructura como una revisión nostálgica del proceso de digitalización del metraje. Esta película matérica se edita bajo un método preconcebido que revela la fragilidad de la memoria.", "creator": "ARKINO", "lang": "Sin Diálogo", "coll": "ULTRAcinema"}, {"id": "212", "title": "4500 millones de años de soledad", "year": "2011", "idn": "JR12-SO13", "fmt": "Digital", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/859c9c09344c1a71dcdf4e61605f26ec.png", "tags": ["Amor", "Años 70", "Automóvil", "Cine casero", "Familia", "México", "Reapropiación"], "desc": "Video Jaiziel Hernández Máynez, México 2011\n\nMusica Los Amparito", "creator": "ARKINO", "lang": "", "coll": "ULTRAcinema"}, {"id": "206", "title": "A priori/A posteriori", "year": "2012", "idn": "JR12-SO07", "fmt": "Digital", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/24ce37b96c06f2b83bdbc6bc63459621.png", "tags": ["Cine casero", "Home movie", "Nieve", "Niño", "Prelinger", "Reapropiación"], "desc": "", "creator": "ARKINO", "lang": "", "coll": "ULTRAcinema"}, {"id": "193", "title": "Mi Cuba", "year": "2010", "idn": "JR12-SM11", "fmt": "Digital", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/765f63716b31fe7d67fc510fa6a9a288.png", "tags": ["Abanico", "Abrazo", "Antiguo", "Archivo", "Automóvil clásico", "Baile", "Chisme", "Cine", "Cine casero", "Cine cubano", "Compañero", "Comunidad", "Cuba", "Cubanos", "Documental", "Elpidio Valdés", "Encuentro", "Fidel Castro", "Fotografía", "Goce", "Hombre", "La vida es silbar", "Miel para Oshún", "Motos", "Mujer", "Niños", "Plaff", "Platica", "Reapropiación", "Reina y Rey", "Residentes", "Salsa", "Santero", "Se permuta", "Senos", "Silla mecedora", "Té", "Turistas", "Vejez", "Viajes", "Viejita", "Viejito"], "desc": "Imágenes de la Cuba que nos ha acompañado...", "creator": "ARKINO", "lang": "Español", "coll": "ULTRAcinema", "archiveId": "11-mi-cuba"}, {"id": "186", "title": "Mujer Perfecta", "year": "2012", "idn": "JR12-SM04", "fmt": "Digital", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/28eae8f0c8cdb89e0c2713bb47b0a0c4.png", "tags": ["Alberca", "Años veinte", "Baile", "Belleza", "Besos", "Cámara", "Camarógrafa", "Cartera", "Cigarrillos", "Cine casero", "Desenfoque", "Destellos", "Deterioro", "Escalera", "Exótico", "Guerra", "Guiño", "Historia del cine universal", "Lágrimas", "Marilyn Monroe", "Material fílmico", "Miedo", "Minifalda", "Mirada", "Moda", "Mujer", "Nadadora", "Natación", "Ojos", "Orquesta", "Películas", "Piernas", "Plaza", "Pluma", "Proyector", "Reloj", "Risa", "Sensualidad", "Sombrero", "Sonrisa", "Striptease", "Tacones", "Teléfono", "Vestuario", "Viento"], "desc": "Que necesita una mujer para ser perfecta?", "creator": "ARKINO", "lang": "Español", "coll": "ULTRAcinema", "archiveId": "mujer-perfecta"}];
 
 const grid = document.getElementById('piece-grid');
 const countEl = document.getElementById('result-count');
@@ -550,6 +557,8 @@ const modalCreator = document.getElementById('modal-creator');
 const modalDesc = document.getElementById('modal-desc');
 const modalTags = document.getElementById('modal-tags');
 const modalOsd = document.getElementById('modal-osd');
+const modalIframe = document.getElementById('modal-iframe');
+const modalDigit = document.getElementById('modal-digit');
 const modalStatic = document.getElementById('modal-static');
 const mctx = modalStatic.getContext('2d');
 
@@ -568,6 +577,8 @@ function drawModalStatic() {
 function openModal(it) {
   modalBackdrop.classList.add('open');
   modalImg.classList.remove('on');
+  modalIframe.classList.remove('on'); modalIframe.src = '';
+  modalDigit.classList.remove('on');
   modalTitle.textContent = it.title || 's/t';
   modalYear.textContent = it.year || 's/f';
   modalFmt.textContent = it.fmt || '—';
@@ -586,11 +597,18 @@ function openModal(it) {
     modalStatic.classList.remove('on');
     modalImg.src = it.img;
     modalImg.classList.add('on');
+    if (it.archiveId) {
+      modalIframe.src = 'https://archive.org/embed/' + it.archiveId;
+      modalIframe.classList.add('on');
+    } else {
+      modalDigit.classList.add('on');
+    }
   }, 420);
 }
 
 function closeModal() {
   modalBackdrop.classList.remove('open');
+  modalIframe.classList.remove('on'); modalIframe.src = '';
 }
 
 document.getElementById('modal-close').addEventListener('click', closeModal);
