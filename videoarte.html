@@ -422,6 +422,17 @@
   #modal-screen iframe.on { display:block; }
   #modal-digit { position:absolute; left:0; right:0; bottom:0; display:none; padding:9px 12px; text-align:center; font-family:'Courier New', monospace; font-size:10px; letter-spacing:1px; line-height:1.5; color:#ffd479; background:rgba(12,10,7,.78); text-transform:uppercase; pointer-events:none; }
   #modal-digit.on { display:block; }
+  #modal-tv { position: relative; }
+  #modal-crt { position:absolute; right:16px; bottom:4px; font-family:'Courier New', monospace; font-size:9.5px; letter-spacing:1px; text-transform:uppercase; background:none; border:1px solid #6b6350; color:#b8b1a0; padding:3px 9px; border-radius:10px; cursor:pointer; }
+  #modal-crt:hover { border-color:#9dffb0; color:#9dffb0; }
+  #modal-screen.nocrt .scan, #modal-screen.nocrt .vig { display:none; }
+  @media (min-width: 820px) {
+    #modal-card.has-video { max-width: 1040px; }
+    #modal-card.has-video #modal-screen-wrap { flex: 1 1 100%; padding: 26px 26px 10px; }
+    #modal-card.has-video #modal-tv { max-width: 780px; }
+    #modal-card.has-video #modal-screen { aspect-ratio: 16/9; }
+    #modal-card.has-video #modal-body { flex: 1 1 100%; }
+  }
 </style>
 </head>
 <body>
@@ -442,7 +453,7 @@
   <div id="coll-hero">
     <div id="coll-hero-inner">
       <div id="coll-hero-bg">
-        <img src="https://mexperimenta.ultracinema.x10.mx/files/original/0aecfef62aef745a582fe020ce124171.jpeg" alt="">
+        <img src="assets/old/0aecfef62aef745a582fe020ce124171.jpg" alt="">
         <div class="tint"></div>
       </div>
       <div id="coll-hero-content">
@@ -486,6 +497,7 @@
             <div class="vig"></div>
             <div id="modal-osd"></div>
           </div>
+          <button id="modal-crt" type="button" aria-pressed="true">Efecto CRT: sí</button>
         </div>
       </div>
       <div id="modal-body">
@@ -505,12 +517,12 @@
 
   <footer>
     <div class="orgs">Festival ULTRAcinema <span>·</span> ARKINO, Archivo Abierto de Cine Experimental <span>·</span> SAPEURS MX</div>
-      <div class="creditos"><img src="assets/creditos.png" alt="Un proyecto de ARKINO, ULTRAcinema y SAPEURS MX. Este sitio es apoyado por el Sistema de Apoyos a la Creación y Proyectos Culturales (Secretaría de Cultura)." loading="lazy"></div>
+      <div class="creditos"><img src="assets/creditos.png" alt="Un proyecto de ARKINO, ULTRAcinema y SAPEURS MX. Proyecto realizado con el apoyo del Instituto Mexicano de Cinematografía a través del programa Fomento al Cine Mexicano (FOCINE) 2026. Secretaría de Cultura." loading="lazy"></div>
     <div class="credito-web"><img src="assets/naranjas-logo.png" alt="Naranjas de Hiroshima"><span>Diseño web: <a href="https://naranjasdehiroshima.com" target="_blank" rel="noopener">Naranjas de Hiroshima</a></span></div>
   </footer>
 
 <script>
-const ITEMS = [{"id": "431", "title": "Verena Grimm", "year": "1998/1999", "idn": "XC-0016", "fmt": "VHS", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/0aecfef62aef745a582fe020ce124171.jpeg", "tags": ["Ambulancias", "Babosas", "Bebé", "Blanco y Negro", "Cerebro", "Enfermeras", "Guantes", "Jeringas", "Juguetes", "Mangueras", "Niño", "Paciente", "Perro", "Pinzas", "Quirófano", "Recién nacido", "Video experimental", "Video instalación", "Videoarte"], "desc": "Verena Grimm\nSelección de videos 1998-1999\n\nFever 1998\nHistoria de la epidemia 1998\nBoca Abajo / video para videoinstalacion 1998/1999\nDomestica / video para videoinstalación y registro \nDespués del cuerpo / registro de instalación 1998\nAd Libitum / registro de instalación", "creator": "ARKINO", "lang": "Español", "coll": "Archivos X"}, {"id": "420", "title": "Ojos sordos oídos ciegos", "year": "1996", "idn": "XC-0005", "fmt": "VHS", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/b03db24d9faa5a576c0f024126a4f19f.jpeg", "tags": ["Ángel de la Independencia", "Bolsas de papel", "Ciudad", "Cortometraje experimental", "Cuba", "Edificios", "Elevador", "Escuela", "Guardia armada", "Isla", "Magueyes", "Mar", "Marchas", "Música de trompeta", "Nopales", "Personajes", "Puentes", "Texturas", "Torre Eiffel", "Vías de tren", "Videoarte"], "desc": "Ojos Sordos Oídos ciegos\n\n(La Sociedad)\n(La Pareja)\n(El individuo)\n\nAlberto Roblest", "creator": "ARKINO", "lang": "Español", "coll": "Archivos X"}, {"id": "419", "title": "Velazko vs Velazko", "year": "", "idn": "XC-0004", "fmt": "VHS", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/fc76b6537726447ddae8c60c302ffd2a.jpeg", "tags": ["Bicicleta fija", "Caminata", "Carreras", "Cascos", "Ciudad", "Competencia", "Cronómetro", "Escuela", "Estudiantes", "Guantes", "Hombre", "Juego", "Latas", "Pantalla", "Parodias", "Performance", "Ring", "Trapeador", "Videoarte", "Videojuego"], "desc": "Registro audiovisual del performance de Ricardo Velazko", "creator": "ARKINO", "lang": "Español", "coll": "Archivos X"}, {"id": "224", "title": "El Exorcista, El musical (Fragmento).", "year": "2004", "idn": "JR12-PIE-07", "fmt": "Digital", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/d941b33ce5a2b08ed73c7542a2593798.png", "tags": ["Años 70", "Ataduras", "Dolor", "El exorcista", "Encierro", "Gritos", "Hospital", "Manicomio", "Mashup", "Miedo", "Poseída", "Reapropiación sonora", "Terapia", "Videoarte", "Videoclip"], "desc": "Stanley Sunday se apropia del clásico de terror de 1973 y lo transforma en un film musical", "creator": "ARKINO", "lang": "Inglés", "coll": "ULTRAcinema"}, {"id": "220", "title": "Narciso 1", "year": "2006", "idn": "JR12-PIE-03", "fmt": "Digital", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/737feaa8efc29d983f1a4a771aef0d04.png", "tags": ["Blanco y Negro", "Celebridades", "Creación", "Deformación", "Descomposición", "Efecto espejo", "Experimental", "Hollywood", "Narciso", "Pantalla dividida", "Reapropiación", "Rostros", "Simetría", "Sin rostro", "Videoarte"], "desc": "Un proyecto sobre Narciso y la pérdida del rostro.\n\n“Rechazando el amor de la ninfa Eco, Narciso no se enamoró de sí mismo —como se repite falsamente—, sino que quedó fascinado con una imagen, sin reconocer que era la suya, y fue castigado (¡mucho antes del nacimiento de Lacan!) por haber rechazado la mediación de otro sujeto en la construcción del yo y haberse contentado con un mero simulacro”. Román Gubern", "creator": "ARKINO", "lang": "Sin Diálogo", "coll": "ULTRAcinema"}, {"id": "218", "title": "Narciso 2", "year": "2006", "idn": "JR12-PIE-01", "fmt": "Digital", "img": "https://mexperimenta.ultracinema.x10.mx/files/original/227948311735b90e622f234ff1605897.png", "tags": ["Blanco y Negro", "Celebridades", "Cíclope", "Creación", "Deformación", "Descomposición", "Efecto espejo", "Experimental", "Hollywood", "Narciso", "Pantalla dividida", "Reapropiación", "Simetría", "Sin rostro", "Videoarte"], "desc": "Viver propone una reflexión sobre la vanidad contemporánea a través de una serie de vídeos de corta duración en los que las estrellas de Hollywood se convierten en trasunto del mítico Narciso, metamorfoseándose como criaturas monstruosas y cíclopes seculares.", "creator": "ARKINO", "lang": "Sin Diálogo", "coll": "ULTRAcinema"}];
+const ITEMS = [{"id": "431", "title": "Verena Grimm", "year": "1998/1999", "idn": "XC-0016", "fmt": "VHS", "img": "assets/old/0aecfef62aef745a582fe020ce124171.jpg", "tags": ["Ambulancias", "Babosas", "Bebé", "Blanco y Negro", "Cerebro", "Enfermeras", "Guantes", "Jeringas", "Juguetes", "Mangueras", "Niño", "Paciente", "Perro", "Pinzas", "Quirófano", "Recién nacido", "Video experimental", "Video instalación", "Videoarte"], "desc": "Verena Grimm\nSelección de videos 1998-1999\n\nFever 1998\nHistoria de la epidemia 1998\nBoca Abajo / video para videoinstalacion 1998/1999\nDomestica / video para videoinstalación y registro \nDespués del cuerpo / registro de instalación 1998\nAd Libitum / registro de instalación", "creator": "ARKINO", "lang": "Español", "coll": "Archivos X"}, {"id": "420", "title": "Ojos sordos oídos ciegos", "year": "1996", "idn": "XC-0005", "fmt": "VHS", "img": "assets/old/b03db24d9faa5a576c0f024126a4f19f.jpg", "tags": ["Ángel de la Independencia", "Bolsas de papel", "Ciudad", "Cortometraje experimental", "Cuba", "Edificios", "Elevador", "Escuela", "Guardia armada", "Isla", "Magueyes", "Mar", "Marchas", "Música de trompeta", "Nopales", "Personajes", "Puentes", "Texturas", "Torre Eiffel", "Vías de tren", "Videoarte"], "desc": "Ojos Sordos Oídos ciegos\n\n(La Sociedad)\n(La Pareja)\n(El individuo)\n\nAlberto Roblest", "creator": "ARKINO", "lang": "Español", "coll": "Archivos X"}, {"id": "419", "title": "Velazko vs Velazko", "year": "", "idn": "XC-0004", "fmt": "VHS", "img": "assets/old/fc76b6537726447ddae8c60c302ffd2a.jpg", "tags": ["Bicicleta fija", "Caminata", "Carreras", "Cascos", "Ciudad", "Competencia", "Cronómetro", "Escuela", "Estudiantes", "Guantes", "Hombre", "Juego", "Latas", "Pantalla", "Parodias", "Performance", "Ring", "Trapeador", "Videoarte", "Videojuego"], "desc": "Registro audiovisual del performance de Ricardo Velazko", "creator": "ARKINO", "lang": "Español", "coll": "Archivos X"}, {"id": "224", "title": "El Exorcista, El musical (Fragmento).", "year": "2004", "idn": "JR12-PIE-07", "fmt": "Digital", "img": "assets/old/d941b33ce5a2b08ed73c7542a2593798.jpg", "tags": ["Años 70", "Ataduras", "Dolor", "El exorcista", "Encierro", "Gritos", "Hospital", "Manicomio", "Mashup", "Miedo", "Poseída", "Reapropiación sonora", "Terapia", "Videoarte", "Videoclip"], "desc": "Stanley Sunday se apropia del clásico de terror de 1973 y lo transforma en un film musical", "creator": "ARKINO", "lang": "Inglés", "coll": "ULTRAcinema"}, {"id": "220", "title": "Narciso 1", "year": "2006", "idn": "JR12-PIE-03", "fmt": "Digital", "img": "assets/old/737feaa8efc29d983f1a4a771aef0d04.jpg", "tags": ["Blanco y Negro", "Celebridades", "Creación", "Deformación", "Descomposición", "Efecto espejo", "Experimental", "Hollywood", "Narciso", "Pantalla dividida", "Reapropiación", "Rostros", "Simetría", "Sin rostro", "Videoarte"], "desc": "Un proyecto sobre Narciso y la pérdida del rostro.\n\n“Rechazando el amor de la ninfa Eco, Narciso no se enamoró de sí mismo —como se repite falsamente—, sino que quedó fascinado con una imagen, sin reconocer que era la suya, y fue castigado (¡mucho antes del nacimiento de Lacan!) por haber rechazado la mediación de otro sujeto en la construcción del yo y haberse contentado con un mero simulacro”. Román Gubern", "creator": "ARKINO", "lang": "Sin Diálogo", "coll": "ULTRAcinema"}, {"id": "218", "title": "Narciso 2", "year": "2006", "idn": "JR12-PIE-01", "fmt": "Digital", "img": "assets/old/227948311735b90e622f234ff1605897.jpg", "tags": ["Blanco y Negro", "Celebridades", "Cíclope", "Creación", "Deformación", "Descomposición", "Efecto espejo", "Experimental", "Hollywood", "Narciso", "Pantalla dividida", "Reapropiación", "Simetría", "Sin rostro", "Videoarte"], "desc": "Viver propone una reflexión sobre la vanidad contemporánea a través de una serie de vídeos de corta duración en los que las estrellas de Hollywood se convierten en trasunto del mítico Narciso, metamorfoseándose como criaturas monstruosas y cíclopes seculares.", "creator": "ARKINO", "lang": "Sin Diálogo", "coll": "ULTRAcinema"}];
 
 const grid = document.getElementById('piece-grid');
 const countEl = document.getElementById('result-count');
@@ -559,6 +571,14 @@ const modalDesc = document.getElementById('modal-desc');
 const modalTags = document.getElementById('modal-tags');
 const modalOsd = document.getElementById('modal-osd');
 const modalIframe = document.getElementById('modal-iframe');
+const modalCard = document.getElementById('modal-card');
+const modalScreen = document.getElementById('modal-screen');
+const modalCrt = document.getElementById('modal-crt');
+modalCrt.addEventListener('click', () => {
+  const off = modalScreen.classList.toggle('nocrt');
+  modalCrt.textContent = off ? 'Efecto CRT: no' : 'Efecto CRT: sí';
+  modalCrt.setAttribute('aria-pressed', off ? 'false' : 'true');
+});
 const modalDigit = document.getElementById('modal-digit');
 const modalStatic = document.getElementById('modal-static');
 const mctx = modalStatic.getContext('2d');
@@ -580,6 +600,7 @@ function openModal(it) {
   modalImg.classList.remove('on');
   modalIframe.classList.remove('on'); modalIframe.src = '';
   modalDigit.classList.remove('on');
+  modalCard.classList.toggle('has-video', !!it.archiveId);
   modalTitle.textContent = it.title || 's/t';
   modalYear.textContent = it.year || 's/f';
   modalFmt.textContent = it.fmt || '—';
@@ -592,8 +613,9 @@ function openModal(it) {
 
   modalStatic.classList.add('on');
   let n = 0;
-  const iv = setInterval(drawModalStatic, 55);
-  setTimeout(() => {
+  clearTimeout(window._mt); clearInterval(window._mi);
+  const iv = window._mi = setInterval(drawModalStatic, 55);
+  window._mt = setTimeout(() => {
     clearInterval(iv);
     modalStatic.classList.remove('on');
     modalImg.src = it.img;
@@ -609,6 +631,7 @@ function openModal(it) {
 
 function closeModal() {
   modalBackdrop.classList.remove('open');
+  clearTimeout(window._mt); clearInterval(window._mi); modalStatic.classList.remove('on');
   modalIframe.classList.remove('on'); modalIframe.src = '';
 }
 
