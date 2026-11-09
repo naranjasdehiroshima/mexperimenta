@@ -201,21 +201,30 @@ def build_page(cfg):
     background: #9dffb0; color: #14120d; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;
   }}
   #modal-gate .gate-error {{ font-family: 'Courier New', monospace; font-size: 9.5px; color: #e08a6a; height: 12px; }}
+  /* barra superior: que los enlaces no se partan en celular */
+  #topbar nav a {{ white-space: nowrap; }}
+  @media (max-width: 720px) {{
+    #topbar {{ flex-wrap: wrap; gap: 8px 12px; padding-left: 18px; padding-right: 18px; }}
+    #topbar nav {{ display: flex; flex-wrap: wrap; gap: 6px 16px; }}
+    #topbar nav a {{ margin: 0; }}
+  }}
 </style>
 </head>
 <body>
 
   <div id="topbar">
-    <a class="word" href="mexperimenta-home-v4.html">MEXPERIMENTA</a>
+    <a class="word" href="index.html">MEXPERIMENTA</a>
     <nav>
-      <a href="mexperimenta-home-v4.html#collections" class="active">Colecciones</a>
+      <a href="index.html">Inicio</a>
+      <a href="index.html#collections" class="active">Colecciones</a>
       <a href="videoteca.html">Videoteca</a>
-      <a href="mexperimenta-home-v4.html#about">Acerca de</a>
-    </nav>
+      <a href="index.html#about">Acerca de</a>
+      <a href="https://mexperimenta.ultracinema.x10.mx/omeka/" target="_blank" rel="noopener">Web anterior</a>
+</nav>
   </div>
 
   <div id="crumb">
-    <a href="mexperimenta-home-v4.html">Inicio</a> / <a href="mexperimenta-home-v4.html#collections">Colecciones</a> / <span>{cfg['name']}</span>
+    <a href="index.html">Inicio</a> / <a href="index.html#collections">Colecciones</a> / <span>{cfg['name']}</span>
   </div>
 
   <div id="coll-hero">

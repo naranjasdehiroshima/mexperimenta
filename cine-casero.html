@@ -433,6 +433,13 @@
     #modal-card.has-video #modal-screen { aspect-ratio: 16/9; }
     #modal-card.has-video #modal-body { flex: 1 1 100%; }
   }
+  /* barra superior: que los enlaces no se partan en celular */
+  #topbar nav a { white-space: nowrap; }
+  @media (max-width: 720px) {
+    #topbar { flex-wrap: wrap; gap: 8px 12px; padding-left: 18px; padding-right: 18px; }
+    #topbar nav { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+    #topbar nav a { margin: 0; }
+  }
 </style>
 </head>
 <body>
@@ -440,10 +447,12 @@
   <div id="topbar">
     <a class="word" href="index.html">MEXPERIMENTA</a>
     <nav>
+      <a href="index.html">Inicio</a>
       <a href="index.html#collections" class="active">Colecciones</a>
       <a href="videoteca.html">Videoteca</a>
       <a href="index.html#about">Acerca de</a>
-    </nav>
+      <a href="https://mexperimenta.ultracinema.x10.mx/omeka/" target="_blank" rel="noopener">Web anterior</a>
+</nav>
   </div>
 
   <div id="crumb">
