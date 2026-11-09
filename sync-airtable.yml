@@ -1,0 +1,48 @@
+name: Sincronizar Airtable y publicar el sitio
+
+# Se puede disparar de tres formas:
+#  1. Automáticamente todos los días a las 09:00 UTC (~3am/4am hora CDMX,
+#     según horario de verano) -- ajusta el cron si prefieres otra hora.
+#  2. A mano, desde la pestaña "Actions" de GitHub ("Run workflow").
+#  3. Cuando se empuja un cambio a esta rama (útil mientras se prueba).
+on:
+  schedule:
+    - cron: "0 9 * * *"
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Traer datos frescos de Airtable + Internet Archive
+        env:
+          AIRTABLE_TOKEN: ${{ secrets.AIRTABLE_TOKEN }}
+        run: python3 sync_arkino.py
+
+      - name: Reconstruir las páginas del sitio
+        run: python3 build_real_collections.py
+
+      - name: Publicar los cambios, si los hay
+        run: |
+          git config user.name "arkino-sync-bot"
+          git config user.email "actions@github.com"
+          git add avances-cinematograficos.html gral-treegan.html pieza.html \
+                  trailers_final.json gral_treegan_final.json all_pieces.json
+          if git diff --cached --quiet; then
+            echo "Sin cambios en Airtable desde la última sincronización."
+          else
+            git commit -m "Sincronización automática con Airtable ($(date -u +%Y-%m-%d))"
+            git push
+          fi
