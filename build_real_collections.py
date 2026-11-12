@@ -511,3 +511,37 @@ def rebuild_pieza_page(pieza_path, all_pieces_file):
 
 rebuild_pieza_page('pieza.html', 'all_pieces.json')
 
+
+
+# ---------------------------------------------------------------------------
+# ULTRAcinema y Archivos X (tablas nuevas, formato Dublin Core)
+# Mientras Arkino termina de actualizarlas en Airtable, las páginas siguen con
+# los datos rescatados de la web anterior y muestran un aviso de
+# "colección en actualización". Cuando estén listas: poner
+# NUEVAS_DESDE_AIRTABLE = True y las páginas se generan con los datos de
+# Airtable (solo registros con publicado = true); si no hay ninguno, se
+# conserva la página actual.
+# ---------------------------------------------------------------------------
+import os
+NUEVAS_DESDE_AIRTABLE = False
+AVISO = '<!--aviso-actualizacion--><p class="mono" style="margin:14px 0 0;padding:8px 12px;border:1px dashed #8a7d5c;color:#d9b45a;font-size:12px;letter-spacing:1px;display:inline-block">COLECCIÓN EN ACTUALIZACIÓN · el catálogo y los videos se están completando</p>'
+
+def aviso(path):
+    t = open(path, encoding='utf-8').read()
+    if 'aviso-actualizacion' in t:
+        return
+    t = re.sub(r'(<h1>[^<]*</h1>)', lambda m: m.group(1) + AVISO, t, count=1)
+    open(path, 'w', encoding='utf-8').write(t)
+    print(path, '-> aviso de actualización')
+
+for name, jf, out, desc, fmt in [
+    ('ULTRAcinema', 'ultracinema_final.json', 'ultracinema.html',
+     'Selecciones oficiales del festival ULTRAcinema desde 2012 — cine experimental y found footage.', 'Varios'),
+    ('Archivos X', 'archivos_x_final.json', 'archivos-x.html',
+     'Videoarte reunido por Ximena Cuevas a lo largo de más de 30 años.', 'VHS'),
+]:
+    n = len(json.load(open(jf, encoding='utf-8'))) if os.path.exists(jf) else 0
+    if NUEVAS_DESDE_AIRTABLE and n:
+        build_page({'name': name, 'data_file': jf, 'out': out, 'desc': desc, 'formato': fmt})
+    else:
+        aviso(out)

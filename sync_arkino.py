@@ -37,6 +37,8 @@ TABLES = {
     "Vocabulario Controlado": "tbllHFNsIDREcSzdV",
     "Trailers": "tblSz21Ki0wmif4nV",
     "Gral. Treegan": "tblEn8x8PBhdJhlF2",
+    "ULTRAcinema": "tbl5KzXJEbhhraGTh",
+    "Archivos X": "tblziyTQqfcIl3wax",
 }
 IA_UPLOADER = "arkino.archivoabierto@gmail.com"
 
@@ -99,6 +101,20 @@ def fetch_ia_identifiers():
     return [d["identifier"] for d in data.get("response", {}).get("docs", [])]
 
 
+def parse_relation(value):
+    """Saca el id de Internet Archive del campo dc:relation_archive.
+    Acepta: <iframe src=".../embed/ID">, URL /details/ID o /embed/ID, o el id suelto."""
+    if not value:
+        return None
+    v = str(value).strip()
+    m = re.search(r"archive\.org/(?:embed|details|download)/([A-Za-z0-9._-]+)", v)
+    if m:
+        return m.group(1).lower()
+    if re.fullmatch(r"[A-Za-z0-9._-]+", v):
+        return v.lower()
+    return None
+
+
 def find_archive_match(dc_identifier, ia_ids):
     if not dc_identifier:
         return None
@@ -136,7 +152,7 @@ def process_table(records, coll_name, ia_ids):
             "duration": f.get("extra:duracion", ""),
             "color": f.get("extra:color", ""),
             "coll": coll_name,
-            "archiveId": find_archive_match(dc_id, ia_ids),
+            "archiveId": parse_relation(f.get("dc:relation_archive")) or find_archive_match(dc_id, ia_ids),
             "sensitive": ("Erótico" in types) or (dc_id in MANUAL_SAFETY_NET),
         })
     return out
@@ -159,6 +175,19 @@ def main():
     print("Consultando catálogo de video en Internet Archive...")
     ia_ids = fetch_ia_identifiers()
     print(f"  {len(ia_ids)} piezas con video confirmado")
+
+    ultra_raw = fetch_table(TABLES["ULTRAcinema"], token)
+    ax_raw = fetch_table(TABLES["Archivos X"], token)
+    print(f"  ULTRAcinema: {len(ultra_raw)} registros")
+    print(f"  Archivos X: {len(ax_raw)} registros")
+    ultra = process_table(ultra_raw, "ULTRAcinema", ia_ids)
+    ax = process_table(ax_raw, "Archivos X", ia_ids)
+    # Colecciones nuevas: se guardan aparte; si salen vacías la página
+    # muestra "Colección en actualización" en vez de desaparecer.
+    for name, data in (("ultracinema_final.json", ultra), ("archivos_x_final.json", ax)):
+        with open(os.path.join(OUT_DIR, name), "w", encoding="utf-8") as fh:
+            json.dump(data, fh, ensure_ascii=False, indent=2)
+    print(f"  ULTRAcinema publicadas: {len(ultra)} | Archivos X publicadas: {len(ax)}")
 
     trailers = process_table(trailers_raw, "Avances Cinematográficos", ia_ids)
     gt = process_table(gt_raw, "Gral. Treegan", ia_ids)
