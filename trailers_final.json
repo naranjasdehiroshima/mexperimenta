@@ -17,7 +17,7 @@
     "lang": "",
     "coverage": "",
     "duration": "",
-    "color": "",
+    "color": "Color",
     "coll": "Avances Cinematográficos",
     "archiveId": null,
     "sensitive": false
@@ -196,7 +196,7 @@
       "MovingImage"
     ],
     "tags": [
-      "Wetern",
+      "Western",
       "Drama",
       "Mujer protagonista",
       "Violencia",
@@ -233,7 +233,7 @@
     "duration": "",
     "color": "Color",
     "coll": "Avances Cinematográficos",
-    "archiveId": null,
+    "archiveId": "tr-031-colegio-de-picaros",
     "sensitive": false
   },
   {
@@ -861,7 +861,7 @@
     "duration": "",
     "color": "Color",
     "coll": "Avances Cinematográficos",
-    "archiveId": null,
+    "archiveId": "tr-032-mi-querido-alfie",
     "sensitive": false
   },
   {
