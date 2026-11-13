@@ -55,6 +55,29 @@
     "sensitive": false
   },
   {
+    "id": "rec1xOPWkZua1P9ac",
+    "idn": "TR-050",
+    "title": "Badman´s Teritory",
+    "title_es": "Donde los malos imperan",
+    "year": "1946",
+    "creator": "Tim Whelan",
+    "desc": "La historia se desarrolla en un territorio sin ley conocido como \"Quinto\" (en el área de Oklahoma), que sirve como refugio seguro para algunos de los forajidos más famosos del Viejo Oeste, como Jesse y Frank James, los hermanos Dalton, y Belle Starr.\nEl sheriff de Texas, Mark Rowley, persigue a la banda de los hermanos James hasta este refugio sin jurisdicción federal para rescatar a su hermano herido. A la par, apoya a Henryetta Alcott, la valiente editora de un periódico local, en su campaña para llevar el orden a la región mediante su anexión al territorio de Oklahoma",
+    "fmt": "35 mm",
+    "medium": "Fílmico / ACETATO",
+    "genre": "Trailer",
+    "type": [
+      "MovingImage"
+    ],
+    "tags": [],
+    "lang": "Inglés",
+    "coverage": "Estados Unidos",
+    "duration": "",
+    "color": "B&N",
+    "coll": "Avances Cinematográficos",
+    "archiveId": "tr-050-donde-los-malos-imperan",
+    "sensitive": false
+  },
+  {
     "id": "rec5TKHudBfnJ4gDt",
     "idn": "TR-030",
     "title": "Supersonic man",
@@ -214,6 +237,52 @@
     "sensitive": false
   },
   {
+    "id": "recBJxwhFNWIjBMTO",
+    "idn": "TR-053",
+    "title": "Pupa, La",
+    "title_es": "Pupa, La",
+    "year": "1963",
+    "creator": "Giuseppe Orlandini",
+    "desc": "La propietaria de una casa cerrada la deja en herencia a un hombre irreprochable. Pupa suele frecuentar el local, y al final lo convertirá en un hotel y se casará con un joven lugareño.",
+    "fmt": "35 mm",
+    "medium": "Fílmico / ACETATO",
+    "genre": "Trailer",
+    "type": [
+      "MovingImage"
+    ],
+    "tags": [],
+    "lang": "Italiano",
+    "coverage": "Italia",
+    "duration": "",
+    "color": "B&N",
+    "coll": "Avances Cinematográficos",
+    "archiveId": "tr-053-la-pupa",
+    "sensitive": false
+  },
+  {
+    "id": "recC7yWmzxQ45flhM",
+    "idn": "TR-047",
+    "title": "Eegha",
+    "title_es": "Eegha el gigante",
+    "year": "1962",
+    "creator": "Arch Hall Sr",
+    "desc": "Mientras conduce por el desierto, una adolescente se asusta por un gigante de siete pies que aparece en su camino. Después de escapar, regresa al sitio con su novio y su padre en un intento por encontrar al gigante. Ellos sí, y procede a aterrorizarlos a ellos y al resto de Palm Springs, California.",
+    "fmt": "35 mm",
+    "medium": "Fílmico / ACETATO",
+    "genre": "Trailer",
+    "type": [
+      "MovingImage"
+    ],
+    "tags": [],
+    "lang": "Inglés",
+    "coverage": "Estados Unidos",
+    "duration": "",
+    "color": "B&N",
+    "coll": "Avances Cinematográficos",
+    "archiveId": "tr-047-eegha-el-gigante",
+    "sensitive": false
+  },
+  {
     "id": "recCQRSqStD4ofWM9",
     "idn": "TR-031",
     "title": "La compagna di banco",
@@ -298,6 +367,29 @@
     "color": "Color",
     "coll": "Avances Cinematográficos",
     "archiveId": "tr-004",
+    "sensitive": false
+  },
+  {
+    "id": "recF0Bjhl1b8l77se",
+    "idn": "TR-035",
+    "title": "Alfie Darling",
+    "title_es": "Mi querido Alfie",
+    "year": "1976",
+    "creator": "Ken Hughes",
+    "desc": "Secuela de la película Alfie de 1966 protagonizada aquí por Alan Price. En esta ocacisón, Alfie es un camionero que conquista mujeres por toda Europa y se enamora de una editora. (FILMAFFINITY)",
+    "fmt": "35 mm",
+    "medium": "Fílmico / ACETATO",
+    "genre": "Trailer",
+    "type": [
+      "MovingImage"
+    ],
+    "tags": [],
+    "lang": "Inglés",
+    "coverage": "Reino Unido",
+    "duration": "",
+    "color": "Color",
+    "coll": "Avances Cinematográficos",
+    "archiveId": "tr-035-mi-querido-alfie",
     "sensitive": false
   },
   {
@@ -457,6 +549,79 @@
     "color": "Color",
     "coll": "Avances Cinematográficos",
     "archiveId": "tr-019",
+    "sensitive": false
+  },
+  {
+    "id": "recNa2ZFJ7o3npB73",
+    "idn": "TR-052",
+    "title": "Papelerito, El",
+    "title_es": "Papelerito, El",
+    "year": "1951",
+    "creator": "Agustín P. Delgado",
+    "desc": "Tres niños forjan una gran amistad, ayudados por una tierna anciana, Doña Dominga. Sobreviven a la pobreza y marginación, sin embargo el destino les hara una mala jugada con el pequeño Toño.",
+    "fmt": "35 mm",
+    "medium": "Fílmico / ACETATO",
+    "genre": "Trailer",
+    "type": [
+      "MovingImage"
+    ],
+    "tags": [],
+    "lang": "Español",
+    "coverage": "México",
+    "duration": "",
+    "color": "Color",
+    "coll": "Avances Cinematográficos",
+    "archiveId": "tr-052-el-papelerito",
+    "sensitive": false
+  },
+  {
+    "id": "recPBq0MonuCoZ5ux",
+    "idn": "TR-054",
+    "title": "Vigile, Il",
+    "title_es": "Motociclista, El",
+    "year": "1960",
+    "creator": "Luigi Zampa",
+    "desc": "Un hombre desempleado consigue un trabajo como policía de tránsito pero el tráfico en la gran ciudad crea innumerables problemas para el pobre tipo.",
+    "fmt": "35 mm",
+    "medium": "Fílmico / ACETATO",
+    "genre": "Trailer",
+    "type": [
+      "MovingImage"
+    ],
+    "tags": [
+      "Comedia",
+      "Humor",
+      "Trabajo"
+    ],
+    "lang": "Italiano",
+    "coverage": "Italia",
+    "duration": "",
+    "color": "B&N",
+    "coll": "Avances Cinematográficos",
+    "archiveId": "tr-054-el-motociclista",
+    "sensitive": false
+  },
+  {
+    "id": "recPk4ZuIIM5AHezg",
+    "idn": "TR-044",
+    "title": "Treasure of Monte Cristo, The",
+    "title_es": "Legión del crimen",
+    "year": "1949",
+    "creator": "William Berke",
+    "desc": "Se trata de una adaptación moderna y de intriga basada libremente en la premisa clásica de El Conde de Montecristo. El protagonista, Edmond Dantes (interpretado por Glenn Langan), es un marino mercante que llega al puerto de San Francisco. Allí conoce a una hermosa heredera llamada Jean (Adele Jergens), quien debe casarse antes de cumplir los 25 años para poder cobrar su herencia. Se casan rápidamente, pero pronto se desata una red de traiciones, desapariciones y un complot para arrebatarle su fortuna, vinculada con un antiguo tesoro escondido",
+    "fmt": "35 mm",
+    "medium": "Fílmico / ACETATO",
+    "genre": "Trailer",
+    "type": [
+      "MovingImage"
+    ],
+    "tags": [],
+    "lang": "Inglés",
+    "coverage": "Estados Unidos",
+    "duration": "",
+    "color": "B&N",
+    "coll": "Avances Cinematográficos",
+    "archiveId": "tr-044-legion-del-crimen",
     "sensitive": false
   },
   {
@@ -682,6 +847,29 @@
     "sensitive": false
   },
   {
+    "id": "recWVwmXYcfqTw0IC",
+    "idn": "TR-041",
+    "title": "I sette magnifici cornuti",
+    "title_es": "siete magníficos cornudos, Los",
+    "year": "1974",
+    "creator": "Luigi Russo",
+    "desc": "Película de siete episodios con el tema de la traición. Los recién casados, los esposos y las esposas infieles que buscan venganza se reúnen por el mismo deseo.",
+    "fmt": "35 mm",
+    "medium": "Fílmico / ACETATO",
+    "genre": "Trailer",
+    "type": [
+      "MovingImage"
+    ],
+    "tags": [],
+    "lang": "Italiano",
+    "coverage": "Italia",
+    "duration": "",
+    "color": "Color",
+    "coll": "Avances Cinematográficos",
+    "archiveId": "tr-041-los-siete-magnificos-cornudos",
+    "sensitive": false
+  },
+  {
     "id": "recXBPawoJ7RA1L5C",
     "idn": "TR-018",
     "title": "Match of Tiger and Dragon",
@@ -742,6 +930,29 @@
     "color": "Color",
     "coll": "Avances Cinematográficos",
     "archiveId": "tr-013",
+    "sensitive": false
+  },
+  {
+    "id": "recYwu3l56weMMQ3q",
+    "idn": "TR-046",
+    "title": "Buena Suerte, El ",
+    "title_es": "Buena Suerte, El ",
+    "year": "1961",
+    "creator": "Rogelio A. González",
+    "desc": "La historia sigue a un capataz de un rancho mexicano (interpretado por Miguel Aceves Mejía) cuya vida y romances se ven trastornados con la llegada de un visitante venezolano (interpretado por Alfredo Sadel). Ambos personajes compiten y rivalizan en distintas situaciones, incluida la lucha por el amor de Lupita",
+    "fmt": "35 mm",
+    "medium": "Fílmico / ACETATO",
+    "genre": "Trailer",
+    "type": [
+      "MovingImage"
+    ],
+    "tags": [],
+    "lang": "Español",
+    "coverage": "México",
+    "duration": "",
+    "color": "B&N",
+    "coll": "Avances Cinematográficos",
+    "archiveId": "tr-046-el-buena-suerte",
     "sensitive": false
   },
   {
@@ -810,6 +1021,98 @@
     "sensitive": false
   },
   {
+    "id": "recbtu1MDyD2RopTj",
+    "idn": "TR-051",
+    "title": "Yanco",
+    "title_es": "Yanco",
+    "year": "1961",
+    "creator": "Servando González",
+    "desc": "La historia sigue a Juanito, un niño indígena sumamente sensible y con un oído extraordinario para los sonidos de su entorno. En el bosque conoce a un viejo ermitaño y músico que le enseña a tocar el violín. Tras la muerte del anciano, el violín termina en una casa de empeño y Juanito se cuela por las noches para tocarlo. Las misteriosas melodías nocturnas alteran a los supersticiosos habitantes del pueblo.",
+    "fmt": "35 mm",
+    "medium": "Fílmico / ACETATO",
+    "genre": "Trailer",
+    "type": [
+      "MovingImage"
+    ],
+    "tags": [],
+    "lang": "Español",
+    "coverage": "México",
+    "duration": "",
+    "color": "Color",
+    "coll": "Avances Cinematográficos",
+    "archiveId": "tr-051-yanco",
+    "sensitive": false
+  },
+  {
+    "id": "recgqK9T6maHrv1kl",
+    "idn": "TR-042",
+    "title": "I Terribili 7",
+    "title_es": "Siete terribles, Los",
+    "year": "1963",
+    "creator": "Raffaello Matarazzo",
+    "desc": "Seis niños de 11 a 12 años y Bibero (5) que han encontrado un bebé, junto con una niña Gianna, planean usarlo para recaudar dinero para una equipación de fútbol. Estos planes incluyen a un grupo de gitanos. Cuando las cosas van mal, tienen que encontrar los medios para devolver el bebé a su madre. Esto incluye al sacerdote local y a un par de ladrones.",
+    "fmt": "35 mm",
+    "medium": "Fílmico / ACETATO",
+    "genre": "Trailer",
+    "type": [
+      "MovingImage"
+    ],
+    "tags": [],
+    "lang": "Italiano",
+    "coverage": "Italia",
+    "duration": "",
+    "color": "B&N",
+    "coll": "Avances Cinematográficos",
+    "archiveId": "tr-042-los-siete-terribles",
+    "sensitive": false
+  },
+  {
+    "id": "recmNa44JePRExwO9",
+    "idn": "TR-049",
+    "title": "Rebelión de los adolescentes, La",
+    "title_es": "Rebelión de los adolescentes, La",
+    "year": "1959",
+    "creator": "José Díaz Morales",
+    "desc": "Un estudiante universitario regresa a su hogar tras la muerte de su padre y descubre que en realidad fue asesinado por miembros de un sindicato criminal.",
+    "fmt": "35 mm",
+    "medium": "Fílmico / ACETATO",
+    "genre": "Trailer",
+    "type": [
+      "MovingImage"
+    ],
+    "tags": [],
+    "lang": "Español",
+    "coverage": "México",
+    "duration": "",
+    "color": "Color",
+    "coll": "Avances Cinematográficos",
+    "archiveId": "tr-049-la-rebelion-de-los-adolescentes",
+    "sensitive": false
+  },
+  {
+    "id": "recmSWVPsP1pBMugC",
+    "idn": "TR-038",
+    "title": "Groovetube, The",
+    "title_es": "Loca, loca TV",
+    "year": "1974",
+    "creator": "Ken Shaphiro",
+    "desc": "Una colección de parodias que se burlan de la televisión de los 70, con las primeras apariciones de Chevy Chase y Richard Belzer.",
+    "fmt": "35 mm",
+    "medium": "Fílmico / ACETATO",
+    "genre": "Trailer",
+    "type": [
+      "MovingImage"
+    ],
+    "tags": [],
+    "lang": "Inglés",
+    "coverage": "Estados Unidos",
+    "duration": "",
+    "color": "Color",
+    "coll": "Avances Cinematográficos",
+    "archiveId": "tr-038-loca-loca-tv",
+    "sensitive": false
+  },
+  {
     "id": "recn2oifKr7biGTul",
     "idn": "TR-005",
     "title": "Yajū Shisu Beshi: Fukushū no Mekanikku",
@@ -862,6 +1165,29 @@
     "color": "Color",
     "coll": "Avances Cinematográficos",
     "archiveId": "tr-032-mi-querido-alfie",
+    "sensitive": false
+  },
+  {
+    "id": "recrEay0WX1uFoYPL",
+    "idn": "TR-043",
+    "title": "Big Steal, The",
+    "title_es": "gran robo, El",
+    "year": "1949",
+    "creator": "Don Siegel",
+    "desc": "Acusado de robar los 300.000 dólares que custodiaba y que correspondían a la nómina del ejército, el teniente Duke Halliday llega a Veracruz en busca de Jim Fiske, el verdadero culpable del robo. Allí conoce a Joan Graham, la novia desengañada de Fiske, a quién éste, con falsas promesas de matrimonio, le ha robado sus ahorros. Ambos emprenderán una frenética carrera por las carreteras de México, perseguidos por el capitán Blake, que anda tras Halliday.",
+    "fmt": "35 mm",
+    "medium": "Fílmico / ACETATO",
+    "genre": "Trailer",
+    "type": [
+      "MovingImage"
+    ],
+    "tags": [],
+    "lang": "Inglés",
+    "coverage": "Estados Unidos",
+    "duration": "",
+    "color": "B&N",
+    "coll": "Avances Cinematográficos",
+    "archiveId": "tr-043-el-gran-robo",
     "sensitive": false
   },
   {
@@ -957,6 +1283,29 @@
     "color": "Color",
     "coll": "Avances Cinematográficos",
     "archiveId": "tr-006",
+    "sensitive": false
+  },
+  {
+    "id": "recuzNvmAAoyZ9pkn",
+    "idn": "TR-045",
+    "title": "This land is mine",
+    "title_es": "Esta tierra es mía",
+    "year": "1943",
+    "creator": "Jean Renoir",
+    "desc": "Albert Lory (Charles Laughton) es un profesor de escuela en una ciudad de un país indeterminado ocupado por el ejército Nazi durante la II Guerra Mundial. Enamorado de su compañera de trabajo y vecina, la también profesora Louise Martin (Maureen O’Hara), Albert se siente frustrado al ser incapaz de declararse por su carácter acobardado. Esta cobardía es también motivo de burla de sus propios alumnos. Para colmo, Louise mantiene una relación con un hombre llamado George Lambert (George Sanders). Cuando una serie de acontecimientos provocan que Albert sea detenido por los soldados alemanes, el Comandante Alemán, Mayor Erich von Keller (Walter Slezak), le propondrá un acuerdo. Pero el carácter de Albert podría haber cambiado debido a los últimos acontecimientos y parece que incluso podría demostrar una sorprendente valentía frente al enemigo invasor.",
+    "fmt": "35 mm",
+    "medium": "Fílmico / POLIESTER",
+    "genre": "Trailer",
+    "type": [
+      "MovingImage"
+    ],
+    "tags": [],
+    "lang": "Inglés",
+    "coverage": "Estados Unidos",
+    "duration": "",
+    "color": "B&N",
+    "coll": "Avances Cinematográficos",
+    "archiveId": "tr-045-esta-tierra-es-mia",
     "sensitive": false
   },
   {
