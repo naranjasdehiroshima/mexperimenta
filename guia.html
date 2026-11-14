@@ -119,7 +119,6 @@
     <a href="#efectos">5 · Efectos</a>
     <a href="#color">6 · Corrección de color</a>
     <a href="#reservado">7 · Contenido reservado</a>
-    <a href="#equipo">8 · Para el equipo</a>
   </div>
 
   <main>
@@ -230,18 +229,6 @@
       <h2>Contenido reservado</h2>
       <p class="intro">Las piezas con contenido sexual explícito o sugerido se muestran pixeladas y con un candado 🔒, en tarjetas, fichas y Videoteca. No se pueden ver ni su video ni sus fotogramas hasta introducir una contraseña.</p>
       <div class="note">La contraseña la gestiona el equipo de Arkino y decide a quién se la da. Una vez introducida, el contenido queda desbloqueado mientras dure tu visita.</div>
-    </section>
-
-    <section id="equipo">
-      <div class="num">08</div>
-      <h2>Para el equipo de Arkino: cómo se mantiene</h2>
-      <p class="intro">El sitio se alimenta solo de la base de Airtable. No hay que tocar código para añadir o corregir piezas.</p>
-      <div class="grid">
-        <div class="card"><h3>Datos</h3><p>Cada día el sitio lee Airtable y se actualiza. Solo se publican las piezas con la casilla <b>publicado</b> marcada.</p></div>
-        <div class="card"><h3>Video</h3><p>Se enlaza solo si el identificador de Internet Archive empieza por el código de la pieza (<span class="kbd">dc:identifier</span> en minúsculas).</p></div>
-        <div class="card"><h3>Fotogramas</h3><p>Se añaden como carpeta <span class="kbd">TR_###_…</span> con las capturas dentro. Las miniaturas se generan automáticamente.</p></div>
-        <div class="card"><h3>Reservado</h3><p>Una pieza se oculta tras el candado si en <span class="kbd">dc:type</span> lleva la etiqueta <b>Erótico</b>.</p></div>
-      </div>
     </section>
 
   </main>
