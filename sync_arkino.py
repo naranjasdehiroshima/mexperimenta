@@ -125,7 +125,18 @@ def find_archive_match(dc_identifier, ia_ids):
     return candidates[0] if candidates else None
 
 
+def load_overrides():
+    """Enlaces de video puestos a mano desde admin.html (contenido.json -> videos)."""
+    try:
+        with open(os.path.join(OUT_DIR, "contenido.json"), encoding="utf-8") as fh:
+            vids = json.load(fh).get("videos", {})
+        return {k.strip(): parse_relation(v) for k, v in vids.items() if parse_relation(v)}
+    except Exception:
+        return {}
+
+
 def process_table(records, coll_name, ia_ids):
+    overrides = load_overrides()
     out = []
     for r in records:
         f = clean_fields(r["fields"])
@@ -152,7 +163,7 @@ def process_table(records, coll_name, ia_ids):
             "duration": f.get("extra:duracion", ""),
             "color": f.get("extra:color", ""),
             "coll": coll_name,
-            "archiveId": parse_relation(f.get("dc:relation_archive")) or find_archive_match(dc_id, ia_ids),
+            "archiveId": overrides.get(dc_id) or parse_relation(f.get("dc:relation_archive")) or find_archive_match(dc_id, ia_ids),
             "sensitive": ("Erótico" in types) or (dc_id in MANUAL_SAFETY_NET),
         })
     return out

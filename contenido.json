@@ -1,0 +1,19 @@
+{
+  "_ayuda": "Este archivo lo edita el panel admin.html. Los textos reemplazan a los de la web; si una clave se borra, se usa el texto original.",
+  "textos": {
+    "home_mision": "Un espacio único para la promoción y difusión del cine experimental en México — acceso abierto a una extensa colección de videoarte y obras que, por su naturaleza no convencional, han quedado al margen de los canales de difusión tradicionales.",
+    "acerca_1": "Mexperimenta nace de la urgencia de preservar y valorar el patrimonio audiovisual experimental mexicano, con especial énfasis en aquellas creaciones que, por su naturaleza innovadora y no convencional, a menudo quedan marginadas de los canales de difusión tradicionales.",
+    "acerca_2": "El acervo tiene su origen en ULTRAcinema, festival itinerante nacido en 2012 bajo el nombre de Jornadas de Reapropiación, dedicado al cine experimental y de found footage — trabajos que reutilizan y resignifican material fílmico y de video preexistente. En 2026 el festival cumple 15 años de programar cine que, en sus propias palabras, \"no cabe, no obedece y no pide permiso\".",
+    "acerca_3": "Proyecto realizado con el apoyo del Instituto Mexicano de Cinematografía a través del programa Fomento al Cine Mexicano (FOCINE) 2026.",
+    "col_ultracinema": "Selecciones oficiales del festival desde su primera edición en 2012.",
+    "col_archivos_x": "Videoarte reunido por Ximena Cuevas a lo largo de más de 30 años.",
+    "col_avances": "Trailers y found footage reapropiado como material de trabajo.",
+    "col_treegan": "14 años de cine casero reunido junto a donantes del acervo."
+  },
+  "avisos": {
+    "ultracinema": true,
+    "archivos_x": true
+  },
+  "videos": {},
+  "nuevas_desde_airtable": false
+}

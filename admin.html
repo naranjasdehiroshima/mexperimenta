@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Mexperimenta — Panel de edición</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#221e17;color:#efebdc;font-family:Georgia,serif;line-height:1.5}
+.mono{font-family:'Courier New',monospace}
+header{padding:16px 24px;border-bottom:1px solid #453e30;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+header b{letter-spacing:3px;font-size:13px}
+main{max-width:860px;margin:0 auto;padding:24px 20px 80px}
+h2{font-size:20px;margin:28px 0 6px}
+p.h{color:#b8ad92;font-size:14px;margin:0 0 14px}
+label{display:block;font-family:'Courier New',monospace;font-size:12px;letter-spacing:1px;color:#d9b45a;margin:16px 0 4px;text-transform:uppercase}
+input[type=text],input[type=password],textarea{width:100%;background:#2d281f;color:#efebdc;border:1px solid #5a513d;padding:9px 10px;font:inherit;font-size:14px;border-radius:2px}
+textarea{min-height:90px;resize:vertical}
+button{background:#d9b45a;color:#221e17;border:0;padding:10px 18px;font-family:'Courier New',monospace;font-weight:bold;letter-spacing:1px;cursor:pointer;border-radius:2px}
+button.sec{background:transparent;color:#efebdc;border:1px solid #5a513d}
+button:disabled{opacity:.5;cursor:wait}
+.box{border:1px solid #453e30;padding:18px;margin:14px 0;background:#27221a}
+.row{display:flex;gap:8px;align-items:center;margin:6px 0}
+.row input{flex:1}
+.chk{display:flex;gap:10px;align-items:flex-start;margin:10px 0;font-size:14px}
+.chk input{margin-top:4px}
+#msg{position:fixed;bottom:0;left:0;right:0;padding:12px 20px;font-family:'Courier New',monospace;font-size:13px;display:none;z-index:9}
+#msg.ok{background:#2f5d3a;display:block}#msg.err{background:#7a2e2e;display:block}
+nav.tabs{display:flex;gap:4px;flex-wrap:wrap;margin-top:12px}
+nav.tabs button{background:transparent;color:#efebdc;border:1px solid #5a513d}
+nav.tabs button.on{background:#d9b45a;color:#221e17}
+.hid{display:none}
+details{margin-top:18px;color:#b8ad92;font-size:14px}
+summary{cursor:pointer;color:#efebdc}
+ol{padding-left:20px}
+a{color:#d9b45a}
+.prev{font-size:12px;color:#b8ad92;font-family:'Courier New',monospace}
+</style>
+</head>
+<body>
+<header><b class="mono">MEXPERIMENTA · PANEL DE EDICIÓN</b><span class="mono" id="who" style="font-size:12px;color:#b8ad92"></span></header>
+<main>
+
+<section id="login">
+  <h2>Entrar</h2>
+  <p class="h">Para guardar cambios este panel necesita una clave de acceso al repositorio de la web (un “token” de GitHub). Se pega una sola vez y queda guardada solo en este navegador.</p>
+  <label>Repositorio</label><input type="text" id="repo" value="naranjasdehiroshima/mexperimenta">
+  <label>Rama</label><input type="text" id="branch" value="main">
+  <label>Token de GitHub</label><input type="password" id="token" placeholder="github_pat_…" autocomplete="off">
+  <p style="margin-top:16px"><button id="enter">ENTRAR</button></p>
+  <details><summary>¿Cómo consigo el token?</summary>
+    <ol>
+      <li>Entra a GitHub con una cuenta que tenga permiso de escritura en el repositorio.</li>
+      <li>Ve a Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token.</li>
+      <li>En “Repository access” elige solo el repositorio de Mexperimenta.</li>
+      <li>En “Permissions → Repository permissions” pon <b>Contents: Read and write</b>.</li>
+      <li>Copia el token (empieza por <span class="mono">github_pat_</span>) y pégalo arriba. Nunca lo compartas.</li>
+    </ol>
+  </details>
+</section>
+
+<section id="panel" class="hid">
+  <nav class="tabs">
+    <button data-t="textos" class="on">Textos</button>
+    <button data-t="avisos">Avisos</button>
+    <button data-t="videos">Videos</button>
+    <button data-t="ajustes">Ajustes</button>
+  </nav>
+
+  <div id="t-textos">
+    <h2>Textos de la web</h2>
+    <p class="h">Si dejas un texto vacío, la web usa el original.</p>
+    <div id="textos-list"></div>
+  </div>
+
+  <div id="t-avisos" class="hid">
+    <h2>Avisos de colección</h2>
+    <p class="h">El recuadro “Colección en actualización” que aparece bajo el título de la colección.</p>
+    <div class="chk"><input type="checkbox" id="av-ultracinema"><span>Mostrar aviso en <b>ULTRAcinema</b></span></div>
+    <div class="chk"><input type="checkbox" id="av-archivos_x"><span>Mostrar aviso en <b>Archivos X</b></span></div>
+  </div>
+
+  <div id="t-videos" class="hid">
+    <h2>Enlaces de video</h2>
+    <p class="h">Para una pieza concreta, pon su código (por ejemplo <span class="mono">TR-033</span>) y el link de Internet Archive o solo su código. Esto tiene prioridad sobre el campo Relation de Airtable. Se aplica en unos minutos, cuando termina de reconstruirse la web.</p>
+    <div id="videos-list"></div>
+    <p><button class="sec" id="add-video">+ AÑADIR ENLACE</button></p>
+  </div>
+
+  <div id="t-ajustes" class="hid">
+    <h2>Ajustes</h2>
+    <div class="chk"><input type="checkbox" id="nuevas"><span>Generar <b>ULTRAcinema</b> y <b>Archivos X</b> con los datos de Airtable (en lugar de los de la web anterior). Actívalo cuando esas tablas estén completas.</span></div>
+  </div>
+
+  <div class="box" style="margin-top:28px">
+    <button id="save">GUARDAR CAMBIOS</button>
+    <button class="sec" id="reload">DESHACER (RECARGAR)</button>
+    <button class="sec" id="logout" style="float:right">SALIR</button>
+    <p class="h" style="margin:12px 0 0">Al guardar, la web se reconstruye sola. Los cambios de texto se ven en cuanto el archivo se publica; los de video, cuando termina la reconstrucción (unos minutos).</p>
+  </div>
+</section>
+</main>
+<div id="msg"></div>
+
+<script>
+var LABELS = {
+  home_mision:['Portada · frase principal',2],
+  acerca_1:['Acerca de · párrafo 1',4],
+  acerca_2:['Acerca de · párrafo 2',5],
+  acerca_3:['Acerca de · créditos / apoyo',3],
+  col_ultracinema:['Colección ULTRAcinema (portada)',2],
+  col_archivos_x:['Colección Archivos X (portada)',2],
+  col_avances:['Colección Avances cinematográficos (portada)',2],
+  col_treegan:['Colección Gral. Treegan (portada)',2]
+};
+var S = { repo:'', branch:'main', token:'', sha:null, data:null };
+var $ = function(i){return document.getElementById(i)};
+function msg(t,k){var m=$('msg');m.textContent=t;m.className=k;if(k==='ok')setTimeout(function(){m.className=''},4000)}
+function b64(s){return btoa(unescape(encodeURIComponent(s)))}
+function unb64(s){return decodeURIComponent(escape(atob(s.replace(/\n/g,''))))}
+function api(path,opt){
+  opt=opt||{};opt.headers={'Authorization':'Bearer '+S.token,'Accept':'application/vnd.github+json'};
+  return fetch('https://api.github.com/repos/'+S.repo+path,opt);
+}
+function parseIA(v){
+  v=(v||'').trim();var m=v.match(/archive\.org\/(?:embed|details|download)\/([A-Za-z0-9._-]+)/);
+  if(m)return m[1].toLowerCase();return /^[A-Za-z0-9._-]+$/.test(v)?v.toLowerCase():null;
+}
+function load(){
+  return api('/contents/contenido.json?ref='+encodeURIComponent(S.branch)).then(function(r){
+    if(r.status===401||r.status===403)throw new Error('El token no es válido o no tiene permiso sobre el repositorio.');
+    if(r.status===404)throw new Error('No encuentro contenido.json en ese repositorio/rama.');
+    return r.json();
+  }).then(function(j){S.sha=j.sha;S.data=JSON.parse(unb64(j.content));render()});
+}
+function render(){
+  var d=S.data,t=d.textos||{},h='';
+  Object.keys(LABELS).forEach(function(k){
+    h+='<label>'+LABELS[k][0]+'</label><textarea data-k="'+k+'" rows="'+LABELS[k][1]+'"></textarea>';
+  });
+  $('textos-list').innerHTML=h;
+  document.querySelectorAll('#textos-list textarea').forEach(function(a){a.value=t[a.dataset.k]||''});
+  var av=d.avisos||{};$('av-ultracinema').checked=av.ultracinema!==false;$('av-archivos_x').checked=av.archivos_x!==false;
+  $('nuevas').checked=!!d.nuevas_desde_airtable;
+  $('videos-list').innerHTML='';
+  var v=d.videos||{};Object.keys(v).forEach(function(k){addRow(k,v[k])});
+}
+function addRow(code,link){
+  var r=document.createElement('div');r.className='row';
+  r.innerHTML='<input type="text" class="vc" placeholder="Código de la pieza (TR-033)" style="max-width:220px"><input type="text" class="vl" placeholder="Link o código de Internet Archive"><button class="sec">✕</button>';
+  r.querySelector('.vc').value=code||'';r.querySelector('.vl').value=link||'';
+  r.querySelector('button').onclick=function(){r.remove()};
+  $('videos-list').appendChild(r);
+}
+function collect(){
+  var d=JSON.parse(JSON.stringify(S.data));d.textos=d.textos||{};
+  document.querySelectorAll('#textos-list textarea').forEach(function(a){
+    var v=a.value.trim();if(v)d.textos[a.dataset.k]=v;else delete d.textos[a.dataset.k];
+  });
+  d.avisos={ultracinema:$('av-ultracinema').checked,archivos_x:$('av-archivos_x').checked};
+  d.nuevas_desde_airtable=$('nuevas').checked;
+  d.videos={};var bad=[];
+  document.querySelectorAll('#videos-list .row').forEach(function(r){
+    var c=r.querySelector('.vc').value.trim(),l=r.querySelector('.vl').value.trim();
+    if(!c&&!l)return;
+    if(!c||!parseIA(l)){bad.push(c||'(sin código)');return}
+    d.videos[c.toUpperCase()]=parseIA(l);
+  });
+  if(bad.length)throw new Error('Revisa estos enlaces de video: '+bad.join(', '));
+  return d;
+}
+function save(){
+  var d;try{d=collect()}catch(e){return msg(e.message,'err')}
+  $('save').disabled=true;
+  var body={message:'Panel: actualización de contenido',content:b64(JSON.stringify(d,null,2)+'\n'),sha:S.sha,branch:S.branch};
+  api('/contents/contenido.json',{method:'PUT',body:JSON.stringify(body)}).then(function(r){
+    if(r.status===409||r.status===422)throw new Error('Alguien más guardó antes. Pulsa “Deshacer (recargar)” y vuelve a intentarlo.');
+    if(!r.ok)throw new Error('No se pudo guardar ('+r.status+'). Revisa el token.');
+    return r.json();
+  }).then(function(j){S.sha=j.content.sha;S.data=d;msg('Guardado. La web se está actualizando.','ok')})
+   .catch(function(e){msg(e.message,'err')}).then(function(){$('save').disabled=false});
+}
+function enter(){
+  S.repo=$('repo').value.trim();S.branch=$('branch').value.trim()||'main';S.token=$('token').value.trim()||S.token;
+  if(!S.repo||!S.token)return msg('Falta el repositorio o el token.','err');
+  $('enter').disabled=true;
+  load().then(function(){
+    try{localStorage.setItem('mx_admin',JSON.stringify({repo:S.repo,branch:S.branch,token:S.token}))}catch(e){}
+    $('login').classList.add('hid');$('panel').classList.remove('hid');$('who').textContent=S.repo;
+  }).catch(function(e){msg(e.message,'err')}).then(function(){$('enter').disabled=false});
+}
+$('enter').onclick=enter;$('save').onclick=save;$('add-video').onclick=function(){addRow('','')};
+$('reload').onclick=function(){load().then(function(){msg('Cambios deshechos.','ok')}).catch(function(e){msg(e.message,'err')})};
+$('logout').onclick=function(){try{localStorage.removeItem('mx_admin')}catch(e){}location.reload()};
+document.querySelectorAll('nav.tabs button').forEach(function(b){b.onclick=function(){
+  document.querySelectorAll('nav.tabs button').forEach(function(x){x.classList.toggle('on',x===b)});
+  ['textos','avisos','videos','ajustes'].forEach(function(t){$('t-'+t).classList.toggle('hid',t!==b.dataset.t)});
+}});
+try{var s=JSON.parse(localStorage.getItem('mx_admin')||'null');if(s){$('repo').value=s.repo;$('branch').value=s.branch;S.token=s.token;enter()}}catch(e){}
+</script>
+</body>
+</html>

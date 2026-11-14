@@ -467,6 +467,7 @@ document.addEventListener('keydown', e => {{ if (e.key === 'Escape') closeModal(
 
 render('');
 </script>
+<script src="contenido.js"></script>
 </body>
 </html>
 """
@@ -523,14 +524,18 @@ rebuild_pieza_page('pieza.html', 'all_pieces.json')
 # conserva la página actual.
 # ---------------------------------------------------------------------------
 import os
-NUEVAS_DESDE_AIRTABLE = False
-AVISO = '<!--aviso-actualizacion--><p class="mono" style="margin:14px 0 0;padding:8px 12px;border:1px dashed #8a7d5c;color:#d9b45a;font-size:12px;letter-spacing:1px;display:inline-block">COLECCIÓN EN ACTUALIZACIÓN · el catálogo y los videos se están completando</p>'
+try:
+    NUEVAS_DESDE_AIRTABLE = bool(json.load(open('contenido.json', encoding='utf-8')).get('nuevas_desde_airtable'))
+except Exception:
+    NUEVAS_DESDE_AIRTABLE = False
+AVISO = '<!--aviso-actualizacion--><p class="mono" data-aviso="%SLUG%" style="margin:14px 0 0;padding:8px 12px;border:1px dashed #8a7d5c;color:#d9b45a;font-size:12px;letter-spacing:1px;display:inline-block">COLECCIÓN EN ACTUALIZACIÓN · el catálogo y los videos se están completando</p>'
 
-def aviso(path):
+def aviso(path, slug):
     t = open(path, encoding='utf-8').read()
-    if 'aviso-actualizacion' in t:
-        return
-    t = re.sub(r'(<h1>[^<]*</h1>)', lambda m: m.group(1) + AVISO, t, count=1)
+    if 'aviso-actualizacion' not in t:
+        t = re.sub(r'(<h1>[^<]*</h1>)', lambda m: m.group(1) + AVISO.replace('%SLUG%', slug), t, count=1)
+    if 'contenido.js' not in t:
+        t = t.replace('</body>', '<script src="contenido.js"></script>\n</body>', 1)
     open(path, 'w', encoding='utf-8').write(t)
     print(path, '-> aviso de actualización')
 
@@ -544,4 +549,4 @@ for name, jf, out, desc, fmt in [
     if NUEVAS_DESDE_AIRTABLE and n:
         build_page({'name': name, 'data_file': jf, 'out': out, 'desc': desc, 'formato': fmt})
     else:
-        aviso(out)
+        aviso(out, 'ultracinema' if name == 'ULTRAcinema' else 'archivos_x')
