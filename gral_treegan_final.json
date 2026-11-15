@@ -149,35 +149,6 @@
     "sensitive": false
   },
   {
-    "id": "rec2dm1r9MOB3YHZ6",
-    "idn": "GT-045",
-    "title": "Mercedes viaje. (Asturias llama olímpica)",
-    "title_es": "",
-    "year": "",
-    "creator": "",
-    "desc": "Muestra viaje y paisajes.",
-    "fmt": "8 mm",
-    "medium": "Poliéster",
-    "genre": "",
-    "type": [
-      "Cine doméstico"
-    ],
-    "tags": [
-      "Archivo familiar",
-      "Asturias",
-      "llama",
-      "olímpica",
-      "paisaje."
-    ],
-    "lang": "",
-    "coverage": "España",
-    "duration": "",
-    "color": "Color",
-    "coll": "Gral. Treegan",
-    "archiveId": null,
-    "sensitive": false
-  },
-  {
     "id": "rec2tsBI2a2C8boWv",
     "idn": "GT-019",
     "title": "\"Tijuana\"",
@@ -203,7 +174,7 @@
     "duration": "0:07:20",
     "color": "Color",
     "coll": "Gral. Treegan",
-    "archiveId": null,
+    "archiveId": "gt-019-tijuana-silente",
     "sensitive": false
   },
   {
@@ -297,63 +268,6 @@
     "sensitive": false
   },
   {
-    "id": "rec5XHsWIXTZCYxfJ",
-    "idn": "GT-028",
-    "title": "Graduación Coqui. San Cristóbal L. C. Chiapas. 1971",
-    "title_es": "",
-    "year": "",
-    "creator": "",
-    "desc": "Muestra celebración,  baile. Viaje familiar a San Cristóbal de las Casas. Familia en el viaje en auto. Un poco de las calles de los sitios visitados. Comida, fiesta, grupo de música y gente comiendo.",
-    "fmt": "8 mm",
-    "medium": "Poliéster",
-    "genre": "",
-    "type": [
-      "Cine doméstico"
-    ],
-    "tags": [
-      "Baile nocturno",
-      "Archivo familiar",
-      "Familia",
-      "San Cristóbal",
-      "banda",
-      "Música original",
-      "instrumentos musicales."
-    ],
-    "lang": "Silente",
-    "coverage": "Chiapas, México",
-    "duration": "0:10:41",
-    "color": "Color",
-    "coll": "Gral. Treegan",
-    "archiveId": null,
-    "sensitive": false
-  },
-  {
-    "id": "rec5cop25fHcvJ9fD",
-    "idn": "GT-037",
-    "title": "The Runt",
-    "title_es": "",
-    "year": "",
-    "creator": "",
-    "desc": "Un enano salva el día.",
-    "fmt": "8 mm",
-    "medium": "Kodak Safety Film / Poliéster",
-    "genre": "",
-    "type": [
-      "Animación"
-    ],
-    "tags": [
-      "the runt",
-      "enano"
-    ],
-    "lang": "",
-    "coverage": "",
-    "duration": "",
-    "color": "Blanco y Negro",
-    "coll": "Gral. Treegan",
-    "archiveId": null,
-    "sensitive": false
-  },
-  {
     "id": "rec5nSM0x0pzXpvNP",
     "idn": "GT-129",
     "title": "The Wolrd Parade",
@@ -412,7 +326,7 @@
     "duration": "0:14:10",
     "color": "Color",
     "coll": "Gral. Treegan",
-    "archiveId": null,
+    "archiveId": "gt-022-corto-aeronaves-cpc-compuesto",
     "sensitive": false
   },
   {
@@ -471,35 +385,7 @@
     "duration": "0:09:15",
     "color": "Color",
     "coll": "Gral. Treegan",
-    "archiveId": "gt-001-orquesta-silente-1",
-    "sensitive": false
-  },
-  {
-    "id": "rec7YDWVFOo9yPbGl",
-    "idn": "GT-043",
-    "title": "Stalon C. U. (Argüeyes)",
-    "title_es": "",
-    "year": "",
-    "creator": "",
-    "desc": "Película sobre visita a C. U.",
-    "fmt": "8 mm",
-    "medium": "Poliéster",
-    "genre": "",
-    "type": [
-      "Cine doméstico"
-    ],
-    "tags": [
-      "C. U.",
-      "Naturaleza",
-      "auto",
-      "gente."
-    ],
-    "lang": "",
-    "coverage": "",
-    "duration": "",
-    "color": "Color",
-    "coll": "Gral. Treegan",
-    "archiveId": null,
+    "archiveId": "gt-002-puebla-compuesto",
     "sensitive": false
   },
   {
@@ -556,38 +442,6 @@
     "lang": "Silente",
     "coverage": "México",
     "duration": "0:02:55",
-    "color": "Color",
-    "coll": "Gral. Treegan",
-    "archiveId": null,
-    "sensitive": false
-  },
-  {
-    "id": "rec853jLpCI3iW54G",
-    "idn": "GT-025",
-    "title": "Bodas de plata, 25 aniversario. 1978.",
-    "title_es": "",
-    "year": "",
-    "creator": "",
-    "desc": "Retratos. Convivencia de gente en el evento. Ceremonia religiosa de renovación de votos. Lectura de votos. Fiesta posterior a la ceremonia religiosa, brindis, baile.",
-    "fmt": "8 mm",
-    "medium": "Poliéster",
-    "genre": "",
-    "type": [
-      "Cine doméstico"
-    ],
-    "tags": [
-      "Misa de aniversario",
-      "brindis",
-      "Familia",
-      "hijas",
-      "sacerdote",
-      "Religión",
-      "Tradición",
-      "pareja."
-    ],
-    "lang": "Silente",
-    "coverage": "México",
-    "duration": "0:07:03",
     "color": "Color",
     "coll": "Gral. Treegan",
     "archiveId": null,
@@ -746,38 +600,6 @@
     "sensitive": false
   },
   {
-    "id": "rec9q74t0KdydAOHC",
-    "idn": "GT-034",
-    "title": "Jack and the Beanstalk",
-    "title_es": "",
-    "year": "",
-    "creator": "",
-    "desc": "Caricaturas de Jack y el frijol mágico. Familia sin dinero para comer, el niño intercambia a la vaca por tres frijoles mágicos. Los frijoles mágicos les llenan de riquezas pero antes deben derrotar al ogro del castillo.",
-    "fmt": "8 mm",
-    "medium": "Kodak Safety / Poliéster",
-    "genre": "",
-    "type": [
-      "Animación"
-    ],
-    "tags": [
-      "frijol",
-      "frijol mágico",
-      "ogro",
-      "castillo",
-      "vaca",
-      "pez",
-      "gato",
-      "arpa"
-    ],
-    "lang": "en",
-    "coverage": "Estados Unidos",
-    "duration": "0:09:57",
-    "color": "Blanco y Negro",
-    "coll": "Gral. Treegan",
-    "archiveId": null,
-    "sensitive": false
-  },
-  {
     "id": "recAWgwjiFaZqASru",
     "idn": "GT-006",
     "title": "Pornografía",
@@ -807,38 +629,6 @@
     "coll": "Gral. Treegan",
     "archiveId": "gt-006-porno-silente",
     "sensitive": true
-  },
-  {
-    "id": "recBNHnRxCrwPObZ2",
-    "idn": "GT-026",
-    "title": "Matrimonio Polo y Berthita (niñas chicas). 1953",
-    "title_es": "",
-    "year": "",
-    "creator": "",
-    "desc": "Primera parte es misa de boda, en blanco y negro. Posteriormente, la familia en paseo, se muestra a niñas. Visita familiar a Cuernavaca. Comida familiar y de amigos. La familia en Copilco, después la familia en la colonia, se muestran las casas y calle.",
-    "fmt": "8 mm",
-    "medium": "Ferrania. Agfa color. Kodrachrome. / Poliéster",
-    "genre": "",
-    "type": [
-      "Cine doméstico"
-    ],
-    "tags": [
-      "Misa",
-      "Tradición",
-      "paisaje Cuernavaca",
-      "calle",
-      "coches",
-      "Familia",
-      "Infancia",
-      "Pareja"
-    ],
-    "lang": "Silente",
-    "coverage": "México",
-    "duration": "13: 26",
-    "color": "Color",
-    "coll": "Gral. Treegan",
-    "archiveId": null,
-    "sensitive": false
   },
   {
     "id": "recBNIRlZukXNjTRC",
@@ -1175,37 +965,6 @@
     "sensitive": false
   },
   {
-    "id": "recGZcD3CFttun3Wa",
-    "idn": "GT-029",
-    "title": "Sin título",
-    "title_es": "",
-    "year": "",
-    "creator": "",
-    "desc": "Fiesta de cumpleaños infantil. También ceremonia escolar en donde hay \"bailable\", honores a la bandera y entrega de documentos. Fiesta nocturna, es un baile, una especie de presentación de señoritas.",
-    "fmt": "8 mm",
-    "medium": "Kodak / Poliéster",
-    "genre": "",
-    "type": [
-      "Cine doméstico"
-    ],
-    "tags": [
-      "NIños",
-      "piñata",
-      "Tradición",
-      "escolta",
-      "Vida cotidiana",
-      "baile nocturno",
-      "sociedad presentación en sociedad."
-    ],
-    "lang": "Silente",
-    "coverage": "México",
-    "duration": "0:13:11",
-    "color": "Color",
-    "coll": "Gral. Treegan",
-    "archiveId": null,
-    "sensitive": false
-  },
-  {
     "id": "recHCCI4rwWCfgGDi",
     "idn": "GT-106",
     "title": "Sin título",
@@ -1270,39 +1029,6 @@
     "sensitive": false
   },
   {
-    "id": "recHqYGHqhqevqdlg",
-    "idn": "GT-048",
-    "title": "Europa color",
-    "title_es": "",
-    "year": "",
-    "creator": "",
-    "desc": "El metraje inicia con imagen de casa en pueblo, niños y bebé. El resto es la documentación visual de un viaje a Europa por crucero.",
-    "fmt": "8 mm",
-    "medium": "Kodachrome / Poliéster",
-    "genre": "",
-    "type": [
-      "Documental",
-      "Cine doméstico"
-    ],
-    "tags": [
-      "Naturaleza",
-      "Ciudad",
-      "Familia",
-      "Alemania",
-      "Italia",
-      "Venecia",
-      "Francia",
-      "Inglaterra"
-    ],
-    "lang": "Silente",
-    "coverage": "Alemania, Italia, Francia, Inglaterra",
-    "duration": "0:24:32",
-    "color": "Color",
-    "coll": "Gral. Treegan",
-    "archiveId": null,
-    "sensitive": false
-  },
-  {
     "id": "recHtCDbTWqA7yJpY",
     "idn": "GT-095",
     "title": "Sin título",
@@ -1353,37 +1079,6 @@
     "lang": "Silente",
     "coverage": "México",
     "duration": "0:02:54",
-    "color": "Color",
-    "coll": "Gral. Treegan",
-    "archiveId": null,
-    "sensitive": false
-  },
-  {
-    "id": "recIe14TmvrFG3JPL",
-    "idn": "GT-032",
-    "title": "María tiene un borrego. Mary's little lamb #233-2 complete",
-    "title_es": "",
-    "year": "",
-    "creator": "",
-    "desc": "Se trata de una ficción de animación. Es la historia de Mary que se encuentra con un pequeño borrego, quien quiere acompañarla a la escuela y hace que ocurran desastres.\n",
-    "fmt": "8 mm",
-    "medium": "Kodak / Poliéster",
-    "genre": "",
-    "type": [
-      "Animación"
-    ],
-    "tags": [
-      "borrego",
-      "Infancia",
-      "Campo",
-      "escuelita",
-      "profesora",
-      "caldero",
-      "niños."
-    ],
-    "lang": "en",
-    "coverage": "",
-    "duration": "0:09:46",
     "color": "Color",
     "coll": "Gral. Treegan",
     "archiveId": null,
@@ -1570,7 +1265,7 @@
     "duration": "0:09:46",
     "color": "Blanco y Negro",
     "coll": "Gral. Treegan",
-    "archiveId": null,
+    "archiveId": "gt-017-documental-tuneles-compuesto",
     "sensitive": false
   },
   {
@@ -1662,7 +1357,7 @@
     "duration": "0:02:30",
     "color": "Color",
     "coll": "Gral. Treegan",
-    "archiveId": null,
+    "archiveId": "gt-015-misa-1-silente",
     "sensitive": false
   },
   {
@@ -1722,7 +1417,7 @@
     "duration": "0:02:49",
     "color": "Blanco y Negro",
     "coll": "Gral. Treegan",
-    "archiveId": null,
+    "archiveId": "gt-024-xv-anos-bn-silente",
     "sensitive": false
   },
   {
@@ -1851,70 +1546,6 @@
     "sensitive": false
   },
   {
-    "id": "recPcrCqHhjStNxK2",
-    "idn": "GT-035",
-    "title": "Tin can tourist",
-    "title_es": "",
-    "year": "",
-    "creator": "",
-    "desc": "Caricatura sobre un viajero. Hombre mayor vive en su camioneta con mucha tecnología que le permite no pagar renta ni servicios. Pero en el camino puede encontar enemigos.",
-    "fmt": "8 mm",
-    "medium": "Poliéster",
-    "genre": "",
-    "type": [
-      "Animación"
-    ],
-    "tags": [
-      "Caricatura",
-      "Naturaleza",
-      "perro",
-      "trailer",
-      "Vejez",
-      "tecnología doméstica",
-      "abejas",
-      "campamento."
-    ],
-    "lang": "en",
-    "coverage": "Estados Unidos",
-    "duration": "0:09:23",
-    "color": "Blanco y Negro",
-    "coll": "Gral. Treegan",
-    "archiveId": null,
-    "sensitive": false
-  },
-  {
-    "id": "recPnJ7b01GmbOPU6",
-    "idn": "GT-038",
-    "title": "1)  La pandilla en El Rancho. 2) Félix y el Lobo. 3)El pastorcito y el lobo.",
-    "title_es": "",
-    "year": "",
-    "creator": "",
-    "desc": "3 cortos ficcionados.",
-    "fmt": "8 mm",
-    "medium": "Agfa / Poliéster",
-    "genre": "",
-    "type": [
-      "Animación"
-    ],
-    "tags": [
-      "Ficción",
-      "cortometraje",
-      "historias",
-      "Infancia",
-      "oro",
-      "Romeo",
-      "Julieta",
-      "aventuras"
-    ],
-    "lang": "",
-    "coverage": "",
-    "duration": "",
-    "color": "Color",
-    "coll": "Gral. Treegan",
-    "archiveId": null,
-    "sensitive": false
-  },
-  {
     "id": "recQCQvNMQo6Szllk",
     "idn": "GT-109",
     "title": "Sin título",
@@ -1972,7 +1603,7 @@
     "duration": "0:08:28",
     "color": "Color",
     "coll": "Gral. Treegan",
-    "archiveId": null,
+    "archiveId": "gt-013-queretaro-compuesto",
     "sensitive": false
   },
   {
@@ -1998,38 +1629,6 @@
     "lang": "Silente",
     "coverage": "Acapulco, México",
     "duration": "0:02:55",
-    "color": "Color",
-    "coll": "Gral. Treegan",
-    "archiveId": null,
-    "sensitive": false
-  },
-  {
-    "id": "recQnBmw3x6MVBdU9",
-    "idn": "GT-030",
-    "title": "Viaje a Guanajuato. 1970",
-    "title_es": "",
-    "year": "",
-    "creator": "",
-    "desc": "Diferentes postales de viaje familiar así como paisajes. Viaje a Guanajuato, tomas del castillo Santa Cecilia, tomas del centro de la ciudad. Retratos de la familia en varias locaciones de la ciudad. Arquitectura de Guanajuato.",
-    "fmt": "8 mm",
-    "medium": "Poliéster",
-    "genre": "",
-    "type": [
-      "Cine doméstico"
-    ],
-    "tags": [
-      "Dolores Hidalgo",
-      "Castillo Santa Cecilia",
-      "Vida cotidiana",
-      "Familia",
-      "Ciudad",
-      "perro",
-      "cachorro",
-      "patos"
-    ],
-    "lang": "Silente",
-    "coverage": "Guanajuato, México",
-    "duration": "0:10:38",
     "color": "Color",
     "coll": "Gral. Treegan",
     "archiveId": null,
@@ -2063,7 +1662,7 @@
     "duration": "0:11:12",
     "color": "Blanco y Negro",
     "coll": "Gral. Treegan",
-    "archiveId": null,
+    "archiveId": "gt-020-caricaturas-silente",
     "sensitive": false
   },
   {
@@ -2099,33 +1698,6 @@
     "sensitive": false
   },
   {
-    "id": "recRitDiXYMRDN2Ar",
-    "idn": "GT-033",
-    "title": "Sinbad the sailor complete",
-    "title_es": "",
-    "year": "",
-    "creator": "",
-    "desc": "Es una animación sobre Simbad.",
-    "fmt": "8 mm",
-    "medium": "Kodak / Poliéster",
-    "genre": "",
-    "type": [
-      "Animación"
-    ],
-    "tags": [
-      "Simbad",
-      "barcos",
-      "piratas"
-    ],
-    "lang": "en",
-    "coverage": "",
-    "duration": "0:08:53",
-    "color": "Color",
-    "coll": "Gral. Treegan",
-    "archiveId": null,
-    "sensitive": false
-  },
-  {
     "id": "recSaAMJu0H3Wf2Pk",
     "idn": "GT-012",
     "title": "Comerciales Aeroméxico",
@@ -2154,7 +1726,7 @@
     "duration": "0:01:59",
     "color": "Color",
     "coll": "Gral. Treegan",
-    "archiveId": null,
+    "archiveId": "gt-012-comerciales-aeromexico-compuesto",
     "sensitive": false
   },
   {
@@ -2183,7 +1755,7 @@
     "duration": "0:15:10",
     "color": "Blanco y Negro",
     "coll": "Gral. Treegan",
-    "archiveId": null,
+    "archiveId": "gt-014-talleres-ultracinema-silente",
     "sensitive": false
   },
   {
@@ -2242,33 +1814,6 @@
     "coll": "Gral. Treegan",
     "archiveId": null,
     "sensitive": true
-  },
-  {
-    "id": "recVQbUMw30cuGz7m",
-    "idn": "GT-040",
-    "title": "San Miguel",
-    "title_es": "",
-    "year": "",
-    "creator": "",
-    "desc": "Película de viaje familiar.",
-    "fmt": "8 mm",
-    "medium": "Agfa / Poliéster",
-    "genre": "",
-    "type": [
-      "Cine doméstico"
-    ],
-    "tags": [
-      "Familia",
-      "Vida cotidiana",
-      "paisaje."
-    ],
-    "lang": "",
-    "coverage": "San Miguel, México",
-    "duration": "",
-    "color": "Color",
-    "coll": "Gral. Treegan",
-    "archiveId": null,
-    "sensitive": false
   },
   {
     "id": "recW46Gcdi0uCx68S",
@@ -2458,33 +2003,6 @@
     "sensitive": false
   },
   {
-    "id": "recYBO8CdeuclBDRQ",
-    "idn": "GT-036",
-    "title": "La Pesadilla",
-    "title_es": "",
-    "year": "",
-    "creator": "",
-    "desc": "Corto ficción.",
-    "fmt": "8 mm",
-    "medium": "Poliéster",
-    "genre": "",
-    "type": [
-      "Ficción"
-    ],
-    "tags": [
-      "Cortometraje",
-      "suspenso",
-      "pesadilla."
-    ],
-    "lang": "",
-    "coverage": "",
-    "duration": "",
-    "color": "Color",
-    "coll": "Gral. Treegan",
-    "archiveId": null,
-    "sensitive": false
-  },
-  {
     "id": "recYV4QgNVonotapw",
     "idn": "GT-094",
     "title": "Baño Renatita",
@@ -2538,60 +2056,6 @@
     "coverage": "Michoacán, México",
     "duration": "0:02:56",
     "color": "Blanco y Negro",
-    "coll": "Gral. Treegan",
-    "archiveId": null,
-    "sensitive": false
-  },
-  {
-    "id": "recZ8WNkwkJv5R4W4",
-    "idn": "GT-042",
-    "title": "Coronación 2a parte",
-    "title_es": "",
-    "year": "",
-    "creator": "",
-    "desc": "Película de ceremonia escolar.",
-    "fmt": "8 mm",
-    "medium": "Agfa / Poliéster",
-    "genre": "",
-    "type": [
-      "Cine doméstico"
-    ],
-    "tags": [
-      "Tradición",
-      "Infancia",
-      "coronación."
-    ],
-    "lang": "",
-    "coverage": "",
-    "duration": "",
-    "color": "Color",
-    "coll": "Gral. Treegan",
-    "archiveId": null,
-    "sensitive": false
-  },
-  {
-    "id": "recZjVVJA9RcFr5Xk",
-    "idn": "GT-031",
-    "title": "Viaje Guadalajara. 1969",
-    "title_es": "",
-    "year": "",
-    "creator": "",
-    "desc": "Postales familiares de viaje y  paisaje.",
-    "fmt": "8 mm",
-    "medium": "Poliéster",
-    "genre": "",
-    "type": [
-      "Cine doméstico"
-    ],
-    "tags": [
-      "Vida cotidiana",
-      "Archivo familiar",
-      "Naturaleza"
-    ],
-    "lang": "",
-    "coverage": "Gudalajara, México",
-    "duration": "",
-    "color": "Color",
     "coll": "Gral. Treegan",
     "archiveId": null,
     "sensitive": false
@@ -2715,7 +2179,7 @@
     "duration": "0:02:48",
     "color": "Color",
     "coll": "Gral. Treegan",
-    "archiveId": null,
+    "archiveId": "gt-016-misa-2-silente",
     "sensitive": false
   },
   {
@@ -2741,59 +2205,6 @@
     "lang": "Silente",
     "coverage": "México",
     "duration": "0:02:56",
-    "color": "Color",
-    "coll": "Gral. Treegan",
-    "archiveId": null,
-    "sensitive": false
-  },
-  {
-    "id": "reccIpxQ76hg1N2Uf",
-    "idn": "GT-041",
-    "title": "Sin título",
-    "title_es": "",
-    "year": "",
-    "creator": "",
-    "desc": "Película de celebración de boda.",
-    "fmt": "8 mm",
-    "medium": "Kodak / Poliéster",
-    "genre": "",
-    "type": [
-      "Cine doméstico"
-    ],
-    "tags": [
-      "Tradición",
-      "fiesta."
-    ],
-    "lang": "",
-    "coverage": "",
-    "duration": "",
-    "color": "Color",
-    "coll": "Gral. Treegan",
-    "archiveId": null,
-    "sensitive": false
-  },
-  {
-    "id": "reccKdwzOmlaZy83l",
-    "idn": "GT-044",
-    "title": "15 años. Rock and roll",
-    "title_es": "",
-    "year": "",
-    "creator": "",
-    "desc": "Fiesta de XV años.",
-    "fmt": "8 mm",
-    "medium": "Poliéster",
-    "genre": "",
-    "type": [
-      "Cine doméstico"
-    ],
-    "tags": [
-      "Tradición",
-      "XV años",
-      "gente."
-    ],
-    "lang": "",
-    "coverage": "",
-    "duration": "",
     "color": "Color",
     "coll": "Gral. Treegan",
     "archiveId": null,
@@ -2915,34 +2326,6 @@
     "lang": "Silente",
     "coverage": "México",
     "duration": "0:02:56",
-    "color": "Color",
-    "coll": "Gral. Treegan",
-    "archiveId": null,
-    "sensitive": false
-  },
-  {
-    "id": "rece55Gv6IFjc2hhI",
-    "idn": "GT-039",
-    "title": "Puebla y Bety. 1962",
-    "title_es": "",
-    "year": "",
-    "creator": "",
-    "desc": "Película de viaje familiar.",
-    "fmt": "8 mm",
-    "medium": "Agfa / Poliéster",
-    "genre": "",
-    "type": [
-      "Cine doméstico"
-    ],
-    "tags": [
-      "Familia",
-      "Vida cotidiana",
-      "Naturaleza",
-      "niños."
-    ],
-    "lang": "",
-    "coverage": "",
-    "duration": "",
     "color": "Color",
     "coll": "Gral. Treegan",
     "archiveId": null,
@@ -3282,34 +2665,6 @@
     "sensitive": false
   },
   {
-    "id": "recjTFcGWUGGRG1mp",
-    "idn": "GT-046",
-    "title": "Coronación 1a parte",
-    "title_es": "",
-    "year": "",
-    "creator": "",
-    "desc": "Ceremonia de coronación escolar.",
-    "fmt": "8 mm",
-    "medium": "Agfa / Poliéster",
-    "genre": "",
-    "type": [
-      "Cine doméstico"
-    ],
-    "tags": [
-      "Tradición",
-      "coronación",
-      "Infancia",
-      "multitud."
-    ],
-    "lang": "",
-    "coverage": "México",
-    "duration": "",
-    "color": "Color",
-    "coll": "Gral. Treegan",
-    "archiveId": null,
-    "sensitive": false
-  },
-  {
     "id": "reckmODMsDfACkPiC",
     "idn": "GT-063",
     "title": "Sin título",
@@ -3616,38 +2971,6 @@
     "sensitive": false
   },
   {
-    "id": "recraNJwzEVuDqI1u",
-    "idn": "GT-027",
-    "title": "XV Aniversario Georgina Ruiz",
-    "title_es": "",
-    "year": "",
-    "creator": "",
-    "desc": "Muestra la ceremonia de XV años, entrada de cortejo a la Iglesia, tanto quinceañera como familiares. Posteriormente está la celebración, el vals con el padre, abuelo, padrinos, palabras para la quinceañera y la partida de pastel.",
-    "fmt": "8 mm",
-    "medium": "Poliéster",
-    "genre": "",
-    "type": [
-      "Cine doméstico"
-    ],
-    "tags": [
-      "Religión",
-      "Misa",
-      "Vida cotidiana",
-      "Familia",
-      "XV años",
-      "brindis",
-      "Tradición",
-      "vestido"
-    ],
-    "lang": "Silente",
-    "coverage": "México",
-    "duration": "0:10:06",
-    "color": "Color",
-    "coll": "Gral. Treegan",
-    "archiveId": null,
-    "sensitive": false
-  },
-  {
     "id": "recs7TZZ3y0UjGKwT",
     "idn": "GT-074",
     "title": "Querétaro",
@@ -3891,7 +3214,7 @@
     "duration": "0:08:16",
     "color": "Color",
     "coll": "Gral. Treegan",
-    "archiveId": null,
+    "archiveId": "gt-018-chihuahua-compuesto",
     "sensitive": false
   },
   {
@@ -3984,33 +3307,7 @@
     "duration": "0:21:21",
     "color": "Color",
     "coll": "Gral. Treegan",
-    "archiveId": null,
-    "sensitive": false
-  },
-  {
-    "id": "recwgJE94J3g66pMZ",
-    "idn": "GT-047",
-    "title": "Familia Aguirre. 1963. Agosto",
-    "title_es": "",
-    "year": "",
-    "creator": "",
-    "desc": "Viaje familiar",
-    "fmt": "8 mm",
-    "medium": "Kodachrome / Poliéster",
-    "genre": "",
-    "type": [
-      "Cine doméstico"
-    ],
-    "tags": [
-      "Ciudad",
-      "Familia"
-    ],
-    "lang": "",
-    "coverage": "",
-    "duration": "",
-    "color": "Color",
-    "coll": "Gral. Treegan",
-    "archiveId": null,
+    "archiveId": "gt-021-las-alas-del-progreso-compuesto",
     "sensitive": false
   },
   {
@@ -4041,33 +3338,6 @@
     "coverage": "",
     "duration": "11: 14",
     "color": "Color",
-    "coll": "Gral. Treegan",
-    "archiveId": null,
-    "sensitive": false
-  },
-  {
-    "id": "recx5eLQNdTGhEldN",
-    "idn": "GT-049",
-    "title": "Sin título",
-    "title_es": "",
-    "year": "",
-    "creator": "",
-    "desc": "Al inicio retratos en B/N, después postales de paisajes en color.",
-    "fmt": "8 mm",
-    "medium": "Kodachrome / Poliéster",
-    "genre": "",
-    "type": [
-      "Cine doméstico"
-    ],
-    "tags": [
-      "Vida cotidiana",
-      "Archivo familiar",
-      "paisaje."
-    ],
-    "lang": "",
-    "coverage": "",
-    "duration": "0:30:31",
-    "color": "Blanco y Negro",
     "coll": "Gral. Treegan",
     "archiveId": null,
     "sensitive": false
@@ -4160,7 +3430,7 @@
     "duration": "0:02:01",
     "color": "Blanco y Negro",
     "coll": "Gral. Treegan",
-    "archiveId": null,
+    "archiveId": "gt-023-dicomex-silente",
     "sensitive": false
   },
   {
