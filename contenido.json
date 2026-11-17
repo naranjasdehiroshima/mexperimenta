@@ -17,5 +17,11 @@
   "videos": {},
   "nuevas_desde_airtable": false,
   "fondo": "mixto",
-  "efecto_3d": true
+  "efecto_3d": true,
+  "efecto_parpadeo": true,
+  "enlaces": {
+    "ultracinema": "",
+    "arkino": "",
+    "sapeurs": ""
+  }
 }

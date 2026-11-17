@@ -67,6 +67,18 @@
     transition: opacity 1.6s ease;
   }
   #hero-bg img.on { opacity: 1; }
+  /* Parpadeo: de vez en cuando la imagen salta a blanco y negro y vuelve a color */
+  @keyframes flickerbw {
+    0%, 82%, 100% { filter: grayscale(0) brightness(1); opacity: 1; }
+    83% { filter: grayscale(1) brightness(1.5) contrast(1.3); }
+    85% { filter: grayscale(0) brightness(1); opacity: .85; }
+    87% { filter: grayscale(1) brightness(.7) contrast(1.4); opacity: 1; }
+    89% { filter: grayscale(0) brightness(1.2); }
+    91% { filter: grayscale(1) brightness(1.3); opacity: .9; }
+    94% { filter: grayscale(1) brightness(1); opacity: 1; }
+    96% { filter: grayscale(0) brightness(1); }
+  }
+  #hero.fxflicker #hero-bg { animation: flickerbw 6.5s steps(1, end) infinite; }
   /* Efecto 3D anaglifo (cine de los años 50): canal rojo y cian desplazados */
   #hero.fx3d #hero-bg .bgimg { filter: url(#ana3d) saturate(1.6) contrast(1.05) brightness(1.2); }
   #hero-bg .schematic {
@@ -119,6 +131,7 @@
     opacity: 0.5;
     z-index: 1;
   }
+  #hero-inner::before { content:''; position:absolute; inset:-60px -140px; z-index:-1; pointer-events:none; background: radial-gradient(ellipse at center, rgba(8,7,5,.62) 0%, rgba(8,7,5,.42) 45%, rgba(8,7,5,0) 72%); }
   #hero-inner { position: relative; max-width: 720px; margin: 0 auto; z-index: 2; }
   #hero h1 {
     font-family: 'Courier New', monospace;
@@ -190,17 +203,20 @@
   #hero .subtitle .glitch-b { color: #4a86c9; animation: glitch2 4.6s infinite steps(1); }
   #hero .eyebrow {
     font-family: 'Courier New', monospace;
-    font-size: 11px;
+    font-size: 13px;
+    font-weight: bold;
     letter-spacing: 3px;
-    color: #a39c88;
+    color: #f3eedb;
     text-transform: uppercase;
     margin-bottom: 18px;
+    text-shadow: 0 0 6px rgba(0,0,0,.95), 0 0 14px rgba(0,0,0,.85), 1px 1px 0 #000, -1px -1px 0 #000;
   }
   #hero p.mission {
     font-size: 18px;
     line-height: 1.7;
-    color: #d4cfbc;
+    color: #f0ebd8;
     margin: 22px 0 30px;
+    text-shadow: 0 0 8px rgba(0,0,0,.95), 0 0 18px rgba(0,0,0,.8), 1px 1px 0 rgba(0,0,0,.8);
   }
   #hero .rec {
     display: inline-flex;
@@ -209,8 +225,10 @@
     font-family: 'Courier New', monospace;
     font-size: 11px;
     letter-spacing: 1.5px;
-    color: #b8b19c;
+    font-weight: bold;
+    color: #e6e0cb;
     text-transform: uppercase;
+    text-shadow: 0 0 6px rgba(0,0,0,.95), 0 0 14px rgba(0,0,0,.85), 1px 1px 0 #000;
   }
   #hero .rec .dot {
     width: 7px; height: 7px;
@@ -994,9 +1012,9 @@
   </div>
 
   <footer>
-    <div class="support">Mexperimenta, el portal de Cine Experimental, es un proyecto de</div>
     <div class="orgs" style="margin-bottom:12px;"><a href="guia.html" style="color:#9dffb0;text-decoration:none;">Guía y mapa del sitio ↗</a></div>
-    <div class="orgs">Festival ULTRAcinema <span>·</span> ARKINO, Archivo Abierto de Cine Experimental <span>·</span> SAPEURS MX</div>
+    <div class="support"><a href="index.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">Mexperimenta</a>, el portal de Cine Experimental, es un proyecto de</div>
+    <div class="orgs"><span data-enlace="ultracinema" style="letter-spacing:inherit">Festival ULTRAcinema</span> <span>·</span> <span data-enlace="arkino" style="letter-spacing:inherit">ARKINO, Archivo Abierto de Cine Experimental</span> <span>·</span> <span data-enlace="sapeurs" style="letter-spacing:inherit">SAPEURS MX</span></div>
       <div class="creditos"><img src="assets/creditos.png" alt="Un proyecto de ARKINO, ULTRAcinema y SAPEURS MX. Proyecto realizado con el apoyo del Instituto Mexicano de Cinematografía a través del programa Fomento al Cine Mexicano (FOCINE) 2026. Secretaría de Cultura." loading="lazy"></div>
     <div class="credito-web"><img src="assets/naranjas-logo.png" alt="Naranjas de Hiroshima"><span>Diseño web: <a href="https://naranjasdehiroshima.com" target="_blank" rel="noopener">Naranjas de Hiroshima</a></span></div>
   </footer>
@@ -1049,9 +1067,10 @@ function runSlides(imgs, urls) {
 }
 async function buildHero() {
   const orig = document.querySelectorAll('#hero-bg .bgimg');
-  let modo = 'mixto', fx3d = true;
-  try { const c = await (await fetch('contenido.json?v=' + Date.now(), { cache: 'no-store' })).json(); if (c.fondo) modo = c.fondo; if (c.efecto_3d === false) fx3d = false; } catch (e) {}
+  let modo = 'mixto', fx3d = true, flick = true;
+  try { const c = await (await fetch('contenido.json?v=' + Date.now(), { cache: 'no-store' })).json(); if (c.fondo) modo = c.fondo; if (c.efecto_3d === false) fx3d = false; if (c.efecto_parpadeo === false) flick = false; } catch (e) {}
   if (fx3d) document.getElementById('hero').classList.add('fx3d');
+  if (flick) document.getElementById('hero').classList.add('fxflicker');
   if (modo !== 'ximena') {
     try {
       const m = await (await fetch('assets/fondo/fondo.json')).json();
@@ -1074,34 +1093,48 @@ async function buildHero() {
 }
 buildHero();
 
-const SPOTLIGHTS = [
-  { eyebrow: "Archivos X · 1929", title: "Dziga Vertov — Kino Eye", desc: "Man with a Movie Camera, versión subtitulada, resguardada dentro de la colección donada por Ximena Cuevas.", meta: "XC-0013 · VHS" },
-  { eyebrow: "Archivos X · 1982/1985", title: "Lost portraits", desc: "Colección de retratos experimentales de artistas y amigos del cineasta Ricardo Nicolayevsky.", meta: "XC-0024 · VHS" },
-  { eyebrow: "ULTRAcinema · 2012", title: "Filmic Sculpture, N.3", desc: "Cabrera Bernal utiliza la imagen en movimiento como materia prima de una escultura hecha de métrica y ritmo.", meta: "C.204 · Digital" },
-  { eyebrow: "ULTRAcinema · 2011", title: "Home Movie Holes", desc: "Recupera fragmentos de cortometrajes amateur localizados en un entorno doméstico, descompuestos de forma sistemática.", meta: "C.225 · Digital" }
-];
-const spImgs = document.querySelectorAll('#spot-img .spimg');
-const spEyebrow = document.getElementById('spot-eyebrow');
-const spTitle = document.getElementById('spot-title');
-const spDesc = document.getElementById('spot-desc');
-const spMeta = document.getElementById('spot-meta');
-const spCounter = document.getElementById('spot-counter');
-const spImgWrap = document.getElementById('spot-img');
-let spIdx = 0;
-setInterval(() => {
-  spImgs[spIdx].classList.remove('on');
-  spIdx = (spIdx + 1) % spImgs.length;
-  spImgs[spIdx].classList.add('on');
-  spImgWrap.classList.remove('flash');
-  void spImgWrap.offsetWidth;
-  spImgWrap.classList.add('flash');
-  const s = SPOTLIGHTS[spIdx];
-  spEyebrow.textContent = s.eyebrow;
-  spTitle.textContent = s.title;
-  spDesc.textContent = s.desc;
-  spMeta.textContent = s.meta;
-  spCounter.textContent = String(spIdx + 1).padStart(2, '0') + ' / 04';
-}, 5500);
+/* Pieza destacada.
+   Sale de Airtable: las piezas con la casilla "destacado" marcada
+   (campo `destacado`, ya sincronizado en all_pieces.json). Si no hay
+   ninguna marcada, se eligen 4 al azar entre las publicadas con video y
+   con imagen. Si algo falla, se queda el contenido original de la página. */
+(async function spotlight() {
+  const wrap = document.getElementById('spot-img');
+  if (!wrap) return;
+  let data;
+  try { data = await (await fetch('destacados.json?v=' + Date.now())).json(); } catch (e) { return; }
+  const manual = (data.manual || []).length > 0;
+  // Con casilla "destacado" marcada en Airtable manda esa lista; si no, al azar (4).
+  const pool = manual ? data.manual : shuffle([...(data.auto || [])]);
+  const items = pool.slice(0, manual ? 8 : 4).map(e => ({ p: e, u: e.img || '' }));
+  const norm = s => (s || '').trim();
+  if (!items.length) return;
+  wrap.querySelectorAll('.spimg').forEach(e => e.remove());
+  const scan = wrap.querySelector('.scan');
+  const imgs = items.map(({ u }, k) => { const im = document.createElement('img'); im.className = 'spimg'; im.alt = ''; im.src = u; im.onerror = () => { im.style.visibility = 'hidden'; }; scan ? scan.before(im) : wrap.appendChild(im); return im; });
+  const el = id => document.getElementById(id);
+  const total = String(items.length).padStart(2, '0');
+  let i = -1;
+  function show() {
+    if (i >= 0) imgs[i].classList.remove('on');
+    i = (i + 1) % items.length;
+    imgs[i].classList.add('on');
+    wrap.classList.remove('flash'); void wrap.offsetWidth; wrap.classList.add('flash');
+    const p = items[i].p;
+    const year = (norm(p.year).match(/\d{4}(?:[\/–-]\d{4})?/) || [''])[0];
+    el('spot-eyebrow').textContent = p.coll + (year ? ' · ' + year : '');
+    const t = el('spot-title');
+    t.innerHTML = '';
+    const a = document.createElement('a'); a.href = p.link || ('pieza.html?id=' + encodeURIComponent(p.idn)); a.textContent = p.title; a.style.color = 'inherit'; a.style.textDecoration = 'none';
+    t.appendChild(a);
+    const d = norm(p.desc);
+    el('spot-desc').textContent = d.length > 220 ? d.slice(0, 217).replace(/\s+\S*$/, '') + '…' : d;
+    el('spot-meta').textContent = [p.idn, norm(p.fmt)].filter(Boolean).join(' · ');
+    el('spot-counter').textContent = String(i + 1).padStart(2, '0') + ' / ' + total;
+  }
+  show();
+  if (items.length > 1) setInterval(show, 5500);
+})();
 </script>
 
 <script src="contenido.js"></script>
