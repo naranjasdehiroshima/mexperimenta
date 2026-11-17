@@ -98,7 +98,8 @@ a{color:#d9b45a}
       <option value="ximena">Colección Ximena Cuevas (las de antes)</option>
     </select>
     <p class="h" style="margin-top:6px">Las imágenes del cine casero salen de las piezas que ya tienen video en Internet Archive.</p>
-    <div class="chk" style="margin-top:18px"><input type="checkbox" id="nuevas"><span>Generar <b>ULTRAcinema</b> y <b>Archivos X</b> con los datos de Airtable (en lugar de los de la web anterior). Actívalo cuando esas tablas estén completas.</span></div>
+    <div class="chk" style="margin-top:18px"><input type="checkbox" id="fx3d"><span>Efecto <b>3D de los años 50</b> (franjas rojo/cian y colores saturados) sobre las imágenes de fondo de la portada.</span></div>
+    <div class="chk"><input type="checkbox" id="nuevas"><span>Generar <b>ULTRAcinema</b> y <b>Archivos X</b> con los datos de Airtable (en lugar de los de la web anterior). Actívalo cuando esas tablas estén completas.</span></div>
   </div>
 
   <div class="box" style="margin-top:28px">
@@ -150,7 +151,7 @@ function render(){
   $('textos-list').innerHTML=h;
   document.querySelectorAll('#textos-list textarea').forEach(function(a){a.value=t[a.dataset.k]||''});
   var av=d.avisos||{};$('av-ultracinema').checked=av.ultracinema!==false;$('av-archivos_x').checked=av.archivos_x!==false;
-  $('nuevas').checked=!!d.nuevas_desde_airtable;$('fondo').value=d.fondo||'mixto';
+  $('nuevas').checked=!!d.nuevas_desde_airtable;$('fondo').value=d.fondo||'mixto';$('fx3d').checked=d.efecto_3d!==false;
   $('videos-list').innerHTML='';
   var v=d.videos||{};Object.keys(v).forEach(function(k){addRow(k,v[k])});
 }
@@ -167,7 +168,7 @@ function collect(){
     var v=a.value.trim();if(v)d.textos[a.dataset.k]=v;else delete d.textos[a.dataset.k];
   });
   d.avisos={ultracinema:$('av-ultracinema').checked,archivos_x:$('av-archivos_x').checked};
-  d.nuevas_desde_airtable=$('nuevas').checked;d.fondo=$('fondo').value;
+  d.nuevas_desde_airtable=$('nuevas').checked;d.fondo=$('fondo').value;d.efecto_3d=$('fx3d').checked;
   d.videos={};var bad=[];
   document.querySelectorAll('#videos-list .row').forEach(function(r){
     var c=r.querySelector('.vc').value.trim(),l=r.querySelector('.vl').value.trim();

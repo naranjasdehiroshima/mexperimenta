@@ -16,5 +16,6 @@
   },
   "videos": {},
   "nuevas_desde_airtable": false,
-  "fondo": "mixto"
+  "fondo": "mixto",
+  "efecto_3d": true
 }

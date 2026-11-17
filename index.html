@@ -67,6 +67,8 @@
     transition: opacity 1.6s ease;
   }
   #hero-bg img.on { opacity: 1; }
+  /* Efecto 3D anaglifo (cine de los años 50): canal rojo y cian desplazados */
+  #hero.fx3d #hero-bg .bgimg { filter: url(#ana3d) saturate(1.6) contrast(1.05) brightness(1.2); }
   #hero-bg .schematic {
     position: absolute;
     top: -18%;
@@ -752,7 +754,16 @@
 </nav>
   </div>
 
-  <div id="hero">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <filter id="ana3d" x="-4%" y="-4%" width="108%" height="108%" color-interpolation-filters="sRGB">
+    <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="r"/>
+    <feOffset in="r" dx="-6" dy="0" result="ro"><animate attributeName="dx" values="-6;-9;-6;-4;-6" dur="7s" repeatCount="indefinite"/></feOffset>
+    <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0" result="c"/>
+    <feOffset in="c" dx="6" dy="0" result="co"><animate attributeName="dx" values="6;9;6;4;6" dur="7s" repeatCount="indefinite"/></feOffset>
+    <feBlend in="ro" in2="co" mode="screen"/>
+  </filter>
+</svg>
+<div id="hero">
     <div id="hero-bg">
       <img class="bgimg" src="assets/old/2c597f1b62121e6f7ef75a4f7a27ddd9.jpg" alt="">
       <img class="bgimg" src="assets/old/0aecfef62aef745a582fe020ce124171.jpg" alt="">
@@ -1021,21 +1032,26 @@ draw();
    quedan las imágenes originales. */
 function shuffle(a) { for (let k = a.length - 1; k > 0; k--) { const j = Math.floor(Math.random() * (k + 1)); [a[k], a[j]] = [a[j], a[k]]; } return a; }
 function runSlides(imgs, urls) {
-  const hasSrc = i => urls ? (imgs[i].src || (imgs[i].src = urls[i])) : true;
-  let i = 0;
-  hasSrc(0); imgs[0].classList.add('on');
-  if (urls) hasSrc(1);
-  setInterval(() => {
-    imgs[i].classList.remove('on');
-    i = (i + 1) % imgs.length;
-    hasSrc(i); imgs[i].classList.add('on');
-    if (urls) hasSrc((i + 1) % imgs.length);
-  }, 4200);
+  let i = -1, timer;
+  const bad = new Set();
+  const load = k => { if (urls && !imgs[k].src) { imgs[k].onerror = () => { bad.add(k); if (k === i) advance(); }; imgs[k].src = urls[k]; } };
+  function advance() {
+    clearTimeout(timer);
+    if (i >= 0) imgs[i].classList.remove('on');
+    let n = i, tries = 0;
+    do { n = (n + 1) % imgs.length; tries++; } while (bad.has(n) && tries <= imgs.length);
+    if (tries > imgs.length) return;   // ninguna imagen carga
+    i = n; load(i); imgs[i].classList.add('on');
+    let nx = (i + 1) % imgs.length; if (!bad.has(nx)) load(nx);
+    timer = setTimeout(advance, 4200);
+  }
+  advance();
 }
 async function buildHero() {
   const orig = document.querySelectorAll('#hero-bg .bgimg');
-  let modo = 'mixto';
-  try { const c = await (await fetch('contenido.json?v=' + Date.now(), { cache: 'no-store' })).json(); if (c.fondo) modo = c.fondo; } catch (e) {}
+  let modo = 'mixto', fx3d = true;
+  try { const c = await (await fetch('contenido.json?v=' + Date.now(), { cache: 'no-store' })).json(); if (c.fondo) modo = c.fondo; if (c.efecto_3d === false) fx3d = false; } catch (e) {}
+  if (fx3d) document.getElementById('hero').classList.add('fx3d');
   if (modo !== 'ximena') {
     try {
       const m = await (await fetch('assets/fondo/fondo.json')).json();
