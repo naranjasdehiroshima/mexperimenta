@@ -341,7 +341,7 @@ function render(genre) {{
     }} else if (it.sensitive) {{
       el.innerHTML = `<div class="thumb noimg locked"><div class="idn">${{it.idn||''}}</div><div class="ph">🔒<br>contenido reservado</div></div>`;
     }} else if (thumbSrc) {{
-      el.innerHTML = `<div class="thumb"><img src="${{thumbSrc}}" loading="lazy" alt=""><div class="idn">${{it.idn||''}}</div><div class="vidmark">VIDEO</div></div>`;
+      el.innerHTML = `<div class="thumb"><img src="assets/stills/${{it.archiveId}}.jpg" onerror="this.onerror=null;this.src='${{thumbSrc}}'" loading="lazy" alt=""><div class="idn">${{it.idn||''}}</div><div class="vidmark">VIDEO</div></div>`;
     }} else {{
       el.innerHTML = `<div class="thumb noimg"><div class="idn">${{it.idn||''}}</div><div class="ph">sin material visual<br>todavía</div></div>`;
     }}
@@ -468,6 +468,7 @@ document.addEventListener('keydown', e => {{ if (e.key === 'Escape') closeModal(
 render('');
 </script>
 <script src="contenido.js"></script>
+<script src="cc-modal.js"></script>
 </body>
 </html>
 """
@@ -536,6 +537,8 @@ def aviso(path, slug):
         t = re.sub(r'(<h1>[^<]*</h1>)', lambda m: m.group(1) + AVISO.replace('%SLUG%', slug), t, count=1)
     if 'contenido.js' not in t:
         t = t.replace('</body>', '<script src="contenido.js"></script>\n</body>', 1)
+    if 'cc-modal.js' not in t:
+        t = t.replace('</body>', '<script src="cc-modal.js"></script>\n</body>', 1)
     open(path, 'w', encoding='utf-8').write(t)
     print(path, '-> aviso de actualización')
 
