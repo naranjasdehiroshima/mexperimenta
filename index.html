@@ -62,7 +62,7 @@
     height: 100%;
     object-fit: cover;
     opacity: 0;
-    filter: grayscale(0.4) sepia(0.14) contrast(1.12) brightness(0.8);
+    filter: saturate(1.2) contrast(1.08) brightness(0.92);
     transform: scale(1.04);
     transition: opacity 1.6s ease;
   }
@@ -75,7 +75,7 @@
     height: 145%;
     object-fit: contain;
     object-position: center;
-    opacity: 0.34;
+    opacity: 0.12;
     mix-blend-mode: screen;
     filter: brightness(1.6);
     animation: schematicpan 18s ease-in-out infinite;
@@ -89,7 +89,7 @@
   #hero-bg .tint {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(11,10,8,0.32) 0%, rgba(11,10,8,0.5) 55%, #221e17 100%);
+    background: linear-gradient(180deg, rgba(11,10,8,0.12) 0%, rgba(11,10,8,0.34) 55%, #221e17 100%);
   }
   #hero-credit {
     position: absolute;
@@ -1014,55 +1014,47 @@ function draw() {
 draw();
 
 /* Fondo de la portada.
+   Imágenes: assets/fondo/ (fotogramas de trailers y de cine casero, ya
+   recortados), listadas en assets/fondo/fondo.json.
    Modo (contenido.json -> "fondo"): "mixto" (por defecto), "trailers",
-   "cine_casero" o "ximena" (las imágenes originales). Si no se puede cargar
-   nada del modo elegido, se quedan las imágenes originales. */
-function startHeroSlides() {
-  const imgs = document.querySelectorAll('#hero-bg .bgimg');
-  if (!imgs.length) return;
+   "cine_casero" o "ximena" (las imágenes originales). Si algo falla, se
+   quedan las imágenes originales. */
+function shuffle(a) { for (let k = a.length - 1; k > 0; k--) { const j = Math.floor(Math.random() * (k + 1)); [a[k], a[j]] = [a[j], a[k]]; } return a; }
+function runSlides(imgs, urls) {
+  const hasSrc = i => urls ? (imgs[i].src || (imgs[i].src = urls[i])) : true;
   let i = 0;
-  imgs[0].classList.add('on');
+  hasSrc(0); imgs[0].classList.add('on');
+  if (urls) hasSrc(1);
   setInterval(() => {
     imgs[i].classList.remove('on');
     i = (i + 1) % imgs.length;
-    imgs[i].classList.add('on');
+    hasSrc(i); imgs[i].classList.add('on');
+    if (urls) hasSrc((i + 1) % imgs.length);
   }, 4200);
 }
-function shuffle(a) { for (let k = a.length - 1; k > 0; k--) { const j = Math.floor(Math.random() * (k + 1)); [a[k], a[j]] = [a[j], a[k]]; } return a; }
-function pickLoaded(urls, max) {
-  return Promise.all(urls.map(u => new Promise(res => {
-    const im = new Image(); im.onload = () => res(u); im.onerror = () => res(null); im.src = u;
-  }))).then(r => r.filter(Boolean).slice(0, max));
-}
 async function buildHero() {
+  const orig = document.querySelectorAll('#hero-bg .bgimg');
   let modo = 'mixto';
   try { const c = await (await fetch('contenido.json?v=' + Date.now(), { cache: 'no-store' })).json(); if (c.fondo) modo = c.fondo; } catch (e) {}
-  if (modo === 'ximena') return startHeroSlides();
-  let trailers = [], casero = [];
-  if (modo === 'mixto' || modo === 'trailers') {
+  if (modo !== 'ximena') {
     try {
-      const cap = await (await fetch('capturas.json')).json();
-      Object.keys(cap).forEach(k => { const m = cap[k].min || []; if (m.length) trailers.push(m[Math.floor(m.length / 2)]); });
+      const m = await (await fetch('assets/fondo/fondo.json')).json();
+      const t = shuffle([...(m.trailers || [])]), c = shuffle([...(m.cine_casero || [])]);
+      let urls;
+      if (modo === 'trailers') urls = t.slice(0, 24);
+      else if (modo === 'cine_casero') urls = c.slice(0, 24);
+      else { urls = []; for (let k = 0; k < 12; k++) { if (t[k]) urls.push(t[k]); if (c[k]) urls.push(c[k]); } }
+      if (urls.length >= 6) {
+        orig.forEach(e => e.remove());
+        const anchor = document.querySelector('#hero-bg .schematic');
+        const imgs = urls.map(() => { const im = document.createElement('img'); im.className = 'bgimg'; im.alt = ''; anchor ? anchor.before(im) : document.getElementById('hero-bg').appendChild(im); return im; });
+        const cr = document.getElementById('hero-credit');
+        if (cr) cr.textContent = modo === 'trailers' ? 'Avances cinematográficos · archivo Arkino' : modo === 'cine_casero' ? 'Cine casero · archivo Arkino' : 'Avances cinematográficos y cine casero · archivo Arkino';
+        return runSlides(imgs, urls);
+      }
     } catch (e) {}
   }
-  if (modo === 'mixto' || modo === 'cine_casero') {
-    try {
-      const gt = await (await fetch('gral_treegan_final.json')).json();
-      gt.forEach(p => { if (p.archiveId) casero.push('https://archive.org/services/img/' + p.archiveId); });
-    } catch (e) {}
-  }
-  shuffle(trailers); shuffle(casero);
-  let urls = modo === 'mixto' ? [...trailers.slice(0, 5), ...casero.slice(0, 5)] : [...trailers, ...casero].slice(0, 10);
-  shuffle(urls);
-  const ok = await pickLoaded(urls.slice(0, 14), 8);
-  if (ok.length >= 3) {
-    document.querySelectorAll('#hero-bg .bgimg').forEach(e => e.remove());
-    const anchor = document.querySelector('#hero-bg .schematic');
-    ok.forEach(u => { const im = document.createElement('img'); im.className = 'bgimg'; im.alt = ''; im.src = u; anchor ? anchor.before(im) : document.getElementById('hero-bg').appendChild(im); });
-    const cr = document.getElementById('hero-credit');
-    if (cr) cr.textContent = modo === 'trailers' ? 'Avances cinematográficos · archivo Arkino' : modo === 'cine_casero' ? 'Cine casero · archivo Arkino' : 'Avances cinematográficos y cine casero · archivo Arkino';
-  }
-  startHeroSlides();
+  if (orig.length) runSlides(orig, null);
 }
 buildHero();
 
