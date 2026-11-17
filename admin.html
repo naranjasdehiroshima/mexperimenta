@@ -90,7 +90,15 @@ a{color:#d9b45a}
 
   <div id="t-ajustes" class="hid">
     <h2>Ajustes</h2>
-    <div class="chk"><input type="checkbox" id="nuevas"><span>Generar <b>ULTRAcinema</b> y <b>Archivos X</b> con los datos de Airtable (en lugar de los de la web anterior). Actívalo cuando esas tablas estén completas.</span></div>
+    <label>Imágenes de fondo de la portada</label>
+    <select id="fondo" style="background:#2d281f;color:#efebdc;border:1px solid #5a513d;padding:9px;font:inherit;width:100%">
+      <option value="mixto">Trailers y cine casero (mezcla)</option>
+      <option value="trailers">Solo trailers (Avances cinematográficos)</option>
+      <option value="cine_casero">Solo cine casero (Gral. Treegan)</option>
+      <option value="ximena">Colección Ximena Cuevas (las de antes)</option>
+    </select>
+    <p class="h" style="margin-top:6px">Las imágenes del cine casero salen de las piezas que ya tienen video en Internet Archive.</p>
+    <div class="chk" style="margin-top:18px"><input type="checkbox" id="nuevas"><span>Generar <b>ULTRAcinema</b> y <b>Archivos X</b> con los datos de Airtable (en lugar de los de la web anterior). Actívalo cuando esas tablas estén completas.</span></div>
   </div>
 
   <div class="box" style="margin-top:28px">
@@ -142,7 +150,7 @@ function render(){
   $('textos-list').innerHTML=h;
   document.querySelectorAll('#textos-list textarea').forEach(function(a){a.value=t[a.dataset.k]||''});
   var av=d.avisos||{};$('av-ultracinema').checked=av.ultracinema!==false;$('av-archivos_x').checked=av.archivos_x!==false;
-  $('nuevas').checked=!!d.nuevas_desde_airtable;
+  $('nuevas').checked=!!d.nuevas_desde_airtable;$('fondo').value=d.fondo||'mixto';
   $('videos-list').innerHTML='';
   var v=d.videos||{};Object.keys(v).forEach(function(k){addRow(k,v[k])});
 }
@@ -159,7 +167,7 @@ function collect(){
     var v=a.value.trim();if(v)d.textos[a.dataset.k]=v;else delete d.textos[a.dataset.k];
   });
   d.avisos={ultracinema:$('av-ultracinema').checked,archivos_x:$('av-archivos_x').checked};
-  d.nuevas_desde_airtable=$('nuevas').checked;
+  d.nuevas_desde_airtable=$('nuevas').checked;d.fondo=$('fondo').value;
   d.videos={};var bad=[];
   document.querySelectorAll('#videos-list .row').forEach(function(r){
     var c=r.querySelector('.vc').value.trim(),l=r.querySelector('.vl').value.trim();

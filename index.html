@@ -1013,14 +1013,58 @@ function draw() {
 }
 draw();
 
-const bgImgs = document.querySelectorAll('#hero-bg .bgimg');
-let bgIdx = 0;
-bgImgs[0].classList.add('on');
-setInterval(() => {
-  bgImgs[bgIdx].classList.remove('on');
-  bgIdx = (bgIdx + 1) % bgImgs.length;
-  bgImgs[bgIdx].classList.add('on');
-}, 4200);
+/* Fondo de la portada.
+   Modo (contenido.json -> "fondo"): "mixto" (por defecto), "trailers",
+   "cine_casero" o "ximena" (las imágenes originales). Si no se puede cargar
+   nada del modo elegido, se quedan las imágenes originales. */
+function startHeroSlides() {
+  const imgs = document.querySelectorAll('#hero-bg .bgimg');
+  if (!imgs.length) return;
+  let i = 0;
+  imgs[0].classList.add('on');
+  setInterval(() => {
+    imgs[i].classList.remove('on');
+    i = (i + 1) % imgs.length;
+    imgs[i].classList.add('on');
+  }, 4200);
+}
+function shuffle(a) { for (let k = a.length - 1; k > 0; k--) { const j = Math.floor(Math.random() * (k + 1)); [a[k], a[j]] = [a[j], a[k]]; } return a; }
+function pickLoaded(urls, max) {
+  return Promise.all(urls.map(u => new Promise(res => {
+    const im = new Image(); im.onload = () => res(u); im.onerror = () => res(null); im.src = u;
+  }))).then(r => r.filter(Boolean).slice(0, max));
+}
+async function buildHero() {
+  let modo = 'mixto';
+  try { const c = await (await fetch('contenido.json?v=' + Date.now(), { cache: 'no-store' })).json(); if (c.fondo) modo = c.fondo; } catch (e) {}
+  if (modo === 'ximena') return startHeroSlides();
+  let trailers = [], casero = [];
+  if (modo === 'mixto' || modo === 'trailers') {
+    try {
+      const cap = await (await fetch('capturas.json')).json();
+      Object.keys(cap).forEach(k => { const m = cap[k].min || []; if (m.length) trailers.push(m[Math.floor(m.length / 2)]); });
+    } catch (e) {}
+  }
+  if (modo === 'mixto' || modo === 'cine_casero') {
+    try {
+      const gt = await (await fetch('gral_treegan_final.json')).json();
+      gt.forEach(p => { if (p.archiveId) casero.push('https://archive.org/services/img/' + p.archiveId); });
+    } catch (e) {}
+  }
+  shuffle(trailers); shuffle(casero);
+  let urls = modo === 'mixto' ? [...trailers.slice(0, 5), ...casero.slice(0, 5)] : [...trailers, ...casero].slice(0, 10);
+  shuffle(urls);
+  const ok = await pickLoaded(urls.slice(0, 14), 8);
+  if (ok.length >= 3) {
+    document.querySelectorAll('#hero-bg .bgimg').forEach(e => e.remove());
+    const anchor = document.querySelector('#hero-bg .schematic');
+    ok.forEach(u => { const im = document.createElement('img'); im.className = 'bgimg'; im.alt = ''; im.src = u; anchor ? anchor.before(im) : document.getElementById('hero-bg').appendChild(im); });
+    const cr = document.getElementById('hero-credit');
+    if (cr) cr.textContent = modo === 'trailers' ? 'Avances cinematográficos · archivo Arkino' : modo === 'cine_casero' ? 'Cine casero · archivo Arkino' : 'Avances cinematográficos y cine casero · archivo Arkino';
+  }
+  startHeroSlides();
+}
+buildHero();
 
 const SPOTLIGHTS = [
   { eyebrow: "Archivos X · 1929", title: "Dziga Vertov — Kino Eye", desc: "Man with a Movie Camera, versión subtitulada, resguardada dentro de la colección donada por Ximena Cuevas.", meta: "XC-0013 · VHS" },

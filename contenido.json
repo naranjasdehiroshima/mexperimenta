@@ -15,5 +15,6 @@
     "archivos_x": true
   },
   "videos": {},
-  "nuevas_desde_airtable": false
+  "nuevas_desde_airtable": false,
+  "fondo": "mixto"
 }
