@@ -794,7 +794,7 @@
     <canvas id="hero-static"></canvas>
     <div id="hero-scan"></div>
     <div id="hero-inner">
-      <div class="eyebrow">Cine experimental mexicano · archivo abierto</div>
+      <div class="eyebrow" data-edit="home_eyebrow">Cine experimental mexicano · archivo abierto</div>
       <h1>
         MEXPERIMENTA
         <span class="glitch-a" aria-hidden="true">MEXPERIMENTA</span>
@@ -807,12 +807,12 @@
         <span class="glitch-b" aria-hidden="true">Portal de Cine Experimental</span>
       </div>
       <p data-edit="home_mision" class="mission">Un espacio único para la promoción y difusión del cine experimental en México — acceso abierto a una extensa colección de videoarte y obras que, por su naturaleza no convencional, han quedado al margen de los canales de difusión tradicionales.</p>
-      <div class="rec"><span class="dot"></span> preservando patrimonio audiovisual desde el archivo</div>
+      <div class="rec"><span class="dot"></span> <span data-edit="home_rec">preservando patrimonio audiovisual desde el archivo</span></div>
     </div>
   </div>
 
   <div id="stats">
-    <div class="stat"><div class="n">119</div><div class="l">piezas catalogadas</div></div>
+    <div class="stat"><div class="n" data-count="total">119</div><div class="l">piezas catalogadas</div></div>
     <div class="stat"><div class="n">1929–2012</div><div class="l">83 años de archivo</div></div>
     <div class="stat"><div class="n">4</div><div class="l">colecciones</div></div>
     <div class="stat"><div class="n">4</div><div class="l">formatos originales</div></div>
@@ -830,7 +830,7 @@
         <div class="scan"></div>
         <div class="overlay">
           <p class="name">Reapropiación</p>
-          <p class="count">16 piezas</p>
+          <p class="count"><span data-count="reapropiacion">16</span> piezas</p>
         </div>
       </a>
       <a class="type-card" href="videoarte.html" style="text-decoration:none;color:inherit;">
@@ -838,7 +838,7 @@
         <div class="scan"></div>
         <div class="overlay">
           <p class="name">Videoarte</p>
-          <p class="count">6 piezas</p>
+          <p class="count"><span data-count="videoarte">6</span> piezas</p>
         </div>
       </a>
       <a class="type-card" href="documental.html" style="text-decoration:none;color:inherit;">
@@ -846,7 +846,7 @@
         <div class="scan"></div>
         <div class="overlay">
           <p class="name">Documental</p>
-          <p class="count">7 piezas</p>
+          <p class="count"><span data-count="documental">7</span> piezas</p>
         </div>
       </a>
       <a class="type-card" href="cine-casero.html" style="text-decoration:none;color:inherit;">
@@ -854,7 +854,7 @@
         <div class="scan"></div>
         <div class="overlay">
           <p class="name">Cine casero</p>
-          <p class="count">7 piezas</p>
+          <p class="count"><span data-count="cine_casero">7</span> piezas</p>
         </div>
       </a>
   </div>
@@ -910,7 +910,7 @@
   <div id="collections">
     <div class="section-head">
       <h2>Colecciones</h2>
-      <span class="mono">119 piezas catalogadas</span>
+      <span class="mono"><span data-count="total">119</span> piezas catalogadas</span>
     </div>
     <div id="coll-grid">
       <a class="coll-card" href="ultracinema.html" style="text-decoration:none; color:inherit;">
@@ -922,7 +922,7 @@
         <div class="info">
           <p class="name">ULTRAcinema</p>
           <p data-edit="col_ultracinema" class="desc">Selecciones oficiales del festival desde su primera edición en 2012.</p>
-          <p class="count">51 piezas</p>
+          <p class="count"><span data-count="ultracinema">51</span> piezas</p>
         </div>
       </a>
       <a class="coll-card" href="archivos-x.html" style="text-decoration:none; color:inherit;">
@@ -934,7 +934,7 @@
         <div class="info">
           <p class="name">Archivos X</p>
           <p data-edit="col_archivos_x" class="desc">Videoarte reunido por Ximena Cuevas a lo largo de más de 30 años.</p>
-          <p class="count">28 piezas</p>
+          <p class="count"><span data-count="archivos_x">28</span> piezas</p>
         </div>
       </a>
       <a class="coll-card" href="avances-cinematograficos.html" style="text-decoration:none; color:inherit;">
@@ -946,7 +946,7 @@
         <div class="info">
           <p class="name">Avances cinematográficos</p>
           <p data-edit="col_avances" class="desc">Trailers y found footage reapropiado como material de trabajo.</p>
-          <p class="count">30 piezas</p>
+          <p class="count"><span data-count="avances">30</span> piezas</p>
         </div>
       </a>
       <a class="coll-card" href="gral-treegan.html" style="text-decoration:none; color:inherit;">
@@ -958,7 +958,7 @@
         <div class="info">
           <p class="name">Gral. Treegan</p>
           <p data-edit="col_treegan" class="desc">14 años de cine casero reunido junto a donantes del acervo.</p>
-          <p class="count">10 piezas</p>
+          <p class="count"><span data-count="treegan">10</span> piezas</p>
         </div>
       </a>
     </div>
@@ -1137,6 +1137,11 @@ buildHero();
 })();
 </script>
 
+<script>
+fetch('conteos.json',{cache:'no-cache'}).then(function(r){return r.json()}).then(function(c){
+  document.querySelectorAll('[data-count]').forEach(function(el){var v=c[el.getAttribute('data-count')];if(typeof v==='number')el.textContent=v;});
+}).catch(function(){});
+</script>
 <script src="contenido.js"></script>
 </body>
 </html>

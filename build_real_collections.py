@@ -553,3 +553,28 @@ for name, jf, out, desc, fmt in [
         build_page({'name': name, 'data_file': jf, 'out': out, 'desc': desc, 'formato': fmt})
     else:
         aviso(out, 'ultracinema' if name == 'ULTRAcinema' else 'archivos_x')
+
+
+# ---------------------------------------------------------------------------
+# conteos.json: número de piezas de cada colección, leído de las propias páginas
+# ya generadas (así la portada siempre coincide con lo que muestra cada colección).
+# ---------------------------------------------------------------------------
+def contar_piezas():
+    paginas = {'ultracinema': 'ultracinema.html', 'archivos_x': 'archivos-x.html',
+               'avances': 'avances-cinematograficos.html', 'treegan': 'gral-treegan.html',
+               'reapropiacion': 'reapropiacion.html', 'videoarte': 'videoarte.html',
+               'documental': 'documental.html', 'cine_casero': 'cine-casero.html'}
+    out = {}
+    for k, f in paginas.items():
+        try:
+            t = open(f, encoding='utf-8').read()
+            m = re.search(r'const ITEMS = (\[.*?\]);\s*\n', t, flags=re.DOTALL)
+            out[k] = len(json.loads(m.group(1)))
+        except Exception as e:
+            print('conteo no disponible para', f, e)
+    out['total'] = sum(out.get(k, 0) for k in ('ultracinema', 'archivos_x', 'avances', 'treegan'))
+    with open('conteos.json', 'w', encoding='utf-8') as fh:
+        json.dump(out, fh, ensure_ascii=False, indent=1)
+    print('conteos.json ->', out)
+
+contar_piezas()
