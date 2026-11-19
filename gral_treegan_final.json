@@ -59,6 +59,36 @@
     "sensitive": false
   },
   {
+    "id": "rec22A7TX5s38GvAi",
+    "idn": "GT-069",
+    "title": "Navidad F.",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Navidad en familia, apertura de regalos, niñas jugando en jardín con perrito, abuelita entregando regalo.",
+    "fmt": "Super 8 mm",
+    "medium": "Kodak",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Infancia",
+      "abuelita",
+      "Tradición",
+      "Vida cotidiana",
+      "perro",
+      "jardín."
+    ],
+    "lang": "Silente",
+    "coverage": "México",
+    "duration": "0:02:54",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "41-arkino-s-8-gt-069-mvi-3618",
+    "sensitive": false
+  },
+  {
     "id": "rec2tsBI2a2C8boWv",
     "idn": "GT-019",
     "title": "\"Tijuana\"",
@@ -206,6 +236,37 @@
     "color": "Color",
     "coll": "Gral. Treegan",
     "archiveId": "22-arkino-s-8-gt-050-mvi-3536",
+    "sensitive": false
+  },
+  {
+    "id": "rec8yKqZ7O35690pB",
+    "idn": "GT-067",
+    "title": "Tequisquiapan D",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Paseo familiar, juego en la alberca. Paseo de la familia por el pueblo. HIja pequeña en jardines.",
+    "fmt": "Super 8 mm",
+    "medium": "Kodak",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Infancia",
+      "Familia",
+      "Hogar",
+      "Comunidad",
+      "paseo",
+      "Archivo familiar",
+      "Tequisquiapan."
+    ],
+    "lang": "Silente",
+    "coverage": "Tequisquiapan, México",
+    "duration": "0:02:54",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "39-arkino-s-8-gt-067-mvi-3616",
     "sensitive": false
   },
   {
@@ -449,6 +510,38 @@
     "sensitive": false
   },
   {
+    "id": "recOATCI0JNhmYTTL",
+    "idn": "GT-066",
+    "title": "C",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Niña pequeña en interior de casa, en jardín con perrito, niña tomando el sol dentro de casa. Papá e hija en el zoológico ven a los animales en cautiverio. Niñas montando ponys.",
+    "fmt": "Super 8 mm",
+    "medium": "Kodak",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Infancia",
+      "Hogar",
+      "perrito",
+      "Vida cotidiana",
+      "sol",
+      "Familia",
+      "zoológico",
+      "cautiverio"
+    ],
+    "lang": "Silente",
+    "coverage": "México",
+    "duration": "0:02:59",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "38-arkino-s-8-gt-066-mvi-3615",
+    "sensitive": false
+  },
+  {
     "id": "recOISCodqQcH1W0J",
     "idn": "GT-024",
     "title": "\"XV Años\"",
@@ -535,6 +628,34 @@
     "color": "Color",
     "coll": "Gral. Treegan",
     "archiveId": "gt-013-queretaro-compuesto",
+    "sensitive": false
+  },
+  {
+    "id": "recQXjH34Wy6pACqJ",
+    "idn": "GT-068",
+    "title": "Solo Acapulco. E.",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Viaje de pareja a Acapulco. Paseo en yate. Paseo por la ciudad y la playa.",
+    "fmt": "Super 8 mm",
+    "medium": "Kodak",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Mujer protagonista",
+      "Mar",
+      "hotel",
+      "yate."
+    ],
+    "lang": "Silente",
+    "coverage": "Acapulco, México",
+    "duration": "0:02:55",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "40-arkino-s-8-gt-068-mvi-3617",
     "sensitive": false
   },
   {
@@ -751,6 +872,35 @@
     "sensitive": false
   },
   {
+    "id": "recdExcHvvZvttAv7",
+    "idn": "GT-071",
+    "title": "H.",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Reunión de mamás y niños en el parque, al parecer por Día de la madre. Niñas jugando en alberca inflable en el jardín.",
+    "fmt": "Super 8 mm",
+    "medium": "Kodak",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Mujeres",
+      "Infancia",
+      "Vida cotidiana",
+      "Hogar",
+      "inflafle."
+    ],
+    "lang": "Silente",
+    "coverage": "México",
+    "duration": "0:02:52",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "43-arkino-s-8-gt-071-mvi-3620",
+    "sensitive": false
+  },
+  {
     "id": "rechMNKM1qNDc1ren",
     "idn": "GT-054",
     "title": "Taboada con Analeine 4 meses",
@@ -809,7 +959,7 @@
     "duration": "0:02:51",
     "color": "Color",
     "coll": "Gral. Treegan",
-    "archiveId": null,
+    "archiveId": "36-arkino-s-8-gt-064-mvi-3613",
     "sensitive": false
   },
   {
@@ -842,6 +992,38 @@
     "color": "Color",
     "coll": "Gral. Treegan",
     "archiveId": "28-arkino-s-8-gt-056-mvi-3542",
+    "sensitive": false
+  },
+  {
+    "id": "recjK1lE7mk5izKkW",
+    "idn": "GT-070",
+    "title": "San José. G.",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Pareja de paseo, se muestra a la mujer embarazada. Visita a casa de la abuela.",
+    "fmt": "Super 8 mm",
+    "medium": "Kodak",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Mujer protagonista",
+      "embarazo",
+      "Infancia",
+      "abuelita",
+      "paseo",
+      "Archivo familiar",
+      "Pareja",
+      "familia."
+    ],
+    "lang": "Silente",
+    "coverage": "San José",
+    "duration": "0:02:54",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "42-arkino-s-8-gt-070-mvi-3619",
     "sensitive": false
   },
   {
@@ -992,6 +1174,38 @@
     "color": "Color",
     "coll": "Gral. Treegan",
     "archiveId": "30-arkino-s-8-gt-058-mvi-3544",
+    "sensitive": false
+  },
+  {
+    "id": "recq1hM8uGnQAq0fL",
+    "idn": "GT-065",
+    "title": "B",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Obra de teatro musical escolar, niñas, niños con vestuario, se muestra escenografía. Padre y madre con bebé. Papá cariñoso con hija.",
+    "fmt": "Super 8 mm",
+    "medium": "Kodak",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Infancia",
+      "Tradición",
+      "teatro",
+      "musical",
+      "escenografía",
+      "vestuario",
+      "Familia",
+      "casa."
+    ],
+    "lang": "Silente",
+    "coverage": "México",
+    "duration": "0:02:56",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "37-arkino-s-8-gt-065-mvi-3614",
     "sensitive": false
   },
   {
