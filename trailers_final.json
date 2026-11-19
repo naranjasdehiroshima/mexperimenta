@@ -77,7 +77,16 @@
     "type": [
       "MovingImage"
     ],
-    "tags": [],
+    "tags": [
+      "Western",
+      "Acción",
+      "Deseo",
+      "Violencia",
+      "Campo",
+      "Música original",
+      "Voz en off",
+      "Lejano Oeste"
+    ],
     "lang": "Inglés",
     "coverage": "Estados Unidos",
     "duration": "",
@@ -259,7 +268,16 @@
     "type": [
       "MovingImage"
     ],
-    "tags": [],
+    "tags": [
+      "Comedia",
+      "Erótico",
+      "Mujer protagonista",
+      "Cuerpo",
+      "Deseo",
+      "Ciudad",
+      "Música original",
+      "Voz en off"
+    ],
     "lang": "Italiano",
     "coverage": "Italia",
     "duration": "",
@@ -282,7 +300,16 @@
     "type": [
       "MovingImage"
     ],
-    "tags": [],
+    "tags": [
+      "Terror",
+      "Drama",
+      "Pareja",
+      "Deseo",
+      "Violencia",
+      "Campo",
+      "Sin sonido",
+      "Persecución"
+    ],
     "lang": "Inglés",
     "coverage": "Estados Unidos",
     "duration": "",
@@ -592,7 +619,16 @@
     "type": [
       "MovingImage"
     ],
-    "tags": [],
+    "tags": [
+      "Drama",
+      "Infancia",
+      "Violencia",
+      "Pobreza",
+      "México",
+      "Ciudad",
+      "Música original",
+      "Voz en off"
+    ],
     "lang": "Español",
     "coverage": "México",
     "duration": "",
@@ -617,8 +653,13 @@
     ],
     "tags": [
       "Comedia",
+      "Acción",
+      "Ciudad",
+      "Parodia",
       "Humor",
-      "Trabajo"
+      "Absurdo",
+      "Música original",
+      "Voz en off"
     ],
     "lang": "Italiano",
     "coverage": "Italia",
@@ -991,7 +1032,16 @@
     "type": [
       "MovingImage"
     ],
-    "tags": [],
+    "tags": [
+      "Comedia",
+      "Musical",
+      "Pareja",
+      "México",
+      "Espacio público",
+      "Humor",
+      "Absurdo",
+      "Sin sonido"
+    ],
     "lang": "Español",
     "coverage": "México",
     "duration": "",
@@ -1079,7 +1129,16 @@
     "type": [
       "MovingImage"
     ],
-    "tags": [],
+    "tags": [
+      "Drama",
+      "Musical",
+      "Comunidad",
+      "Ritual",
+      "Indigenismo",
+      "México",
+      "Campo",
+      "Voz en off"
+    ],
     "lang": "Español",
     "coverage": "México",
     "duration": "",
@@ -1134,7 +1193,16 @@
     "type": [
       "MovingImage"
     ],
-    "tags": [],
+    "tags": [
+      "Drama",
+      "Acción",
+      "Comunidad",
+      "Violencia",
+      "Muerte",
+      "Espacio público",
+      "Voz en off",
+      "Crimen"
+    ],
     "lang": "Español",
     "coverage": "México",
     "duration": "",
@@ -1380,7 +1448,15 @@
     "type": [
       "MovingImage"
     ],
-    "tags": [],
+    "tags": [
+      "Drama",
+      "Pareja",
+      "Violencia",
+      "Ciudad",
+      "Interior",
+      "Texto en pantalla",
+      "Crimen"
+    ],
     "lang": "Inglés",
     "coverage": "Estados Unidos",
     "duration": "",

@@ -390,6 +390,33 @@
     "sensitive": false
   },
   {
+    "id": "recCHqevuSYwDTpwt",
+    "idn": "GT-075",
+    "title": "Renatita Victoria a los 4 meses",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Bebé siendo bañado en tina.",
+    "fmt": "Super 8 mm",
+    "medium": "Kodak",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Infancia",
+      "baño",
+      "tina."
+    ],
+    "lang": "Silente",
+    "coverage": "México",
+    "duration": "0:02:55",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "47-arkino-s-8-gt-075-mvi-3624",
+    "sensitive": false
+  },
+  {
     "id": "recCnmNMSRv4demCg",
     "idn": "GT-059",
     "title": "Acapulco Agosto 21a vez Analein 82",
@@ -751,6 +778,35 @@
     "sensitive": false
   },
   {
+    "id": "recUeRJTUpb1gApFD",
+    "idn": "GT-072",
+    "title": "Guanajuato. Cerro de la Estrella.",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Viaje de pareja a Guanajuato. Paseo por la ciudad, se ve el Teatro Juárez. Interior de departamento.",
+    "fmt": "Super 8 mm",
+    "medium": "Kodak",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Pareja",
+      "Mujer protagonista",
+      "calle",
+      "teatro",
+      "casa."
+    ],
+    "lang": "Silente",
+    "coverage": "Guanajuato, México",
+    "duration": "0:02:53",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "44-arkino-s-8-gt-072-mvi-3621",
+    "sensitive": false
+  },
+  {
     "id": "recY14OJskd7nXvz7",
     "idn": "GT-007",
     "title": "15 años de Sofía",
@@ -898,6 +954,35 @@
     "color": "Color",
     "coll": "Gral. Treegan",
     "archiveId": "43-arkino-s-8-gt-071-mvi-3620",
+    "sensitive": false
+  },
+  {
+    "id": "recgR1cTbJd3Se8M0",
+    "idn": "GT-073",
+    "title": "Renatita Victoria",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Bebé durmiendo, bebé jugando con un perrito de juguete y tratando de comer galleta.",
+    "fmt": "Super 8 mm",
+    "medium": "Kodak",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Infancia",
+      "dormir",
+      "jugar",
+      "juguete",
+      "galleta."
+    ],
+    "lang": "Silente",
+    "coverage": "México",
+    "duration": "0:02:53",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "45-arkino-s-8-gt-073-mvi-3622",
     "sensitive": false
   },
   {
@@ -1206,6 +1291,36 @@
     "color": "Color",
     "coll": "Gral. Treegan",
     "archiveId": "37-arkino-s-8-gt-065-mvi-3614",
+    "sensitive": false
+  },
+  {
+    "id": "recs7TZZ3y0UjGKwT",
+    "idn": "GT-074",
+    "title": "Querétaro",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Tomas de interior de casa, la familia en situaciones cotidianas. La familia en auto Wolkswagen.",
+    "fmt": "Super 8 mm",
+    "medium": "Kodak",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Abuelita",
+      "Infancia",
+      "Hogar",
+      "Vida cotidiana",
+      "televisión",
+      "wolkswagen."
+    ],
+    "lang": "Silente",
+    "coverage": "Querétaro, México",
+    "duration": "0:02:57",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "46-arkino-s-8-gt-074-mvi-3623",
     "sensitive": false
   },
   {
