@@ -22,9 +22,12 @@
   #mcc-panel .pre button{font:10px 'Courier New',monospace;letter-spacing:1px;text-transform:uppercase;background:#2e2820;border:1px solid #4d4536;color:#b8b1a0;padding:6px 10px;border-radius:4px;cursor:pointer}
   #mcc-panel .pre button:hover{border-color:#9dffb0;color:#9dffb0}
   #mcc-panel .note{margin-top:8px;color:#8a8370;font-size:9px;line-height:1.5;text-transform:none}
-  #modal-card.mcc-on #modal-iframe{filter:url(#mcc-filter) saturate(var(--cc-sat,1)) contrast(var(--cc-con,1))}`;
+  #mcc-tint{display:none;position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;z-index:3}
+  #modal-card.mcc-on #mcc-tint{display:block}
+  #modal-card.mcc-on #modal-iframe{filter:saturate(var(--cc-sat,1)) contrast(var(--cc-con,1)) brightness(var(--cc-gain,1))}`;
   document.head.appendChild(st);
 
+  iframe.insertAdjacentHTML('afterend', '<div id="mcc-tint"></div>');
   const svg = document.createElement('div');
   svg.innerHTML = '<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="mcc-filter" color-interpolation-filters="sRGB"><feComponentTransfer><feFuncR id="mcc-fr" type="linear" slope="1"/><feFuncG id="mcc-fg" type="linear" slope="1"/><feFuncB id="mcc-fb" type="linear" slope="1"/></feComponentTransfer></filter></svg>';
   document.body.appendChild(svg.firstChild);
@@ -48,7 +51,9 @@
   const presets = { off: { r: 1, g: 1, b: 1, s: 1, c: 1 }, rosa: { r: 0.80, g: 1.08, b: 1.16, s: 1.12, c: 1.05 } };
   const $ = id => document.getElementById('mcc-' + id);
   function apply(v) {
-    $('fr').setAttribute('slope', v.r); $('fg').setAttribute('slope', v.g); $('fb').setAttribute('slope', v.b);
+    const mx = Math.max(v.r, v.g, v.b, 1);
+    card.style.setProperty('--cc-gain', mx);
+    $('tint').style.background = 'rgb(' + [v.r, v.g, v.b].map(x => Math.round(255 * x / mx)).join(',') + ')';
     card.style.setProperty('--cc-sat', v.s); card.style.setProperty('--cc-con', v.c);
     ids.forEach(k => { $(k).value = v[k]; $(k).nextElementSibling.textContent = (+v[k]).toFixed(2); });
     const on = !(v.r == 1 && v.g == 1 && v.b == 1 && v.s == 1 && v.c == 1);
