@@ -88,6 +88,37 @@
     "sensitive": false
   },
   {
+    "id": "rec1ul7r5yMwQ8nxA",
+    "idn": "GT-096",
+    "title": "Sin título",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Fiesta de XV años. Invitados a la fiesta, niñas, niños, adolescentes, adultos. Partida de pastel.  Ceremonia religiosa de XV años.",
+    "fmt": "Super 8 mm",
+    "medium": "",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Adolescentes",
+      "XV años",
+      "Tradición",
+      "adultos",
+      "Infancia",
+      "Religión",
+      "sacerdote."
+    ],
+    "lang": "Silente",
+    "coverage": "México",
+    "duration": "0:02:55",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "68-arkino-s-8-gt-096-mvi-3681",
+    "sensitive": false
+  },
+  {
     "id": "rec22A7TX5s38GvAi",
     "idn": "GT-069",
     "title": "Navidad F.",
@@ -132,11 +163,14 @@
       "Documental"
     ],
     "tags": [
-      "Tijuana",
-      "aeropuerto",
-      "pasajeros",
-      "conferencia de prensa",
-      "personajes."
+      "Memoria",
+      "Comunidad",
+      "México",
+      "Ciudad",
+      "Naturaleza",
+      "Exterior",
+      "Publicidad",
+      "Televisión"
     ],
     "lang": "Silente",
     "coverage": "Tijuana, México",
@@ -221,12 +255,14 @@
       "Documental"
     ],
     "tags": [
-      "pistas",
-      "aterrizaje",
-      "despegue",
-      "aerolíneas",
-      "pasajeros",
-      "España."
+      "Memoria",
+      "Trabajo",
+      "México",
+      "Ciudad",
+      "Campo",
+      "Publicidad",
+      "Música original",
+      "Voz en off"
     ],
     "lang": "es",
     "coverage": "México",
@@ -354,6 +390,36 @@
     "color": "Color",
     "coll": "Gral. Treegan",
     "archiveId": "59-arkino-s-8-gt-087-mvi-3636",
+    "sensitive": false
+  },
+  {
+    "id": "rec8Gxk9QnvSaoGLK",
+    "idn": "GT-093",
+    "title": "I Boda Gema",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Ceremonia de boda en iglesia. Novios diciendo sus votos.",
+    "fmt": "Super 8 mm",
+    "medium": "Kodak",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Tradición",
+      "Religión",
+      "novios",
+      "votos",
+      "lazo",
+      "vino."
+    ],
+    "lang": "Silente",
+    "coverage": "México",
+    "duration": "0:02:37",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "65-arkino-s-8-gt-093-mvi-3678",
     "sensitive": false
   },
   {
@@ -633,6 +699,63 @@
     "sensitive": false
   },
   {
+    "id": "recF78dezQjPnvo2Y",
+    "idn": "GT-092",
+    "title": "Renatita Victoria",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Bebé en sillón jugando. Bebé en cama jugando.",
+    "fmt": "Super 8 mm",
+    "medium": "Kodak",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Infancia",
+      "Vida cotidiana",
+      "retrato",
+      "sillón",
+      "rojo",
+      "cama."
+    ],
+    "lang": "Silente",
+    "coverage": "México",
+    "duration": "0:02:49",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "64-arkino-s-8-gt-092-mvi-3677",
+    "sensitive": false
+  },
+  {
+    "id": "recHtCDbTWqA7yJpY",
+    "idn": "GT-095",
+    "title": "Sin título",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Pareja en blanco y negro, imagen de silueta. El resto está en negro o lluvia negra.",
+    "fmt": "Super 8 mm",
+    "medium": "",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Pareja",
+      "negro",
+      "silueta."
+    ],
+    "lang": "Silente",
+    "coverage": "",
+    "duration": "0:02:44",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "67-arkino-s-8-gt-095-mvi-3680",
+    "sensitive": false
+  },
+  {
     "id": "recHzAjV1povlgguA",
     "idn": "GT-079",
     "title": "2a parte Renata Victoria",
@@ -735,14 +858,14 @@
       "Documental"
     ],
     "tags": [
-      "Naturaleza",
-      "túneles",
-      "subterráneo",
-      "Nueva York",
-      "Nueva Jersey",
+      "Memoria",
+      "Comunidad",
       "Trabajo",
-      "trabajadores",
-      "construcción."
+      "Ciudad",
+      "Espacio público",
+      "Exterior",
+      "Texto en pantalla",
+      "Voz en off"
     ],
     "lang": "en",
     "coverage": "Estados Unidos",
@@ -767,9 +890,14 @@
       "Cine doméstico"
     ],
     "tags": [
+      "Comunidad",
       "Religión",
-      "festejo",
-      "misa."
+      "Ritual",
+      "México",
+      "Interior",
+      "Exterior",
+      "Cámara en mano",
+      "Archivo familiar"
     ],
     "lang": "Silente",
     "coverage": "México",
@@ -975,13 +1103,14 @@
       "Animación"
     ],
     "tags": [
-      "Pato Donald",
-      "Disney",
-      "caricatura",
-      "Mickey Mouse",
-      "Minnie",
-      "Felix",
-      "gato."
+      "Comedia",
+      "Infancia",
+      "Violencia",
+      "Campo",
+      "Naturaleza",
+      "Exterior",
+      "Humor",
+      "Absurdo"
     ],
     "lang": "Silente",
     "coverage": "Estados Unidos",
@@ -1038,11 +1167,12 @@
       "Cine doméstico"
     ],
     "tags": [
-      "Intervención",
-      "cine intervenido",
-      "velado",
-      "compendio visual",
-      "experimental."
+      "Comunidad",
+      "Abstracción",
+      "Collage audiovisual",
+      "Cámara en mano",
+      "Fragmentación",
+      "Sin sonido"
     ],
     "lang": "Silente",
     "coverage": "México",
@@ -1114,6 +1244,36 @@
     "sensitive": false
   },
   {
+    "id": "recWIbjGwoBwyqmSJ",
+    "idn": "GT-091",
+    "title": "Baño Renatita",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Familia conviviendo con bebé. Bebé siendo bañada.",
+    "fmt": "Super 8 mm",
+    "medium": "Kodak",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Mujer protagonista",
+      "Infancia",
+      "Hogar",
+      "Vida cotidiana",
+      "tina",
+      "baño."
+    ],
+    "lang": "Silente",
+    "coverage": "México",
+    "duration": "02:48 mimutos.",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "63-arkino-s-8-gt-091-mvi-3676",
+    "sensitive": false
+  },
+  {
     "id": "recY14OJskd7nXvz7",
     "idn": "GT-007",
     "title": "15 años de Sofía",
@@ -1143,6 +1303,34 @@
     "color": "Blanco y Negro",
     "coll": "Gral. Treegan",
     "archiveId": "gt-007-xv-anos-silente",
+    "sensitive": false
+  },
+  {
+    "id": "recYV4QgNVonotapw",
+    "idn": "GT-094",
+    "title": "Baño Renatita",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Bebé acostado con un juguete. Bebé siendo cargado y agitado por adulto.",
+    "fmt": "Super 8 mm",
+    "medium": "Kodak",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Infancia",
+      "juguete",
+      "Vida cotidiana",
+      "zangoloteo."
+    ],
+    "lang": "Silente",
+    "coverage": "México",
+    "duration": "0:02:52",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "66-arkino-s-8-gt-094-mvi-3679",
     "sensitive": false
   },
   {
@@ -1222,8 +1410,14 @@
       "Cine doméstico"
     ],
     "tags": [
+      "Comunidad",
       "Religión",
-      "misa."
+      "Ritual",
+      "México",
+      "Interior",
+      "Exterior",
+      "Cámara en mano",
+      "Archivo familiar"
     ],
     "lang": "Silente",
     "coverage": "México",
@@ -1380,6 +1574,33 @@
     "color": "Color",
     "coll": "Gral. Treegan",
     "archiveId": "50-arkino-s-8-gt-078-mvi-3627",
+    "sensitive": false
+  },
+  {
+    "id": "recfQ6hIHkLckZ2xn",
+    "idn": "GT-098",
+    "title": "Sin título",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Lluvia negra.",
+    "fmt": "Super 8 mm",
+    "medium": "",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Negro",
+      "efecto",
+      "lluvia."
+    ],
+    "lang": "Silente",
+    "coverage": "México",
+    "duration": "0:02:55",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "70-arkino-s-8-gt-098-mvi-3683",
     "sensitive": false
   },
   {
@@ -1817,7 +2038,7 @@
     "title_es": "",
     "year": "",
     "creator": "",
-    "desc": "Monumentos de Chihuahua, paisajes urbanos y de campo, entrevistas.",
+    "desc": "Es un documental de Fonatur y Aeroméxico sobre Chihuahua. Se muestran actividades de la ciudad capital, tauromaquia, turismo, arquitectura. Se muestra Ciudad Juárez y actividades de recreo. También se ve parte del recorrido del Chepe y zonas naturales. ",
     "fmt": "16 mm",
     "medium": "Poliéster",
     "genre": "",
@@ -1825,13 +2046,14 @@
       "Documental"
     ],
     "tags": [
-      "Archivo familiar",
-      "monumentos",
-      "Ciudad Juárez",
-      "Chepe",
-      "cascada",
-      "belleza natural",
-      "museos."
+      "Tradición",
+      "México",
+      "Ciudad",
+      "Campo",
+      "Naturaleza",
+      "Publicidad",
+      "Música original",
+      "Voz en off"
     ],
     "lang": "es",
     "coverage": "Chihuahua, México",
@@ -1885,14 +2107,14 @@
       "Documental"
     ],
     "tags": [
-      "paisajes urbanos",
-      "paisajes naturales",
-      "París",
-      "Puerta de Alcalá",
-      "Madrid",
-      "Irapuato",
-      "pasajeros",
-      "gente de campo. Nueva York."
+      "Identidad",
+      "Memoria",
+      "Comunidad",
+      "Trabajo",
+      "Tradición",
+      "México",
+      "Ciudad",
+      "Campo"
     ],
     "lang": "es",
     "coverage": "Irapuato, México. Nueva York, París, Madrid",
@@ -1949,11 +2171,14 @@
       "Cine doméstico"
     ],
     "tags": [
-      "comensales",
-      "salón",
-      "noche",
-      "Tradición",
-      "cena."
+      "Memoria",
+      "Comunidad",
+      "México",
+      "Ciudad",
+      "Interior",
+      "Cámara en mano",
+      "Archivo familiar",
+      "Sin sonido"
     ],
     "lang": "Silente",
     "coverage": "México",
@@ -1961,6 +2186,36 @@
     "color": "Blanco y Negro",
     "coll": "Gral. Treegan",
     "archiveId": "gt-023-dicomex-silente",
+    "sensitive": false
+  },
+  {
+    "id": "reczPFEq0C6DNnwBC",
+    "idn": "GT-097",
+    "title": "Victoria",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Fiesta al parecer de graduación. Cena con amigos y familiares. Aparece el comediante Memo Ríos.",
+    "fmt": "Super 8 mm",
+    "medium": "",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Amigos",
+      "Tradición",
+      "Familia",
+      "Memo",
+      "Ríos",
+      "comediante."
+    ],
+    "lang": "Silente",
+    "coverage": "México",
+    "duration": "0:02:48",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "69-arkino-s-8-gt-097-mvi-3682",
     "sensitive": false
   }
 ]
