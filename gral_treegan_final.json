@@ -45,9 +45,12 @@
     "tags": [
       "Infancia",
       "Familia",
-      "Vida cotidiana",
-      "Tradición",
-      "amigos."
+      "Comunidad",
+      "Ritual",
+      "México",
+      "Hogar",
+      "Archivo Familiar",
+      "Sin sonido"
     ],
     "lang": "Silente",
     "coverage": "México",
@@ -73,11 +76,13 @@
     ],
     "tags": [
       "Infancia",
-      "Vida cotidiana",
+      "Familia",
+      "Comunidad",
+      "Ritual",
       "Tradición",
-      "papás",
-      "mamás",
-      "piñata."
+      "México",
+      "Ciudad",
+      "Archivo Familiar"
     ],
     "lang": "Silente",
     "coverage": "México",
@@ -134,11 +139,13 @@
     ],
     "tags": [
       "Infancia",
-      "abuelita",
+      "Vejez",
+      "Familia",
+      "Ritual",
       "Tradición",
-      "Vida cotidiana",
-      "perro",
-      "jardín."
+      "México",
+      "Naturaleza",
+      "Archivo familiar"
     ],
     "lang": "Silente",
     "coverage": "México",
@@ -438,13 +445,13 @@
     ],
     "tags": [
       "Infancia",
-      "zoológico",
-      "animales",
-      "Vida cotidiana",
+      "Familia",
+      "México",
+      "Ciudad",
+      "Espacio público",
       "Naturaleza",
-      "pavo real",
-      "gansos",
-      "changos"
+      "Archivo familiar",
+      "Sin sonido"
     ],
     "lang": "Silente",
     "coverage": "Ciudad de México",
@@ -471,11 +478,12 @@
     "tags": [
       "Infancia",
       "Familia",
+      "México",
+      "Campo",
       "Hogar",
-      "Comunidad",
-      "paseo",
+      "Exterior",
       "Archivo familiar",
-      "Tequisquiapan."
+      "Sin sonido"
     ],
     "lang": "Silente",
     "coverage": "Tequisquiapan, México",
@@ -655,11 +663,14 @@
       "Cine doméstico"
     ],
     "tags": [
+      "Mujer protagonista",
       "Infancia",
       "Familia",
+      "México",
       "Mar",
-      "arena",
-      "juego."
+      "Naturaleza",
+      "Archivo familiar",
+      "Sin sonido"
     ],
     "lang": "Silente",
     "coverage": "Acapulco, México",
@@ -667,6 +678,39 @@
     "color": "Color",
     "coll": "Gral. Treegan",
     "archiveId": "31-arkino-s-8-gt-059-mvi-3545",
+    "sensitive": false
+  },
+  {
+    "id": "recCtlVHCGaUGov2B",
+    "idn": "GT-100",
+    "title": "Sin título",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Pelicula de varias compilaciones. Hotel Caesars en Las Vegas. Tomas de anuncios en carretera y casinos. \nTomas de niñxs jugando y bebés en carreola. Tomas de espacios en departamento con vista al mar, bahía con barcos y yates. Familia en alberca.",
+    "fmt": "Super 8 mm",
+    "medium": "Kodak",
+    "genre": "",
+    "type": [
+      "Cine doméstico",
+      "Documental"
+    ],
+    "tags": [
+      "Turistas",
+      "hoteles",
+      "habitación",
+      "casino",
+      "caesars",
+      "calles",
+      "automóviles",
+      "espectaculares"
+    ],
+    "lang": "",
+    "coverage": "Las Vegas, Estados Unidos",
+    "duration": "0:05:10",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "02-arkino-s-8-gt-100-mvi-3486",
     "sensitive": false
   },
   {
@@ -726,6 +770,38 @@
     "color": "Color",
     "coll": "Gral. Treegan",
     "archiveId": "64-arkino-s-8-gt-092-mvi-3677",
+    "sensitive": false
+  },
+  {
+    "id": "recFboG3pJvGACvxd",
+    "idn": "GT-099",
+    "title": "Sin título",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Tomas de familia en comiendo y en el mar. Tomas de la playa.  Acostados en la arena. Tomas de lata de cerveza Tecate.\nVenta de pescado en la playa en los botes de pesca",
+    "fmt": "Super 8 mm",
+    "medium": "Kodak",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Mar",
+      "lanchas",
+      "amanecer",
+      "Familia",
+      "Archivo familiar",
+      "Infancia",
+      "señoras",
+      "muelle"
+    ],
+    "lang": "",
+    "coverage": "",
+    "duration": "0:04:52",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "01-arkino-s-8-gt-099-mvi-3482",
     "sensitive": false
   },
   {
@@ -799,14 +875,14 @@
       "Cine doméstico"
     ],
     "tags": [
+      "Mujer protagonista",
       "Infancia",
       "Familia",
-      "Mujer protagonista",
-      "recámara",
-      "auto",
-      "edificio",
-      "Vida cotidiana",
-      "exterior."
+      "Pareja",
+      "México",
+      "Ciudad",
+      "Hogar",
+      "Archivo familiar"
     ],
     "lang": "Silente",
     "coverage": "Ciudad de México",
@@ -954,10 +1030,14 @@
       "Cine doméstico"
     ],
     "tags": [
-      "salón",
-      "convivencia",
+      "Mujer protagonista",
+      "Comunidad",
+      "Religión",
+      "Ritual",
       "Tradición",
-      "boda."
+      "México",
+      "Interior",
+      "Archivo familiar"
     ],
     "lang": "Silente",
     "coverage": "México",
@@ -982,14 +1062,14 @@
       "Cine doméstico"
     ],
     "tags": [
-      "Vida cotidiana",
-      "árbol de navidad",
-      "Infancia",
       "Familia",
-      "adultos",
-      "jueguetes",
+      "Comunidad",
+      "Religión",
+      "Ritual",
+      "Tradición",
+      "México",
       "Hogar",
-      "perro."
+      "Archivo familiar"
     ],
     "lang": "Silente",
     "coverage": "México",
@@ -1078,7 +1158,14 @@
       "Mujer protagonista",
       "Mar",
       "hotel",
-      "yate."
+      "yate.\nMujer protagonista",
+      "Pareja",
+      "México",
+      "Ciudad",
+      "Mar",
+      "Naturaleza",
+      "Archivo familiar",
+      "Sin sonido"
     ],
     "lang": "Silente",
     "coverage": "Acapulco, México",
@@ -1470,13 +1557,14 @@
       "Cine doméstico"
     ],
     "tags": [
-      "Cachorros",
-      "Familia",
       "Infancia",
-      "abrazo",
+      "Familia",
+      "Pareja",
+      "México",
       "Hogar",
-      "exterior",
-      "niños."
+      "Exterior",
+      "Archivo familiar",
+      "Sin sonido"
     ],
     "lang": "Silente",
     "coverage": "Ciudad de México",
@@ -1649,10 +1737,12 @@
     "tags": [
       "Infancia",
       "Familia",
+      "Pareja",
+      "México",
       "Hogar",
-      "descanso",
+      "Exterior",
       "Archivo familiar",
-      "alberca."
+      "Sin sonido"
     ],
     "lang": "Silente",
     "coverage": "",
@@ -1677,14 +1767,14 @@
       "Cine doméstico"
     ],
     "tags": [
+      "Infancia",
       "Familia",
-      "adultos",
-      "sacerdote",
-      "pileta bautizmal",
+      "Comunidad",
+      "Religión",
+      "Ritual",
+      "México",
       "Hogar",
-      "pastel bebé",
-      "invitados",
-      "sala de casa."
+      "Archivo Familiar"
     ],
     "lang": "Silente",
     "coverage": "México",
@@ -1695,13 +1785,45 @@
     "sensitive": false
   },
   {
+    "id": "reciwnr345v7tu2iR",
+    "idn": "GT-105",
+    "title": "Cumpleaños Jorge 1977. Chapultepec- Cump. Vanessa. 1979-Club de yates.",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Fiesta de cumpleaños infantil. Festejo con pastel nadando en la alberca. Jugando en el parque en bicicletas y en el muelle",
+    "fmt": "Super 8 mm",
+    "medium": "Kodak",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Tradición",
+      "fiesta infantil",
+      "globos",
+      "Hogar",
+      "bicicletas",
+      "Infancia",
+      "Vida cotidiana",
+      "muelle"
+    ],
+    "lang": "",
+    "coverage": "México",
+    "duration": "0:12:05",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "08-arkino-s-8-gt-105-mvi-3495",
+    "sensitive": false
+  },
+  {
     "id": "recjJh6Uc6b58oYam",
     "idn": "GT-056",
     "title": "Africam y S. L. P. 8 meses",
     "title_es": "",
     "year": "",
     "creator": "",
-    "desc": "Zoológico Africam Safari, bebé, mamá, papá, niña, cisnes, búgalos, tigre, ganzos, camello, guanaco. La última parte en San Luis Potosí.",
+    "desc": "Zoológico Africam Safari, bebé, mamá, papá, niña, cisnes, búfalos, tigre, ganzos, camello, guanaco. La última parte en San Luis Potosí.",
     "fmt": "Super 8 mm",
     "medium": "Kodak",
     "genre": "",
@@ -1711,12 +1833,12 @@
     "tags": [
       "Infancia",
       "Familia",
-      "animales",
-      "zoológico",
-      "camello",
-      "guanaco búfalo",
-      "cisne",
-      "ganzo"
+      "México",
+      "Hogar",
+      "Naturaleza",
+      "Exterior",
+      "Archivo familiar",
+      "Sin sonido"
     ],
     "lang": "Silente",
     "coverage": "San Luis Potosí",
@@ -1742,13 +1864,13 @@
     ],
     "tags": [
       "Mujer protagonista",
-      "embarazo",
-      "Infancia",
-      "abuelita",
-      "paseo",
-      "Archivo familiar",
-      "Pareja",
-      "familia."
+      "Vejez",
+      "Familia",
+      "México",
+      "Hogar",
+      "Interior",
+      "Exterior",
+      "Archivo familiar"
     ],
     "lang": "Silente",
     "coverage": "San José",
@@ -1774,11 +1896,13 @@
     ],
     "tags": [
       "Infancia",
-      "disfraces",
-      "payaso",
-      "personajes",
-      "Tradición",
-      "juegos."
+      "Familia",
+      "Comunidad",
+      "Ritual",
+      "México",
+      "Hogar",
+      "Archivo Familiar",
+      "Sin sonido."
     ],
     "lang": "Silente",
     "coverage": "México",
@@ -1786,6 +1910,38 @@
     "color": "Color",
     "coll": "Gral. Treegan",
     "archiveId": "35-arkino-s-8-gt-063-mvi-3612",
+    "sensitive": false
+  },
+  {
+    "id": "recm6DOfDViXmsXeJ",
+    "idn": "GT-99 bis",
+    "title": "Sin título",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Dos señoras, en el muelle y posando a la cámara. Tomas del mar, atardecer.\nNiño corre hacia el mar. Tomas de flores\nToma de cangrejo sobre la piedra",
+    "fmt": "Super 8 mm",
+    "medium": "Kodak",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Infancia",
+      "palmera",
+      "lancha",
+      "Mar",
+      "muelle",
+      "cangrejo",
+      "Mujer protagonista",
+      "señoras"
+    ],
+    "lang": "",
+    "coverage": "",
+    "duration": "0:02:50",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "01-arkino-s-8-gt-099bis-mvi-3484",
     "sensitive": false
   },
   {
@@ -1857,7 +2013,7 @@
     "title_es": "",
     "year": "",
     "creator": "",
-    "desc": "Se muestra el nacimiento de una camada de perritos. Después se muestra una reunión, enfoncada en una niña pequeña.",
+    "desc": "Se muestra el nacimiento de una camada de perritos. Después se muestra una reunión, enfocada en una niña pequeña.",
     "fmt": "Super 8 mm",
     "medium": "Kodak / Poliéster",
     "genre": "",
@@ -1865,13 +2021,14 @@
       "Cine doméstico"
     ],
     "tags": [
-      "Cachorros",
-      "perra",
-      "camada",
-      "Hogar",
       "Infancia",
-      "familiar",
-      "familia."
+      "Familia",
+      "Pareja",
+      "México",
+      "Ciudad",
+      "Hogar",
+      "Archivo familiar",
+      "Sin sonido"
     ],
     "lang": "Silente",
     "coverage": "Ciudad de México",
@@ -1897,10 +2054,12 @@
     ],
     "tags": [
       "Infancia",
-      "vestuarios",
-      "bailables",
-      "presentación",
-      "auditorio."
+      "Familia",
+      "Comunidad",
+      "Ritual",
+      "Tradición",
+      "México",
+      "Archivo familiar"
     ],
     "lang": "Silente",
     "coverage": "México",
@@ -1926,13 +2085,12 @@
     ],
     "tags": [
       "Infancia",
-      "Tradición",
-      "teatro",
-      "musical",
-      "escenografía",
-      "vestuario",
       "Familia",
-      "casa."
+      "Pareja",
+      "México",
+      "Interior",
+      "Archivo familiar",
+      "Sin sonido"
     ],
     "lang": "Silente",
     "coverage": "México",
@@ -1989,8 +2147,12 @@
     "tags": [
       "Infancia",
       "Familia",
+      "México",
       "Hogar",
-      "juguetes."
+      "Naturaleza",
+      "Exterior",
+      "Archivo familiar",
+      "Sin sonido"
     ],
     "lang": "Silente",
     "coverage": "Ciudad de México",
@@ -2016,12 +2178,13 @@
     ],
     "tags": [
       "Infancia",
+      "Familia",
+      "Comunidad",
+      "Ritual",
+      "México",
+      "Ciudad",
       "Hogar",
-      "payaso",
-      "mico",
-      "adultos pastel",
-      "Vida cotidiana",
-      "globos."
+      "Archivo Familiar"
     ],
     "lang": "Silente",
     "coverage": "México",
@@ -2029,6 +2192,38 @@
     "color": "Color",
     "coll": "Gral. Treegan",
     "archiveId": "33-arkino-s-8-gt-061-mvi-3610",
+    "sensitive": false
+  },
+  {
+    "id": "rectOSRclgP5cooUj",
+    "idn": "GT-101",
+    "title": "Sin título",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Vacaciones en bahía con campamento familiar en la orilla del mar. Niños en \nTomas de yates y botes en el mar. Camionetas camper. Niños jugando con perro",
+    "fmt": "Super 8 mm",
+    "medium": "Kodak",
+    "genre": "",
+    "type": [
+      "Documental"
+    ],
+    "tags": [
+      "Infancia",
+      "botes",
+      "yates",
+      "Mar",
+      "combi",
+      "campamento",
+      "bahía",
+      "Familia"
+    ],
+    "lang": "",
+    "coverage": "México",
+    "duration": "0:11:12",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "03-arkino-s-8-gt-101-mvi-3487",
     "sensitive": false
   },
   {
@@ -2122,6 +2317,68 @@
     "color": "Color",
     "coll": "Gral. Treegan",
     "archiveId": "gt-021-las-alas-del-progreso-compuesto",
+    "sensitive": false
+  },
+  {
+    "id": "recx0Rk8ub17Yag9A",
+    "idn": "GT-103",
+    "title": "Sin título",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Cartel con la anotación: Vanessa De Silva Murray \nFeb-X-19\nProductores asociados. Raquel Murray y Jorge De Silva O. \nTomas de bebé acostado en diferentes espacios. Bebé en cama, en cuna y en brazos\nBebé acostado con un juguete. Bebé siendo cargado y agitado por adulto.\nCasa vista al mar",
+    "fmt": "Super 8 mm",
+    "medium": "Kodak",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Infancia",
+      "biberón",
+      "cuna",
+      "cama",
+      "Vida cotidiana",
+      "leche",
+      "dormir",
+      "chupón"
+    ],
+    "lang": "",
+    "coverage": "",
+    "duration": "11: 14",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "05-arkino-s-8-gt-103-mvi-3492",
+    "sensitive": false
+  },
+  {
+    "id": "recxAivkMJ3KMM1hu",
+    "idn": "GT-102",
+    "title": "Sin título",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Familia de vacaciones en la playa con bebés. Comida familiar. Tomas de los rostros de niños y nadando en alberca. Beso de pareja. Mujeres sentadas platicando.\nPelícula quemada por proyector",
+    "fmt": "Super 8 mm",
+    "medium": "Kodak",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Familia",
+      "Mar",
+      "Infancia",
+      "beso",
+      "Pareja",
+      "conversación"
+    ],
+    "lang": "",
+    "coverage": "",
+    "duration": "0:11:20",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "04-arkino-s-8-gt-102-mvi-3490",
     "sensitive": false
   },
   {
