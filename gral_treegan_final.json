@@ -14,11 +14,14 @@
       "Cine doméstico"
     ],
     "tags": [
-      "Tradición",
+      "Infancia",
       "Familia",
-      "convivencia",
-      "Vida cotidiana",
-      "niño."
+      "Ritual",
+      "Tradición",
+      "México",
+      "Hogar",
+      "Interior",
+      "Archivo familiar"
     ],
     "lang": "Silente",
     "coverage": "México",
@@ -233,11 +236,14 @@
       "Cine doméstico"
     ],
     "tags": [
-      "Piñata",
-      "Tradición",
-      "Mujer protagonista",
       "Infancia",
-      "baile."
+      "Familia",
+      "Tradición",
+      "México",
+      "Ciudad",
+      "Interior",
+      "Exterior",
+      "Archivo familiar"
     ],
     "lang": "Silente",
     "coverage": "México",
@@ -294,11 +300,14 @@
       "Cine doméstico"
     ],
     "tags": [
-      "Tradición",
-      "Vida cotidiana",
+      "Memoria",
       "Infancia",
-      "plática",
-      "familia."
+      "Familia",
+      "Tradición",
+      "México",
+      "Hogar",
+      "Interior",
+      "Archivo familiar"
     ],
     "lang": "Silente",
     "coverage": "México",
@@ -355,13 +364,14 @@
       "Cine doméstico"
     ],
     "tags": [
+      "Memoria",
+      "Maternidad",
       "Infancia",
-      "Familia",
       "Vejez",
-      "disfraz",
-      "corpus",
-      "christi",
-      "visita."
+      "México",
+      "Hogar",
+      "Interior",
+      "Exterior"
     ],
     "lang": "Silente",
     "coverage": "México",
@@ -386,10 +396,14 @@
       "Cine doméstico"
     ],
     "tags": [
+      "Memoria",
       "Infancia",
-      "Vida cotidiana",
-      "Familia",
-      "jardín."
+      "México",
+      "Hogar",
+      "Naturaleza",
+      "Interior",
+      "Exterior",
+      "Archivo familiar"
     ],
     "lang": "Silente",
     "coverage": "México",
@@ -494,6 +508,37 @@
     "sensitive": false
   },
   {
+    "id": "rec9UqpDYWygNRpRs",
+    "idn": "GT-108",
+    "title": "Sin título",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Tomas de mar en el atardecer, familia nadaando en la playa y niños con salvavidas. Mujer caminando por la orilla del mar. Tomas a gaviotas y a dos hombres remando",
+    "fmt": "Super 8 mm",
+    "medium": "Kodak",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Mar",
+      "olas",
+      "Archivo familiar",
+      "Mujer protagonista",
+      "remar",
+      "descanso",
+      "nadar"
+    ],
+    "lang": "",
+    "coverage": "",
+    "duration": "0:05:47",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "11-arkino-s-8-gt-108-mvi-3499",
+    "sensitive": false
+  },
+  {
     "id": "rec9XCxXQJJyKVq5d",
     "idn": "GT-001",
     "title": "Orquesta",
@@ -590,6 +635,35 @@
     "sensitive": false
   },
   {
+    "id": "recBluQhQueQcSweR",
+    "idn": "GT-119",
+    "title": "El barbero XXX",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Película pornográfica. Mujer se masturba recordando escenas eróticas con hombre.\nColor Climax Corporation",
+    "fmt": "Super 8 mm",
+    "medium": "",
+    "genre": "",
+    "type": [
+      "Erótico"
+    ],
+    "tags": [
+      "Mujer protagonista",
+      "dildo",
+      "Sexualidad",
+      "porno",
+      "masturbación sexo oral"
+    ],
+    "lang": "",
+    "coverage": "Copenhagen",
+    "duration": "0:07:10",
+    "color": "Blanco y Negro",
+    "coll": "Gral. Treegan",
+    "archiveId": "07-arkino-s-8-gt-119-mvi-3494",
+    "sensitive": true
+  },
+  {
     "id": "recBqVY8Gq60ztnxf",
     "idn": "GT-005",
     "title": "El continente de la esperanza",
@@ -636,9 +710,14 @@
       "Cine doméstico"
     ],
     "tags": [
+      "Memoria",
+      "Maternidad",
       "Infancia",
-      "baño",
-      "tina."
+      "Cuerpo",
+      "Desnudez",
+      "México",
+      "Hogar",
+      "Archivo familiar"
     ],
     "lang": "Silente",
     "coverage": "México",
@@ -728,11 +807,14 @@
       "Cine doméstico"
     ],
     "tags": [
+      "Memoria",
+      "Maternidad",
       "Infancia",
-      "alimento",
-      "brazos",
-      "Vida cotidiana",
-      "navidad."
+      "México",
+      "Hogar",
+      "Interior",
+      "Archivo familiar",
+      "Sin sonido"
     ],
     "lang": "Silente",
     "coverage": "México",
@@ -805,6 +887,102 @@
     "sensitive": false
   },
   {
+    "id": "recFgfH1V2JoBaXuJ",
+    "idn": "GT-113",
+    "title": "Anaheim, Austin, Tx.1981",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Escena inicial mamá con su niña a orillas del lago con demás señoras. Caminatas pasos de bebé.\nToma de niña jugando. Toas por lass calles de la ciudad, carretas, iglesia, parques.\nTomas del pueblo desde un auto",
+    "fmt": "Super 8 mm",
+    "medium": "Kodak",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Infancia",
+      "Familia",
+      "puente",
+      "barco",
+      "Hogar",
+      "flores",
+      "palomas",
+      "lago ardilla"
+    ],
+    "lang": "",
+    "coverage": "Estados Unidos",
+    "duration": "0:11:50",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "06-arkino-s-8-gt-113-mvi-3493",
+    "sensitive": false
+  },
+  {
+    "id": "recFgjXlqahLun27j",
+    "idn": "GT-132",
+    "title": "Monster from under the sea",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Dirección Richard Fleischer\n1954 \n20,000 Leagues under the sea\nEn 1868, se difunden rumores sobre un monstruo marino que ataca a los barcos en el océano Pacífico . Se les pide al profesor Aronnax y a su asistente, Conseil, que investiguen y se suben a una fragata de la Marina de los EE. UU . A ellos se les une el maestro arponero Ned Land.\n",
+    "fmt": "Super 8 mm",
+    "medium": "",
+    "genre": "",
+    "type": [
+      "Documental"
+    ],
+    "tags": [
+      "calamar",
+      "gigante",
+      "submarino",
+      "capitán",
+      "tormenta",
+      "tentáculos",
+      "pelea",
+      "ciencia"
+    ],
+    "lang": "",
+    "coverage": "Estados Unidos",
+    "duration": "0:08:43",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "82-arkino-s-8-gt-132-sync",
+    "sensitive": false
+  },
+  {
+    "id": "recHCCI4rwWCfgGDi",
+    "idn": "GT-106",
+    "title": "Sin título",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Tomas de familia comiendo en el cerro, bosque. Niños jugando y corriendo. Tomas montando caballos y en parque acuático.",
+    "fmt": "Super 8 mm",
+    "medium": "Kodak",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Familia",
+      "Pareja",
+      "Infancia",
+      "Naturaleza",
+      "Vida cotidiana",
+      "parque acuático",
+      "columpio",
+      "caballo"
+    ],
+    "lang": "",
+    "coverage": "México",
+    "duration": "0:11:18",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "09-arkino-s-8-gt-106-mvi-3497",
+    "sensitive": false
+  },
+  {
     "id": "recHtCDbTWqA7yJpY",
     "idn": "GT-095",
     "title": "Sin título",
@@ -846,11 +1024,14 @@
       "Cine doméstico"
     ],
     "tags": [
+      "Memoria",
+      "Maternidad",
       "Infancia",
-      "cuna",
-      "cama",
-      "Vida cotidiana",
-      "abrazo."
+      "Familia",
+      "México",
+      "Interior",
+      "Archivo familiar",
+      "Sin sonido"
     ],
     "lang": "Silente",
     "coverage": "México",
@@ -893,6 +1074,38 @@
     "sensitive": false
   },
   {
+    "id": "recLeiGGp8jTRDert",
+    "idn": "GT-114",
+    "title": "Familiar",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Tomas de ruinas prehispánicas en Machu Pichu. Tomas de la ciudad playa y cataratas desde helicóptero. Aerolíneas argentinas. Escenas de ciudad argentina, camiones Lumiers 119 Aduana, Gran Hotel Provincial, toma de plaza de mayo, por el barrio el caminito. En Brasil, Fortaleza General Artigas",
+    "fmt": "Super 8 mm",
+    "medium": "Kodak",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Turistas",
+      "ruinas",
+      "Machu Pichu",
+      "automoviles",
+      "cristo",
+      "mirador",
+      "Archivo familiar",
+      "Mar"
+    ],
+    "lang": "",
+    "coverage": "Perú, Brasil, Argentina",
+    "duration": "0:19:49",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "18-arkino-s-8-gt-114-mvi-3511bis",
+    "sensitive": false
+  },
+  {
     "id": "recLiyMOjmXGrERiI",
     "idn": "GT-088",
     "title": "Navidad '75",
@@ -907,9 +1120,14 @@
       "Cine doméstico"
     ],
     "tags": [
+      "Memoria",
+      "Maternidad",
       "Infancia",
-      "dormir",
-      "abrazo."
+      "México",
+      "Hogar",
+      "Interior",
+      "Archivo familiar",
+      "Sin sonido"
     ],
     "lang": "Silente",
     "coverage": "México",
@@ -949,6 +1167,38 @@
     "color": "Blanco y Negro",
     "coll": "Gral. Treegan",
     "archiveId": "gt-017-documental-tuneles-compuesto",
+    "sensitive": false
+  },
+  {
+    "id": "recNTomwNf3PTolqp",
+    "idn": "GT-128",
+    "title": "El reino mágico en el mundo de Walt Disney",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Película comercial sonora, narrado en voz en off (español) del parque temático narrando cada sección",
+    "fmt": "Super 8 mm",
+    "medium": "",
+    "genre": "",
+    "type": [
+      "Documental"
+    ],
+    "tags": [
+      "castillo",
+      "Vida cotidiana",
+      "comercial",
+      "botargas",
+      "Mickeymouse",
+      "disneylandia",
+      "juegos mecánicos",
+      "carrusel"
+    ],
+    "lang": "",
+    "coverage": "Estados Unidos",
+    "duration": "0:09:01",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "76-arkino-s-8-gt-128-sync",
     "sensitive": false
   },
   {
@@ -1048,6 +1298,38 @@
     "sensitive": false
   },
   {
+    "id": "recOPPeic176tHqTT",
+    "idn": "GT-110",
+    "title": "Sin título",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Invitadas de honor \"Mujeres en la Comunicación\"\nEscuela Comercial Inglesa.\nAyuntamiento de Puebla\nCeremonia de inauguración con presentación de bailable folkclorico en escuela. Tomas de mujeres en conferencia, en el museo, casa de Aquiles Serdán.  Ceremonia con funcionarios públicos y visita a pirámides prehispánicas (¿Cholula?) ",
+    "fmt": "Super 8 mm",
+    "medium": "Kodak",
+    "genre": "",
+    "type": [
+      "Documental"
+    ],
+    "tags": [
+      "Mujeres",
+      "escuela",
+      "PRI",
+      "baile folclorico",
+      "museos",
+      "Tradición",
+      "conferencia",
+      "estudiaates"
+    ],
+    "lang": "",
+    "coverage": "Puebla, México",
+    "duration": "0:12:43",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "15-arkino-s-8-gt-110-mvi-3505bis",
+    "sensitive": false
+  },
+  {
     "id": "recOqpsxRpnBpda3A",
     "idn": "GT-057",
     "title": "Navidad 1920",
@@ -1095,10 +1377,13 @@
     ],
     "tags": [
       "Familia",
-      "Mujer protagonista",
-      "Vida cotidiana",
+      "Ritual",
       "Tradición",
-      "regalos."
+      "México",
+      "Hogar",
+      "Interior",
+      "Archivo familiar",
+      "Sin sonido"
     ],
     "lang": "Silente",
     "coverage": "México",
@@ -1106,6 +1391,38 @@
     "color": "Color",
     "coll": "Gral. Treegan",
     "archiveId": "54-arkino-s-8-gt-082-mvi-3631",
+    "sensitive": false
+  },
+  {
+    "id": "recQCQvNMQo6Szllk",
+    "idn": "GT-109",
+    "title": "Sin título",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Tomas al comienzo de familia destapando regalos de navidad, mujer recreando  escena de pistolera en la alberca. Tomas de juegos de mesa en la playa.\nBailable escolar con disfraces",
+    "fmt": "Super 8 mm",
+    "medium": "Kodak",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Tradición",
+      "Vida cotidiana",
+      "Infancia",
+      "Familia",
+      "Mar",
+      "Archivo familiar",
+      "Hogar",
+      "musical"
+    ],
+    "lang": "",
+    "coverage": "",
+    "duration": "08_35",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "12-arkino-s-8-gt-109-mvi-3500",
     "sensitive": false
   },
   {
@@ -1208,6 +1525,38 @@
     "sensitive": false
   },
   {
+    "id": "recRgdkjj6jr90k17",
+    "idn": "GT-122",
+    "title": "Familiar. Walt Disney World",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Ceremonia escolar hace representación de un circo con elefante y payasos. Honores a la bandera.\nTomas de casa- habitación con jardín y columpio. \nNiño saludando en las escaleras",
+    "fmt": "Super 8 mm",
+    "medium": "",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Tradición",
+      "uniformes",
+      "sombreros niños",
+      "Infancia",
+      "disfraz",
+      "Hogar",
+      "columpio",
+      "correr"
+    ],
+    "lang": "",
+    "coverage": "México",
+    "duration": "0:07:19",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "14-arkino-s-8-gt-122-mvi-3503",
+    "sensitive": false
+  },
+  {
     "id": "recSaAMJu0H3Wf2Pk",
     "idn": "GT-012",
     "title": "Comerciales Aeroméxico",
@@ -1284,11 +1633,14 @@
       "Cine doméstico"
     ],
     "tags": [
+      "Memoria",
+      "Familia",
       "Pareja",
-      "Mujer protagonista",
-      "calle",
-      "teatro",
-      "casa."
+      "México",
+      "Ciudad",
+      "Interior",
+      "Exterior",
+      "Archivo familiar"
     ],
     "lang": "Silente",
     "coverage": "Guanajuato, México",
@@ -1313,14 +1665,14 @@
       "Cine doméstico"
     ],
     "tags": [
-      "Pirámides",
-      "Familia",
-      "paseo",
-      "visita",
       "Infancia",
-      "pañal",
-      "restaurante",
-      "cautiverio"
+      "Familia",
+      "Pareja",
+      "México",
+      "Espacio público",
+      "Naturaleza",
+      "Archivo familiar",
+      "Sin sonido"
     ],
     "lang": "Silente",
     "coverage": "Teotihuacán, México",
@@ -1358,6 +1710,67 @@
     "color": "Color",
     "coll": "Gral. Treegan",
     "archiveId": "63-arkino-s-8-gt-091-mvi-3676",
+    "sensitive": false
+  },
+  {
+    "id": "recWZd6SuCCNiQ0qZ",
+    "idn": "GT-125",
+    "title": "Hard core girls",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Compendio de dos piezas. La primera una pareja heterosexual recreando diferentes prácticas sexuales. \nSegunda, una mujer masturbándose con un juguete sexual",
+    "fmt": "Super 8 mm",
+    "medium": "",
+    "genre": "",
+    "type": [
+      "Erótico"
+    ],
+    "tags": [
+      "Mujer protagonista",
+      "dildo",
+      "Sexualidad",
+      "porno",
+      "masturbación."
+    ],
+    "lang": "",
+    "coverage": "",
+    "duration": "0:10:44",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "77-arkino-s-8-gt-125-mvi-4007",
+    "sensitive": true
+  },
+  {
+    "id": "recXoducSRrFoVpj6",
+    "idn": "GT-127",
+    "title": "Public enemy",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Película \"Public Enemy\", muestra una pequeña historia de gángsters que se enfrentan a su destino.",
+    "fmt": "Super 8 mm",
+    "medium": "",
+    "genre": "",
+    "type": [
+      "Ficción"
+    ],
+    "tags": [
+      "Ficción",
+      "enemigo",
+      "público",
+      "pistolas",
+      "disparos",
+      "Mujer protagonista",
+      "gángster",
+      "cerveza"
+    ],
+    "lang": "es",
+    "coverage": "Estados Unidos",
+    "duration": "0:02:58",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "73-arkino-s-8-gt-127-mvi-3687",
     "sensitive": false
   },
   {
@@ -1435,12 +1848,14 @@
       "Cine doméstico"
     ],
     "tags": [
-      "Mujer protagonista",
-      "paisaje natural",
+      "Familia",
+      "Comunidad",
+      "México",
       "Ciudad",
-      "Lago",
-      "Cuitzeo",
-      "Michoacán."
+      "Campo",
+      "Naturaleza",
+      "Exterior",
+      "Archivo familiar"
     ],
     "lang": "Silente",
     "coverage": "Michoacán, México",
@@ -1480,6 +1895,70 @@
     "color": "Blanco y Negro",
     "coll": "Gral. Treegan",
     "archiveId": "gt-008-el-gordo-y-el-flaco-compuesto",
+    "sensitive": false
+  },
+  {
+    "id": "recaXOcMiuFZRkPWn",
+    "idn": "GT-111",
+    "title": "Boda 1975",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Compilación de varias escenas. Despedida de soltera, casamiento ante un juez y testigos, festejo con brindis y abrazos. Toma de partida de pastel y ceremonia religiosa. Toma de los regalos e invitados comiendo pastel",
+    "fmt": "Super 8 mm",
+    "medium": "Kodak",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Tradición",
+      "novios",
+      "votos",
+      "juez",
+      "vino",
+      "Vida cotidiana",
+      "firma",
+      "Religión"
+    ],
+    "lang": "",
+    "coverage": "",
+    "duration": "0:19:20",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "16-arkino-s-8-gt-111-mvi-3506bis",
+    "sensitive": false
+  },
+  {
+    "id": "recb9kXVUxymI6Bxt",
+    "idn": "GT-124",
+    "title": "The Giant Behemoth",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Película comercial de 1958. Las pruebas atómicas marinas provocan cambios en el ecosistema del océano, dando como resultado peligrosas manchas de radiación y la resurrección de un dinosaurio inactivo que amenaza a Londres.\nDirigida por Douglas Hickox y Eugène Lourié.",
+    "fmt": "Super 8 mm",
+    "medium": "",
+    "genre": "",
+    "type": [
+      "Documental"
+    ],
+    "tags": [
+      "Ciencia",
+      "monstruo",
+      "submarino",
+      "ferry",
+      "guerra",
+      "dinosaurio",
+      "helicóptero",
+      "Ciudad"
+    ],
+    "lang": "",
+    "coverage": "Inglaterra- Estados Unidos",
+    "duration": "0:08:33",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "78-arkino-s-8-gt-124-mvi-4008",
     "sensitive": false
   },
   {
@@ -1529,10 +2008,14 @@
       "Cine doméstico"
     ],
     "tags": [
-      "Nacimiento",
+      "Memoria",
+      "Maternidad",
       "Infancia",
+      "Vejez",
+      "Familia",
       "Tradición",
-      "fiesta."
+      "México",
+      "Archivo familiar"
     ],
     "lang": "Silente",
     "coverage": "México",
@@ -1589,11 +2072,14 @@
       "Cine doméstico"
     ],
     "tags": [
-      "Mujeres",
+      "Mujer protagonista",
       "Infancia",
-      "Vida cotidiana",
-      "Hogar",
-      "inflafle."
+      "Familia",
+      "México",
+      "Ciudad",
+      "Interior",
+      "Exterior",
+      "Archivo familiar"
     ],
     "lang": "Silente",
     "coverage": "México",
@@ -1618,13 +2104,14 @@
       "Cine doméstico"
     ],
     "tags": [
-      "Familia",
-      "cotidano",
-      "cotidianidad",
-      "convivencia",
-      "Pareja",
       "Infancia",
-      "radio."
+      "Familia",
+      "Pareja",
+      "México",
+      "Hogar",
+      "Interior",
+      "Archivo familiar",
+      "Sin sonido"
     ],
     "lang": "Silente",
     "coverage": "México",
@@ -1649,12 +2136,14 @@
       "Cine doméstico"
     ],
     "tags": [
-      "Visita",
+      "Memoria",
+      "Infancia",
       "Familia",
+      "Ritual",
       "Tradición",
-      "cocinar",
-      "lavar",
-      "plática."
+      "México",
+      "Hogar",
+      "Interior"
     ],
     "lang": "Silente",
     "coverage": "México",
@@ -1662,6 +2151,38 @@
     "color": "Color",
     "coll": "Gral. Treegan",
     "archiveId": "50-arkino-s-8-gt-078-mvi-3627",
+    "sensitive": false
+  },
+  {
+    "id": "recf3p4fe9WbOOcTt",
+    "idn": "GT-123",
+    "title": "1a Comunión Pedrín y Ceci. 19-Jun-74",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Primera comunión de dos hermanos. Fiesta comida en el jardín de la casa.",
+    "fmt": "Super 8 mm",
+    "medium": "",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Familia",
+      "adultos",
+      "sacerdote",
+      "Religión",
+      "padrino",
+      "comunión",
+      "Tradición",
+      "biblia"
+    ],
+    "lang": "",
+    "coverage": "",
+    "duration": "0:11:24",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "13-arkino-s-8-gt-123-mvi-3502",
     "sensitive": false
   },
   {
@@ -1706,11 +2227,14 @@
       "Cine doméstico"
     ],
     "tags": [
+      "Memoria",
       "Infancia",
-      "dormir",
-      "jugar",
-      "juguete",
-      "galleta."
+      "México",
+      "Hogar",
+      "Interior",
+      "Naturaleza",
+      "Archivo familiar",
+      "Sin sonido"
     ],
     "lang": "Silente",
     "coverage": "México",
@@ -1782,6 +2306,38 @@
     "color": "Color",
     "coll": "Gral. Treegan",
     "archiveId": "36-arkino-s-8-gt-064-mvi-3613",
+    "sensitive": false
+  },
+  {
+    "id": "recha9iTjCIkJ55CK",
+    "idn": "GT-120",
+    "title": "Versailler Le Chateau",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Película comercial virado a magenta del Palacio de Versalles. Inicia con toma aerea y empieza recorrido por la puerta principal. Muestra habitaciones, las fachadas, los frescos de las paredes y murales. Los pasillos y ventanales",
+    "fmt": "Super 8 mm",
+    "medium": "",
+    "genre": "",
+    "type": [
+      "Documental"
+    ],
+    "tags": [
+      "Palacio",
+      "francia",
+      "busto",
+      "Ciudad",
+      "Hogar",
+      "fachada",
+      "ornamentos",
+      "candelabros"
+    ],
+    "lang": "",
+    "coverage": "Francia",
+    "duration": "02:48,",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "75-arkino-s-8-gt-120-mvi-4005",
     "sensitive": false
   },
   {
@@ -1910,6 +2466,38 @@
     "color": "Color",
     "coll": "Gral. Treegan",
     "archiveId": "35-arkino-s-8-gt-063-mvi-3612",
+    "sensitive": false
+  },
+  {
+    "id": "recl2kKQRvQAGQfwz",
+    "idn": "GT-131",
+    "title": "Frankenstein must be destroyed",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "El doctor Frankenstein secuestra al doctor Brandt con el propósito de obtener cierta información médica que sólo él puede proporcionarle. Sin embargo, Brandt muere, por lo que Frankenstein decide trasplantar su cerebro a otro cuerpo.",
+    "fmt": "Super 8 mm",
+    "medium": "",
+    "genre": "",
+    "type": [
+      "Documental"
+    ],
+    "tags": [
+      "Horror",
+      "laboratorio",
+      "pelea",
+      "lobotomía",
+      "medicina",
+      "enmascarado",
+      "monstruo",
+      "incendio"
+    ],
+    "lang": "",
+    "coverage": "Reino Unido",
+    "duration": "0:07:40",
+    "color": "Blanco y Negro",
+    "coll": "Gral. Treegan",
+    "archiveId": "81-arkino-s-8-gt-131-mvi-4011",
     "sensitive": false
   },
   {
@@ -2101,6 +2689,37 @@
     "sensitive": false
   },
   {
+    "id": "recqx3EMoXNhJ5Goy",
+    "idn": "GT-130",
+    "title": "Pinocchio. Mostro The Whale",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Pinocho es una película animada musical estadounidense de fantasía de 1940 producida por Walt Disney Productions y basada en la novela infantil italiana de 1883 Las aventuras de Pinocho de Carlo Collodi.",
+    "fmt": "Super 8 mm",
+    "medium": "",
+    "genre": "",
+    "type": [
+      "Animación"
+    ],
+    "tags": [
+      "pinocho",
+      "ballena",
+      "grillo",
+      "gato",
+      "Mar",
+      "barco",
+      "gepeto"
+    ],
+    "lang": "",
+    "coverage": "Estados Unidos",
+    "duration": "0:08:40",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "80-arkino-s-8-gt-130-mvi-4010",
+    "sensitive": false
+  },
+  {
     "id": "recs7TZZ3y0UjGKwT",
     "idn": "GT-074",
     "title": "Querétaro",
@@ -2115,12 +2734,14 @@
       "Cine doméstico"
     ],
     "tags": [
-      "Abuelita",
+      "Memoria",
+      "Maternidad",
       "Infancia",
+      "Familia",
+      "Pareja",
+      "México",
       "Hogar",
-      "Vida cotidiana",
-      "televisión",
-      "wolkswagen."
+      "Archivo familiar"
     ],
     "lang": "Silente",
     "coverage": "Querétaro, México",
@@ -2227,6 +2848,38 @@
     "sensitive": false
   },
   {
+    "id": "rectsClU60vGUIJav",
+    "idn": "GT-112",
+    "title": "Toronto, Cataratas, Port Colborne. 27 junio 1971",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Tomas filmadas desde el avión, escenas de aeropuerto y niños jugando futbol. Equipo de futbol soccer. Tomas de automoviles, casas y ciudad. Paisaje de cataratas vista desde helicoptero.\nBandera con la consgna de Turul Oshawa ",
+    "fmt": "Super 8 mm",
+    "medium": "Kodak",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Infancia",
+      "uniforme",
+      "aeropuerto",
+      "equipo",
+      "futbol",
+      "cancha",
+      "soccer",
+      "cataratas"
+    ],
+    "lang": "",
+    "coverage": "Canadá",
+    "duration": "0:16:30",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "18-arkino-s-8-gt-112-mvi-3511bis",
+    "sensitive": false
+  },
+  {
     "id": "recuwaNwjIHn7zlAr",
     "idn": "GT-018",
     "title": "1er. Chihuahua",
@@ -2273,11 +2926,14 @@
       "Cine doméstico"
     ],
     "tags": [
-      "Familia",
+      "Mujer protagonista",
+      "Infancia",
       "Vejez",
-      "Tradición",
-      "globos",
-      "festejo."
+      "Familia",
+      "México",
+      "Hogar",
+      "Interior",
+      "Archivo familiar"
     ],
     "lang": "Silente",
     "coverage": "México",
@@ -2443,6 +3099,38 @@
     "color": "Blanco y Negro",
     "coll": "Gral. Treegan",
     "archiveId": "gt-023-dicomex-silente",
+    "sensitive": false
+  },
+  {
+    "id": "recyAoibdW1f54JMQ",
+    "idn": "GT-107",
+    "title": "Ixtapan de la Sal. Raquel embarazada",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Familia en vacaciones en Disneylandia. Aeropuerto internacional de la ciudad de México. Tomas del parque de diversiones desde el teleférico. Hotel en ixtapan, paseo por carreta y jardín. ",
+    "fmt": "Super 8 mm",
+    "medium": "Kodak",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Archivo familiar",
+      "Familia",
+      "botargas",
+      "Mickeymouse",
+      "disneylandia",
+      "juegos mecánicos",
+      "carrusel",
+      "monoriel"
+    ],
+    "lang": "",
+    "coverage": "México-Estados Unidos",
+    "duration": "0:11:25",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "10-arkino-s-8-gt-107-mvi-3498",
     "sensitive": false
   },
   {
