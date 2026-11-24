@@ -110,13 +110,13 @@
       "Cine doméstico"
     ],
     "tags": [
-      "Adolescentes",
-      "XV años",
-      "Tradición",
-      "adultos",
-      "Infancia",
+      "Memoria",
+      "Mujer protagonista",
+      "Familia",
+      "Comunidad",
       "Religión",
-      "sacerdote."
+      "Ritual",
+      "Archivo familiar"
     ],
     "lang": "Silente",
     "coverage": "México",
@@ -428,12 +428,14 @@
       "Cine doméstico"
     ],
     "tags": [
-      "Tradición",
+      "Familia",
+      "Pareja",
+      "Comunidad",
       "Religión",
-      "novios",
-      "votos",
-      "lazo",
-      "vino."
+      "Ritual",
+      "Tradición",
+      "México",
+      "Archivo familiar"
     ],
     "lang": "Silente",
     "coverage": "México",
@@ -514,7 +516,7 @@
     "title_es": "",
     "year": "",
     "creator": "",
-    "desc": "Tomas de mar en el atardecer, familia nadaando en la playa y niños con salvavidas. Mujer caminando por la orilla del mar. Tomas a gaviotas y a dos hombres remando",
+    "desc": "Tomas de mar en el atardecer, familia nadando en la playa y niños con salvavidas. Mujer caminando por la orilla del mar. Tomas a gaviotas y a dos hombres remando",
     "fmt": "Super 8 mm",
     "medium": "Kodak",
     "genre": "",
@@ -522,13 +524,14 @@
       "Cine doméstico"
     ],
     "tags": [
+      "Memoria",
+      "Comunidad",
       "Mar",
-      "olas",
+      "Espacio público",
+      "Naturaleza",
+      "Exterior",
       "Archivo familiar",
-      "Mujer protagonista",
-      "remar",
-      "descanso",
-      "nadar"
+      "Sin sonido"
     ],
     "lang": "",
     "coverage": "",
@@ -641,7 +644,7 @@
     "title_es": "",
     "year": "",
     "creator": "",
-    "desc": "Película pornográfica. Mujer se masturba recordando escenas eróticas con hombre.\nColor Climax Corporation",
+    "desc": "Película pornográfica. Mujer se masturba recordando escenas eróticas con hombre.\nColor Climax Corporation.",
     "fmt": "Super 8 mm",
     "medium": "",
     "genre": "",
@@ -649,11 +652,14 @@
       "Erótico"
     ],
     "tags": [
+      "Erótico",
       "Mujer protagonista",
-      "dildo",
+      "Cuerpo",
       "Sexualidad",
-      "porno",
-      "masturbación sexo oral"
+      "Deseo",
+      "Desnudez",
+      "Interior",
+      "Sin sonido"
     ],
     "lang": "",
     "coverage": "Copenhagen",
@@ -775,14 +781,14 @@
       "Documental"
     ],
     "tags": [
-      "Turistas",
-      "hoteles",
-      "habitación",
-      "casino",
-      "caesars",
-      "calles",
-      "automóviles",
-      "espectaculares"
+      "Infancia",
+      "Familia",
+      "Ciudad",
+      "Campo",
+      "Mar",
+      "Frontera",
+      "Espacio público",
+      "Naturaleza"
     ],
     "lang": "",
     "coverage": "Las Vegas, Estados Unidos",
@@ -839,12 +845,14 @@
       "Cine doméstico"
     ],
     "tags": [
+      "Memoria",
+      "Maternidad",
       "Infancia",
-      "Vida cotidiana",
-      "retrato",
-      "sillón",
-      "rojo",
-      "cama."
+      "Familia",
+      "México",
+      "Hogar",
+      "Interior",
+      "Archivo familiar"
     ],
     "lang": "Silente",
     "coverage": "México",
@@ -869,14 +877,14 @@
       "Cine doméstico"
     ],
     "tags": [
+      "Memoria",
+      "Comunidad",
+      "Trabajo",
+      "México",
       "Mar",
-      "lanchas",
-      "amanecer",
-      "Familia",
-      "Archivo familiar",
-      "Infancia",
-      "señoras",
-      "muelle"
+      "Espacio público",
+      "Naturaleza",
+      "Exterior"
     ],
     "lang": "",
     "coverage": "",
@@ -893,7 +901,7 @@
     "title_es": "",
     "year": "",
     "creator": "",
-    "desc": "Escena inicial mamá con su niña a orillas del lago con demás señoras. Caminatas pasos de bebé.\nToma de niña jugando. Toas por lass calles de la ciudad, carretas, iglesia, parques.\nTomas del pueblo desde un auto",
+    "desc": "Escena inicial mamá con su niña a orillas del lago con demás señoras. Caminatas pasos de bebé.\nToma de niña jugando. Toas por las calles de la ciudad, carretas, iglesia, parques.\nTomas del pueblo desde un auto.",
     "fmt": "Super 8 mm",
     "medium": "Kodak",
     "genre": "",
@@ -901,14 +909,13 @@
       "Cine doméstico"
     ],
     "tags": [
+      "Mujer protagonista",
+      "Maternidad",
       "Infancia",
       "Familia",
-      "puente",
-      "barco",
       "Hogar",
-      "flores",
-      "palomas",
-      "lago ardilla"
+      "Espacio público",
+      "Naturaleza"
     ],
     "lang": "",
     "coverage": "Estados Unidos",
@@ -965,14 +972,13 @@
       "Cine doméstico"
     ],
     "tags": [
-      "Familia",
-      "Pareja",
-      "Infancia",
+      "Memoria",
+      "Infancia Familia",
+      "Comunidad",
+      "México",
+      "Campo",
       "Naturaleza",
-      "Vida cotidiana",
-      "parque acuático",
-      "columpio",
-      "caballo"
+      "Archivo familiar"
     ],
     "lang": "",
     "coverage": "México",
@@ -980,33 +986,6 @@
     "color": "Color",
     "coll": "Gral. Treegan",
     "archiveId": "09-arkino-s-8-gt-106-mvi-3497",
-    "sensitive": false
-  },
-  {
-    "id": "recHtCDbTWqA7yJpY",
-    "idn": "GT-095",
-    "title": "Sin título",
-    "title_es": "",
-    "year": "",
-    "creator": "",
-    "desc": "Pareja en blanco y negro, imagen de silueta. El resto está en negro o lluvia negra.",
-    "fmt": "Super 8 mm",
-    "medium": "",
-    "genre": "",
-    "type": [
-      "Cine doméstico"
-    ],
-    "tags": [
-      "Pareja",
-      "negro",
-      "silueta."
-    ],
-    "lang": "Silente",
-    "coverage": "",
-    "duration": "0:02:44",
-    "color": "Color",
-    "coll": "Gral. Treegan",
-    "archiveId": "67-arkino-s-8-gt-095-mvi-3680",
     "sensitive": false
   },
   {
@@ -1088,14 +1067,13 @@
       "Cine doméstico"
     ],
     "tags": [
-      "Turistas",
-      "ruinas",
-      "Machu Pichu",
-      "automoviles",
-      "cristo",
-      "mirador",
-      "Archivo familiar",
-      "Mar"
+      "Familia",
+      "Pareja",
+      "Comunidad",
+      "América Latina",
+      "Campo",
+      "Mar",
+      "Naturaleza"
     ],
     "lang": "",
     "coverage": "Perú, Brasil, Argentina",
@@ -1312,14 +1290,14 @@
       "Documental"
     ],
     "tags": [
-      "Mujeres",
-      "escuela",
-      "PRI",
-      "baile folclorico",
-      "museos",
-      "Tradición",
-      "conferencia",
-      "estudiaates"
+      "Comunidad",
+      "Ritual",
+      "México",
+      "Espacio público",
+      "Interior",
+      "Exterior",
+      "Archivo familiar",
+      "Sin sonido"
     ],
     "lang": "",
     "coverage": "Puebla, México",
@@ -1359,6 +1337,38 @@
     "color": "Color",
     "coll": "Gral. Treegan",
     "archiveId": "29-arkino-s-8-gt-057-mvi-3543",
+    "sensitive": false
+  },
+  {
+    "id": "recP0m2BPYBvYyRFB",
+    "idn": "GT-136",
+    "title": "Sin título",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Fiesta de cumpleaños, Madre e hija en juegos mecánicos. Mirando edificios y casas a través de un lente en la cámara. \nFamilia juega con hijas a la pelota y en el trampolín\nPaseo en caballo por el bosque",
+    "fmt": "Super 8 mm",
+    "medium": "",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Familia",
+      "Infancia",
+      "carrusel",
+      "Tradición",
+      "fotográfo",
+      "Vida cotidiana",
+      "edificios",
+      "fiesta infantil"
+    ],
+    "lang": "",
+    "coverage": "",
+    "duration": "0:21:30",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "21-arkino-s-8-gt-136-mvi-3517bis",
     "sensitive": false
   },
   {
@@ -1408,14 +1418,14 @@
       "Cine doméstico"
     ],
     "tags": [
-      "Tradición",
-      "Vida cotidiana",
-      "Infancia",
       "Familia",
+      "Religión",
+      "Ritual",
+      "Tradición",
+      "México",
       "Mar",
-      "Archivo familiar",
       "Hogar",
-      "musical"
+      "Naturaleza"
     ],
     "lang": "",
     "coverage": "",
@@ -1531,7 +1541,7 @@
     "title_es": "",
     "year": "",
     "creator": "",
-    "desc": "Ceremonia escolar hace representación de un circo con elefante y payasos. Honores a la bandera.\nTomas de casa- habitación con jardín y columpio. \nNiño saludando en las escaleras",
+    "desc": "Ceremonia escolar hace representación de un circo con elefante y payasos. Honores a la bandera.\nTomas de casa- habitación con jardín y columpio. \nNiño saludando en las escaleras.",
     "fmt": "Super 8 mm",
     "medium": "",
     "genre": "",
@@ -1539,14 +1549,14 @@
       "Cine doméstico"
     ],
     "tags": [
-      "Tradición",
-      "uniformes",
-      "sombreros niños",
       "Infancia",
-      "disfraz",
+      "Familia",
+      "Comunidad",
+      "Ritual",
       "Hogar",
-      "columpio",
-      "correr"
+      "Naturaleza",
+      "Exterior",
+      "Archivo familiar"
     ],
     "lang": "",
     "coverage": "México",
@@ -1651,6 +1661,34 @@
     "sensitive": false
   },
   {
+    "id": "recUrtfWKftxyhLmm",
+    "idn": "GT-135",
+    "title": "Sin título",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Película pornográfica. Trío de personas teniendo diferentes prácticas sexuales.",
+    "fmt": "Super 8 mm",
+    "medium": "",
+    "genre": "",
+    "type": [
+      "Erótico"
+    ],
+    "tags": [
+      "Mujer protagonista",
+      "dildo",
+      "Sexualidad",
+      "porno."
+    ],
+    "lang": "Silente",
+    "coverage": "",
+    "duration": "0:19:44",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "20-arkino-s-8-gt-135-bis-mvi-3515",
+    "sensitive": true
+  },
+  {
     "id": "recW46Gcdi0uCx68S",
     "idn": "GT-084",
     "title": "Pirámides",
@@ -1697,12 +1735,14 @@
       "Cine doméstico"
     ],
     "tags": [
-      "Mujer protagonista",
+      "Maternidad",
       "Infancia",
+      "Familia",
+      "México",
       "Hogar",
-      "Vida cotidiana",
-      "tina",
-      "baño."
+      "Interior",
+      "Archivo familiar",
+      "Sin sonido"
     ],
     "lang": "Silente",
     "coverage": "México",
@@ -1727,11 +1767,14 @@
       "Erótico"
     ],
     "tags": [
+      "Erótico",
       "Mujer protagonista",
-      "dildo",
+      "Pareja",
+      "Cuerpo",
       "Sexualidad",
-      "porno",
-      "masturbación."
+      "Deseo",
+      "Interior",
+      "Sin sonido"
     ],
     "lang": "",
     "coverage": "",
@@ -1740,6 +1783,38 @@
     "coll": "Gral. Treegan",
     "archiveId": "77-arkino-s-8-gt-125-mvi-4007",
     "sensitive": true
+  },
+  {
+    "id": "recXoGBJ1sg8hRiTy",
+    "idn": "GT-137",
+    "title": "Ultracinema XV años",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Compendio de piezas creadas dentro del taller de Ultracinema. Tomas en la Lagunilla en el centro de la CDMX. Pequeña ficción de personaje que bebe café y da  paseos por la ciudad y ve un baile de danzón en la calle. Tomas solarizadas o en negativo de objetos y partes del centro de la CDMX y el palacio de Bellas Artes.",
+    "fmt": "Super 8 mm",
+    "medium": "",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Lagunilla",
+      "Tepito",
+      "vestidos",
+      "puestos",
+      "café",
+      "Bellas Artes",
+      "rin",
+      "moneda."
+    ],
+    "lang": "Silente",
+    "coverage": "CDMX",
+    "duration": "0:09:20",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "71-arkino-s-8-gt-137-mvi-3684",
+    "sensitive": false
   },
   {
     "id": "recXoducSRrFoVpj6",
@@ -1820,10 +1895,14 @@
       "Cine doméstico"
     ],
     "tags": [
+      "Memoria",
       "Infancia",
-      "juguete",
-      "Vida cotidiana",
-      "zangoloteo."
+      "Familia",
+      "México",
+      "Hogar",
+      "Interior",
+      "Archivo familiar",
+      "Sin sonido"
     ],
     "lang": "Silente",
     "coverage": "México",
@@ -1912,14 +1991,14 @@
       "Cine doméstico"
     ],
     "tags": [
-      "Tradición",
-      "novios",
-      "votos",
-      "juez",
-      "vino",
-      "Vida cotidiana",
-      "firma",
-      "Religión"
+      "Mujer protagonista",
+      "Religión",
+      "Ritual",
+      "Familia",
+      "Comunidad",
+      "México",
+      "Hogar",
+      "Espacio público"
     ],
     "lang": "",
     "coverage": "",
@@ -1944,14 +2023,14 @@
       "Documental"
     ],
     "tags": [
-      "Ciencia",
-      "monstruo",
-      "submarino",
-      "ferry",
-      "guerra",
-      "dinosaurio",
-      "helicóptero",
-      "Ciudad"
+      "Terror",
+      "Acción",
+      "Comunidad",
+      "Ciudad",
+      "Mar",
+      "Naturaleza",
+      "Exterior",
+      "Sin sonido"
     ],
     "lang": "",
     "coverage": "Inglaterra- Estados Unidos",
@@ -2168,14 +2247,14 @@
       "Cine doméstico"
     ],
     "tags": [
+      "Infancia",
       "Familia",
-      "adultos",
-      "sacerdote",
       "Religión",
-      "padrino",
-      "comunión",
+      "Ritual",
       "Tradición",
-      "biblia"
+      "México",
+      "Hogar",
+      "Naturaleza"
     ],
     "lang": "",
     "coverage": "",
@@ -2183,33 +2262,6 @@
     "color": "Color",
     "coll": "Gral. Treegan",
     "archiveId": "13-arkino-s-8-gt-123-mvi-3502",
-    "sensitive": false
-  },
-  {
-    "id": "recfQ6hIHkLckZ2xn",
-    "idn": "GT-098",
-    "title": "Sin título",
-    "title_es": "",
-    "year": "",
-    "creator": "",
-    "desc": "Lluvia negra.",
-    "fmt": "Super 8 mm",
-    "medium": "",
-    "genre": "",
-    "type": [
-      "Cine doméstico"
-    ],
-    "tags": [
-      "Negro",
-      "efecto",
-      "lluvia."
-    ],
-    "lang": "Silente",
-    "coverage": "México",
-    "duration": "0:02:55",
-    "color": "Color",
-    "coll": "Gral. Treegan",
-    "archiveId": "70-arkino-s-8-gt-098-mvi-3683",
     "sensitive": false
   },
   {
@@ -2323,14 +2375,14 @@
       "Documental"
     ],
     "tags": [
-      "Palacio",
-      "francia",
-      "busto",
+      "Memoria",
+      "Comunidad",
       "Ciudad",
-      "Hogar",
-      "fachada",
-      "ornamentos",
-      "candelabros"
+      "Campo",
+      "Mar",
+      "Interior",
+      "Exterior",
+      "Publicidad"
     ],
     "lang": "",
     "coverage": "Francia",
@@ -2347,7 +2399,7 @@
     "title_es": "",
     "year": "",
     "creator": "",
-    "desc": "Fiesta de cumpleaños infantil. Festejo con pastel nadando en la alberca. Jugando en el parque en bicicletas y en el muelle",
+    "desc": "Fiesta de cumpleaños infantil. Festejo con pastel nadando en la alberca. Jugando en el parque en bicicletas y en el muelle.",
     "fmt": "Super 8 mm",
     "medium": "Kodak",
     "genre": "",
@@ -2355,14 +2407,14 @@
       "Cine doméstico"
     ],
     "tags": [
-      "Tradición",
-      "fiesta infantil",
-      "globos",
-      "Hogar",
-      "bicicletas",
       "Infancia",
-      "Vida cotidiana",
-      "muelle"
+      "Maternidad",
+      "Ritual",
+      "Mar",
+      "Naturaleza",
+      "Exterior",
+      "Archivo familiar",
+      "Sin sonido"
     ],
     "lang": "",
     "coverage": "México",
@@ -2515,14 +2567,14 @@
       "Cine doméstico"
     ],
     "tags": [
-      "Infancia",
-      "palmera",
-      "lancha",
+      "Memoria",
+      "Comunidad",
+      "Trabajo",
+      "México",
       "Mar",
-      "muelle",
-      "cangrejo",
-      "Mujer protagonista",
-      "señoras"
+      "Espacio público",
+      "Naturaleza",
+      "Exterior"
     ],
     "lang": "",
     "coverage": "",
@@ -2530,6 +2582,35 @@
     "color": "Color",
     "coll": "Gral. Treegan",
     "archiveId": "01-arkino-s-8-gt-099bis-mvi-3484",
+    "sensitive": false
+  },
+  {
+    "id": "recmUg3Wwa5fJ8M0x",
+    "idn": "GT-138",
+    "title": "Michael Ramos",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Imágenes variadas. Autorretrato de Michael. Perritos en casa de Tepoztlán. Grupo de gente caminando. Fotos fijas de detalles de luchadora de lucha libre. Lady Apache modela.",
+    "fmt": "Super 8 mm",
+    "medium": "",
+    "genre": "",
+    "type": [
+      "Cine doméstico"
+    ],
+    "tags": [
+      "Luchadora",
+      "botas",
+      "cuadrilátero",
+      "lady",
+      "apache."
+    ],
+    "lang": "Silente",
+    "coverage": "Tepoztlán, México",
+    "duration": "0:05:58",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "72-arkino-s-8-gt-138-mvi-3685bis",
     "sensitive": false
   },
   {
@@ -2830,14 +2911,14 @@
       "Documental"
     ],
     "tags": [
-      "Infancia",
-      "botes",
-      "yates",
+      "Memoria",
+      "México",
+      "Ciudad",
       "Mar",
-      "combi",
-      "campamento",
-      "bahía",
-      "Familia"
+      "Naturaleza",
+      "Exterior",
+      "Archivo familiar",
+      "Sin sonido"
     ],
     "lang": "",
     "coverage": "México",
@@ -2862,14 +2943,13 @@
       "Cine doméstico"
     ],
     "tags": [
-      "Infancia",
-      "uniforme",
-      "aeropuerto",
-      "equipo",
-      "futbol",
-      "cancha",
-      "soccer",
-      "cataratas"
+      "Comunidad",
+      "Ritual",
+      "Ciudad",
+      "Campo",
+      "Espacio público",
+      "Naturaleza",
+      "Exterior"
     ],
     "lang": "",
     "coverage": "Canadá",
@@ -2909,6 +2989,38 @@
     "color": "Color",
     "coll": "Gral. Treegan",
     "archiveId": "gt-018-chihuahua-compuesto",
+    "sensitive": false
+  },
+  {
+    "id": "recv5BmHZyOsy2NI0",
+    "idn": "GT-133",
+    "title": "Sin título",
+    "title_es": "",
+    "year": "",
+    "creator": "",
+    "desc": "Compilación de varios episodios del Pato Donald",
+    "fmt": "Super 8 mm",
+    "medium": "",
+    "genre": "",
+    "type": [
+      "Animación"
+    ],
+    "tags": [
+      "pato",
+      "donald",
+      "robot",
+      "caballo",
+      "toro",
+      "huerta",
+      "ardilla",
+      "construcción"
+    ],
+    "lang": "",
+    "coverage": "Estados Unidos",
+    "duration": "0:16:11",
+    "color": "Color",
+    "coll": "Gral. Treegan",
+    "archiveId": "19-arkino-s-8-gt-133-mvi-3513bis",
     "sensitive": false
   },
   {
@@ -2990,14 +3102,14 @@
       "Cine doméstico"
     ],
     "tags": [
+      "Maternidad",
       "Infancia",
-      "biberón",
-      "cuna",
-      "cama",
-      "Vida cotidiana",
-      "leche",
-      "dormir",
-      "chupón"
+      "Familia",
+      "México",
+      "Mar",
+      "Hogar",
+      "Naturaleza",
+      "Interior"
     ],
     "lang": "",
     "coverage": "",
@@ -3022,12 +3134,14 @@
       "Cine doméstico"
     ],
     "tags": [
-      "Familia",
-      "Mar",
+      "Memoria",
       "Infancia",
-      "beso",
+      "Familia",
       "Pareja",
-      "conversación"
+      "Mar",
+      "Naturaleza",
+      "Interior",
+      "Exterior"
     ],
     "lang": "",
     "coverage": "",
@@ -3116,14 +3230,14 @@
       "Cine doméstico"
     ],
     "tags": [
-      "Archivo familiar",
+      "Memoria",
+      "Infancia",
       "Familia",
-      "botargas",
-      "Mickeymouse",
-      "disneylandia",
-      "juegos mecánicos",
-      "carrusel",
-      "monoriel"
+      "Ciudad",
+      "Mar",
+      "Naturaleza",
+      "Exterior",
+      "Archivo familiar"
     ],
     "lang": "",
     "coverage": "México-Estados Unidos",
@@ -3148,12 +3262,14 @@
       "Cine doméstico"
     ],
     "tags": [
-      "Amigos",
-      "Tradición",
+      "Memoria",
       "Familia",
-      "Memo",
-      "Ríos",
-      "comediante."
+      "Comunidad",
+      "Tradición",
+      "México",
+      "Ciudad",
+      "Interior",
+      "Sin sonido"
     ],
     "lang": "Silente",
     "coverage": "México",
