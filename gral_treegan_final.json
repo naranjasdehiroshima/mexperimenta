@@ -932,22 +932,22 @@
     "title_es": "",
     "year": "",
     "creator": "",
-    "desc": "Dirección Richard Fleischer\n1954 \n20,000 Leagues under the sea\nEn 1868, se difunden rumores sobre un monstruo marino que ataca a los barcos en el océano Pacífico . Se les pide al profesor Aronnax y a su asistente, Conseil, que investiguen y se suben a una fragata de la Marina de los EE. UU . A ellos se les une el maestro arponero Ned Land.\n",
+    "desc": "Dirección Richard Fleischer\n1954 \n20,000 Leagues under the sea\nEn 1868, se difunden rumores sobre un monstruo marino que ataca a los barcos en el océano Pacífico. Se les pide al profesor Aronnax y a su asistente, Conseil, que investiguen y se suben a una fragata de la Marina de los EE. UU . A ellos se les une el maestro arponero Ned Land.",
     "fmt": "Super 8 mm",
     "medium": "",
     "genre": "",
     "type": [
-      "Documental"
+      "Ficción"
     ],
     "tags": [
-      "calamar",
-      "gigante",
-      "submarino",
-      "capitán",
-      "tormenta",
-      "tentáculos",
-      "pelea",
-      "ciencia"
+      "Terror",
+      "Drama",
+      "Muerte",
+      "Comunidad",
+      "Mar",
+      "Interior",
+      "Música original",
+      "Persecución"
     ],
     "lang": "",
     "coverage": "Estados Unidos",
@@ -1154,7 +1154,7 @@
     "title_es": "",
     "year": "",
     "creator": "",
-    "desc": "Película comercial sonora, narrado en voz en off (español) del parque temático narrando cada sección",
+    "desc": "Película comercial sonora, narrado en voz en off (español) del parque temático narrando cada sección.",
     "fmt": "Super 8 mm",
     "medium": "",
     "genre": "",
@@ -1162,14 +1162,14 @@
       "Documental"
     ],
     "tags": [
-      "castillo",
-      "Vida cotidiana",
-      "comercial",
-      "botargas",
-      "Mickeymouse",
-      "disneylandia",
-      "juegos mecánicos",
-      "carrusel"
+      "Memoria",
+      "Comunidad",
+      "Trabajo",
+      "Ciudad",
+      "Espacio público",
+      "Interior",
+      "Exterior",
+      "Voz en off"
     ],
     "lang": "",
     "coverage": "Estados Unidos",
@@ -1831,14 +1831,14 @@
       "Ficción"
     ],
     "tags": [
-      "Ficción",
-      "enemigo",
-      "público",
-      "pistolas",
-      "disparos",
-      "Mujer protagonista",
-      "gángster",
-      "cerveza"
+      "Acción",
+      "Thriller",
+      "Comunidad",
+      "Violencia",
+      "Muerte",
+      "Ciudad",
+      "Interior",
+      "Exterior"
     ],
     "lang": "es",
     "coverage": "Estados Unidos",
@@ -2535,14 +2535,14 @@
       "Documental"
     ],
     "tags": [
-      "Horror",
-      "laboratorio",
-      "pelea",
-      "lobotomía",
-      "medicina",
-      "enmascarado",
-      "monstruo",
-      "incendio"
+      "Terror",
+      "Drama",
+      "Soledad",
+      "Violencia",
+      "Muerte",
+      "Prisión",
+      "Interior",
+      "Sin sonido"
     ],
     "lang": "",
     "coverage": "Reino Unido",
@@ -2776,7 +2776,7 @@
     "title_es": "",
     "year": "",
     "creator": "",
-    "desc": "Pinocho es una película animada musical estadounidense de fantasía de 1940 producida por Walt Disney Productions y basada en la novela infantil italiana de 1883 Las aventuras de Pinocho de Carlo Collodi.",
+    "desc": "Pinocho es una película animada musical estadounidense de fantasía de 1940 producida por Walt Disney Productions y basada en la novela infantil italiana de 1883. Las aventuras de Pinocho de Carlo Collodi.",
     "fmt": "Super 8 mm",
     "medium": "",
     "genre": "",
@@ -2784,13 +2784,14 @@
       "Animación"
     ],
     "tags": [
-      "pinocho",
-      "ballena",
-      "grillo",
-      "gato",
+      "Drama",
+      "Infancia",
+      "Vejez",
       "Mar",
-      "barco",
-      "gepeto"
+      "Naturaleza",
+      "Televisión",
+      "Sin sonido",
+      "Persecución"
     ],
     "lang": "",
     "coverage": "Estados Unidos",
@@ -3006,14 +3007,8 @@
       "Animación"
     ],
     "tags": [
-      "pato",
-      "donald",
-      "robot",
-      "caballo",
-      "toro",
-      "huerta",
-      "ardilla",
-      "construcción"
+      "Comedia",
+      "Violencia"
     ],
     "lang": "",
     "coverage": "Estados Unidos",
