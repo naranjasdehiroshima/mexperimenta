@@ -577,7 +577,7 @@
     "idn": "GT-006",
     "title": "Pornografía",
     "title_es": "",
-    "year": "Triángulo mas",
+    "year": "1951",
     "creator": "",
     "desc": "Película silente de contenido pornográfico.",
     "fmt": "16 mm",
@@ -1355,13 +1355,13 @@
     ],
     "tags": [
       "Familia",
-      "Infancia",
-      "carrusel",
-      "Tradición",
-      "fotográfo",
-      "Vida cotidiana",
-      "edificios",
-      "fiesta infantil"
+      "Comunidad",
+      "México",
+      "Ciudad",
+      "Campo",
+      "Hogar",
+      "Naturaleza",
+      "Archivo familiar"
     ],
     "lang": "",
     "coverage": "",
@@ -1675,14 +1675,18 @@
       "Erótico"
     ],
     "tags": [
-      "Mujer protagonista",
-      "dildo",
+      "Erótico",
+      "Pareja",
+      "Cuerpo",
       "Sexualidad",
-      "porno."
+      "Deseo",
+      "Desnudez",
+      "Interior",
+      "Sin sonido"
     ],
     "lang": "Silente",
     "coverage": "",
-    "duration": "0:19:44",
+    "duration": "0:01:05",
     "color": "Color",
     "coll": "Gral. Treegan",
     "archiveId": "20-arkino-s-8-gt-135-bis-mvi-3515",
@@ -1799,14 +1803,14 @@
       "Cine doméstico"
     ],
     "tags": [
-      "Lagunilla",
-      "Tepito",
-      "vestidos",
-      "puestos",
-      "café",
-      "Bellas Artes",
-      "rin",
-      "moneda."
+      "Ritual",
+      "Tradición",
+      "México",
+      "Ciuadad",
+      "Interior",
+      "Exterior",
+      "Collage audiovisual",
+      "Sin sonido"
     ],
     "lang": "Silente",
     "coverage": "CDMX",
@@ -1853,7 +1857,7 @@
     "idn": "GT-007",
     "title": "15 años de Sofía",
     "title_es": "",
-    "year": "Cuadrito",
+    "year": "1977",
     "creator": "",
     "desc": "Muestra la fiesta de 15 años, a los asistentes, la cena, el salón, la ceremonia, el vals y a todo el cortejo de la quinceañera.",
     "fmt": "16 mm",
@@ -2599,11 +2603,14 @@
       "Cine doméstico"
     ],
     "tags": [
-      "Luchadora",
-      "botas",
-      "cuadrilátero",
-      "lady",
-      "apache."
+      "México",
+      "Ciudad",
+      "Campo",
+      "Hogar",
+      "Naturaleza",
+      "Interior",
+      "Exterior",
+      "Sin sonido"
     ],
     "lang": "Silente",
     "coverage": "Tepoztlán, México",
@@ -2648,7 +2655,7 @@
     "idn": "GT-011",
     "title": "Michoacán",
     "title_es": "",
-    "year": "Triángulo",
+    "year": "1978",
     "creator": "",
     "desc": "Película de Fonatur sobre Michoacán, sus atracciones naturales y de la ciudad de Morelia, Santa Clara, Uruapan, así como su gente y artesanías, lagos de Cuitzeo, Zirahuen, Pátzcuaro, Chapala, así como celebración de Día de Muertos en Michoacán.",
     "fmt": "16 mm",
@@ -3008,7 +3015,13 @@
     ],
     "tags": [
       "Comedia",
-      "Violencia"
+      "Violencia",
+      "Ciudad",
+      "Campo",
+      "Espacio público",
+      "Interior",
+      "Exterior",
+      "Sin sonido"
     ],
     "lang": "",
     "coverage": "Estados Unidos",
@@ -3151,7 +3164,7 @@
     "idn": "GT-009",
     "title": "Oaxaca",
     "title_es": "",
-    "year": "Triángulo",
+    "year": "1978",
     "creator": "",
     "desc": "Película promocional sobre Oaxaca desde sus paisajes naturales, urbanos, artesanías. Producida por Aeroméxico, realizada por Demetrio Bilbatúa. Se muestran lugares de la ciudad y zonas arqueológicas como Mitla, Monte Albán, entre otros. También se muestran playas todavía vírgenes.",
     "fmt": "16 mm",
